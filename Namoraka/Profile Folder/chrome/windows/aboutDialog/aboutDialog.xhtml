@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet href="chrome://global/skin/global.css" type="text/css"?>
+<?xml-stylesheet href="chrome://userchrome/content/windows/aboutDialog/aboutDialog.css" type="text/css"?>
+
+<window xmlns:html="http://www.w3.org/1999/xhtml" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" id="eXPFAboutDialog" windowtype="Browser:AboutDialog" width="407" height="330" role="dialog" resizable="false" title="About Internet Explorer">
+
+	<vbox id="contentArea" flex="1">
+		<vbox id="mainContentArea">
+            <image class="aboutDialogImage"/>
+            <html:ul class="aboutDialogInfo">
+                <html:li>
+                    Version: 6.0.3790.1830
+                </html:li>
+                <html:li>
+                    Cipher Strength: 128-bit
+                </html:li>
+                <html:li>
+                    Product ID:78588-306-0000007-51765
+                </html:li>
+                <html:li>
+                    Update Versions:; SP1;
+                </html:li>
+            </html:ul>
+            <html:textarea class="noticearea" readonly="true">Based on NCSA Mosaic. NCSA Mosaic(TM); was developed at the National Center for Supercomputing Applications at the University of Illinois at Urbana-Champaign.
+Distributed under a licensing agreement with Spyglass, Inc.
+Contains security software licensed from RSA Data Security Inc.
+Portions of this software are based in part on the work of the Independent JPEG Group.
+Multimedia software components, including Indeo(R); video, Indeo(R) audio, and Web Design Effects are provided by Intel Corp.
+Unix version contains software licensed from Mainsoft Corporation. Copyright (c) 1998-1999 Mainsoft Corporation. All rights reserved. Mainsoft is a trademark of Mainsoft Corporation.
+Warning: This computer program is protected by copyright law and international treaties. Unauthorized reproduction or distribution of this program, or any portion of it, may result in severe civil and criminal penalties, and will be prosecuted to the maximum extent possible under the law.</html:textarea>
+        </vbox>
+        <hbox id="footerContentArea">
+            <image class="windowsLogo"/>
+            <label class="footer-link" is="text-link" href="http://www.microsoft.com/isapi/redir.dll?prd=ie">Copyright ©1995-2004 Microsoft Corp.</label>
+            <button class="close_button" oncommand="window.close();">
+                <hbox class="box-inherit button-box" align="center" pack="center" flex="1" anonid="button-box">
+                    <image class="button-icon"/>
+                    <label class="button-text" value="OK"/>
+                </hbox>
+            </button>
+        </hbox>
+	</vbox>
+
+</window>

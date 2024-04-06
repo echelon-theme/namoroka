@@ -1,0 +1,84 @@
+*, ::before, ::after {
+	box-sizing: border-box;
+}
+
+hbox {
+	display: flex;
+	flex-direction: row;
+}
+
+vbox {
+	display: flex;
+	flex-direction: column;
+}
+
+[flex="1"] {
+	flex: 1;
+}
+
+#eXPFAboutDialog {
+    background-color: rgb(255, 255, 255);
+}
+
+#mainContentArea {
+    margin-inline-start: 91px;
+}
+
+.aboutDialogImage {
+    width: 233px;
+    height: 102px;
+    list-style-image: url("chrome://userchrome/content/windows/aboutDialog/images/iebanner.png");
+    margin-block-start: 16px;
+    margin-block-end: 17px;
+}
+
+.aboutDialogInfo {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.noticearea {
+    width: 299px;
+    height: 56px;
+    margin-block-start: 4px;
+}
+
+#footerContentArea {
+    align-items: center;
+    margin-block-start: 3px;
+}
+
+.windowsLogo {
+    width: 35px;
+    height: 35px;
+    list-style-image: url("chrome://userchrome/content/windows/aboutDialog/images/windowsLogo.png");
+    margin-inline-start: 8px;
+    margin-inline-end: 48px;
+}
+
+.footer-link {
+    width: 213px;
+    height: 13px;
+    margin: 0 !important;
+    color: inherit;
+    margin-block-end: 1px;
+}
+
+.footer-link:focus {
+    outline: 1px dotted black;
+    text-decoration: none;
+    outline-offset: -1px;
+}
+
+.close_button {
+    width: 75px;
+    height: 23px;
+    font-family: "MS Shell Dlg";
+    margin: 0;
+    margin-inline-start: 11px;
+}
+
+.close_button .button-text {
+    margin-top: 1px;
+}

@@ -13,6 +13,10 @@
     min-height: 22px !important;
     align-items: center;
 
+    :root[inFullscreen="true"] & {
+        visibility: collapse !important;
+    }
+
     #statuspanel {
         display: flex !important;
         position: static !important;

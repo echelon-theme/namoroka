@@ -895,6 +895,9 @@ menubar menu .menubar-text {
     margin-block-start: 2px !important;
   }
 }
+:root[inFullscreen=true] #status-bar {
+  visibility: collapse !important;
+}
 #status-bar #statuspanel {
   display: flex !important;
   position: static !important;

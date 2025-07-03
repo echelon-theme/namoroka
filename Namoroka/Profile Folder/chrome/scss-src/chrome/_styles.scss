@@ -1,0 +1,12 @@
+/* ::::: Firefox 1 ::::: */
+@import "firefox-1/style";
+
+/* ::::: Firefox 2 ::::: */
+:root[namoroka-style-1] {
+@import "firefox-2/style";
+}
+
+/* ::::: Firefox 3 ::::: */
+:root[namoroka-style-2] {
+@import "firefox-3/style";
+}

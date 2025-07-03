@@ -1,0 +1,88 @@
+:root {
+    --toolbarbutton-icon-size: 24px !important; // large
+
+    &[namoroka-appearance-small-icons="true"] {
+        --toolbarbutton-icon-size: 16px !important; // small
+    }
+}
+
+.toolbarbutton-1,
+toolbarbutton.bookmark-item:not(.subviewbutton) {
+    appearance: auto !important;
+    -moz-default-appearance: toolbarbutton !important;
+    padding: 5px !important;
+    border: 1px solid transparent;
+    background-color: transparent !important;
+    color: -moz-DialogText !important;  
+
+    :root[namoroka-appearance-small-icons="true"] & {
+        padding: 3px !important;
+
+        &:not(.toolbarbutton-menubutton-button) {
+            margin-inline-end: 2px !important;
+        }
+    }
+
+    &:hover:not([disabled="true"]) {
+        border-color: ThreeDHighlight ThreeDShadow ThreeDShadow ThreeDHighlight !important;
+    }
+
+    &:hover:active:not([disabled="true"]),
+    &[open="true"]:not([disabled="true"]) {
+        border-color: ThreeDShadow ThreeDHighlight ThreeDHighlight ThreeDShadow !important;
+        padding: 5px 4px 5px 6px !important;
+
+        :root[namoroka-appearance-small-icons="true"] & {
+            padding: 3px 2px 3px 4px !important;
+        }
+    }
+    
+    &[disabled="true"] {
+        opacity: 1 !important;
+        border-color: transparent !important;
+        padding: 5px !important;
+        color: GrayText !important;
+    }
+
+    &[checked="true"] {
+        border-color: ThreeDShadow ThreeDHighlight ThreeDHighlight ThreeDShadow !important;
+        padding: 5px 4px 5px 6px !important;
+        background-image: url("chrome://namoroka/content/firefox-1/toolbar/Lighten.png") !important;
+        color: ButtonText !important;
+
+        :root[namoroka-appearance-small-icons="true"] & {
+            padding: 3px 2px 3px 4px !important;
+        }
+    }
+
+    &[type="menu-button"] {
+        padding: 0 !important;
+        border: 0 !important;
+    }
+
+    .toolbarbutton-icon,
+    .toolbarbutton-text,
+    .toolbarbutton-badge-stack {
+        padding: 0 !important;
+        background-color: transparent !important;
+        border-radius: 0 !important;
+    }
+    .toolbarbutton-text {
+        min-height: auto !important;
+        text-align: center !important;
+    }
+
+    .toolbarbutton-menu-dropmarker {
+        width: 11px !important;
+        height: 100% !important;
+        padding: 3px !important;
+        list-style-image: none !important;
+        background-image: url("chrome://namoroka/content/firefox-1/arrow/arrow-dn.gif") !important; // hack
+        background-repeat: no-repeat !important;
+        background-position: center center;
+
+        &[disabled="true"] {
+            background-image: url("chrome://namoroka/content/firefox-1/arrow/arrow-dn-dis.gif") !important;
+        }
+    }
+}

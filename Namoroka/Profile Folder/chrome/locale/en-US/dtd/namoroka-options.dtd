@@ -1,0 +1,24 @@
+<!ENTITY window.title "Namoroka Options">
+<!ENTITY window.restartRequired "Restart required">
+
+<!ENTITY window.buttons.ok "OK">
+<!ENTITY window.buttons.cancel "Cancel">
+<!ENTITY window.buttons.apply "Apply">
+<!ENTITY window.buttons.apply.accesskey "A">
+
+<!ENTITY tabs.general "General">
+<!ENTITY tabs.branding "Branding">
+<!ENTITY tabs.nativeControls "Native Controls">
+<!ENTITY tabs.about "About">
+<!ENTITY tabs.debug "Debug">
+
+<!ENTITY general.appearance "Appearance">
+
+<!ENTITY general.appearance.style      "Namoroka Style">
+<!ENTITY general.appearance.style.ff1  "Firefox 1">
+<!ENTITY general.appearance.style.ff2  "Firefox 2">
+<!ENTITY general.appearance.style.ff3  "Firefox 3">
+
+<!ENTITY general.appearance.hideAddons "Hide &quot;Extensions&quot; button (not recommended)">
+<!ENTITY general.appearance.hideTabBar "Hide the tab bar when only one web site is open">
+<!ENTITY general.appearance.smallIcons "Use Small Icons">

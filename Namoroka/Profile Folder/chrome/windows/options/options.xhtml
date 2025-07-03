@@ -1,0 +1,134 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet href="chrome://global/skin/global.css" type="text/css"?>
+<?xml-stylesheet href="chrome://userchrome/content/windows/options/styles.css" type="text/css"?>
+
+<!DOCTYPE window SYSTEM "chrome://namoroka/locale/dtd/namoroka-options.dtd">
+
+<window xmlns:html="http://www.w3.org/1999/xhtml" 
+        xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" 
+        id="namorokaOptions" 
+        windowtype="Browser:NamorokaOptions"
+        width="559" height="437" role="dialog" resizable="false" 
+        title="&window.title;">
+
+    <stringbundle id="optionsBundle" src="chrome://namoroka/locale/properties/namoroka-options.properties"/>
+    <link xmlns="http://www.w3.org/1999/xhtml" rel="icon" type="image/x-icon" href="chrome://userchrome/content/images/preferences.ico" />
+
+    <vbox flex="1">
+		<hbox id="contentArea" flex="1">
+			<html:div id="tabs">
+				<html:div id="main-tabs">
+					<html:div class="tab tab-selected" id="tab-general">
+						<html:div class="tab-icon"></html:div>
+						<html:span class="tab-label">&tabs.general;</html:span>
+					</html:div>
+					<html:div class="tab" id="tab-branding">
+						<html:div class="tab-icon"></html:div>
+						<html:span class="tab-label">&tabs.branding;</html:span>
+					</html:div>
+					<html:div class="tab" id="tab-native-controls">
+						<html:div class="tab-icon"></html:div>
+						<html:span class="tab-label">&tabs.nativeControls;</html:span>
+					</html:div>
+					<html:div class="tab" id="tab-about">
+						<html:div class="tab-icon"></html:div>
+						<html:span class="tab-label">&tabs.about;</html:span>
+					</html:div>
+				</html:div>
+				<html:div class="tab" id="tab-debug">
+					<html:div class="tab-icon"></html:div>
+					<html:span class="tab-label">&tabs.debug;</html:span>
+				</html:div>
+			</html:div>
+			<html:div id="content">
+				<html:div id="main-section">    
+					<html:div id="section-general" class="section section-selected">
+						<vbox flex="1">
+							<hbox class="dialogheader">
+								<html:span class="dialogheader-title">&tabs.general;</html:span>
+								<html:span class="dialogheader-description"></html:span>
+							</hbox>
+							<vbox flex="1">
+								<groupbox>
+									<caption>&general.appearance;</caption>
+									<hbox class="option-container">
+										<label value="&general.appearance.style;"/>
+										<menulist native="" class="option" data-type="enum" data-option="Namoroka.Appearance.Style">
+											<menupopup>
+												<menuitem label="&general.appearance.style.ff1;" value="0"/>
+												<menuitem label="&general.appearance.style.ff2;" value="1"/>
+												<menuitem label="&general.appearance.style.ff3;" value="2"/>
+											</menupopup>
+										</menulist>
+									</hbox>
+									<checkbox native="" label="&general.appearance.smallIcons;" class="option" data-type="bool" data-option="Namoroka.Appearance.Small-Icons"/>
+									<checkbox native="" label="&general.appearance.hideTabBar;" class="option" data-type="bool" data-option="Namoroka.Tabbrowser.HideOnOneTab"/>
+									<checkbox native="" label="&general.appearance.hideAddons;" class="option" data-type="bool" data-option="Namoroka.Unified-Extensions.Disabled"/>
+								</groupbox>
+							</vbox>
+						</vbox>
+					</html:div>
+					<html:div id="section-branding" class="section" section-change-requires-restart="true">
+						<vbox flex="1">
+							<hbox class="dialogheader">
+								<html:span class="dialogheader-title">&tabs.branding;</html:span>
+								<html:span class="dialogheader-description"></html:span>
+							</hbox>
+						</vbox>
+					</html:div>
+					<html:div id="section-native-controls" class="section" section-change-requires-restart="true">
+						<vbox flex="1">
+							<hbox class="dialogheader">
+								<html:span class="dialogheader-title">&tabs.nativeControls;</html:span>
+								<html:span class="dialogheader-description"></html:span>
+							</hbox>
+							<vbox class="listBox settingsBox" flex="1">
+								<vbox class="expander" id="expander-tabbedBrowsing">
+								  <hbox class="expanderHeader">	
+									<button type="disclosure" id="expanderButton" class="expanderButton" />
+									<label class="header expanderButton" flex="1" value="Expander Header" />
+								  </hbox>
+								  <vbox class="settingsContainer">
+									<p>Expander Content</p>
+								  </vbox>
+								</vbox>
+								<vbox class="expander" id="expander-test">
+								  <hbox class="expanderHeader">	
+									<button type="disclosure" id="expanderButton" class="expanderButton" />
+									<label class="header expanderButton" flex="1" value="Expander Header" />
+								  </hbox>
+								  <vbox class="settingsContainer">
+									<p>Expander Content</p>
+								  </vbox>
+								</vbox>
+							</vbox>
+						</vbox>
+					</html:div>
+					<html:div id="section-debug" class="section" section-change-requires-restart="true">
+						<vbox flex="1">
+							<hbox class="dialogheader">
+								<html:span class="dialogheader-title">&tabs.debug;</html:span>
+								<html:span class="dialogheader-description"></html:span>
+							</hbox>
+						</vbox>
+					</html:div>
+					<html:div id="section-about" class="section">
+						<vbox flex="1">
+							<hbox class="dialogheader">
+								<html:span class="dialogheader-title">&tabs.about;</html:span>
+								<html:span class="dialogheader-description"></html:span>
+							</hbox>
+						</vbox>
+					</html:div>
+				</html:div>
+			</html:div>
+		</hbox>
+		<html:div id="button-section">
+			<html:span class="restart-required-label" style="display:none">&window.restartRequired;</html:span>
+			<button id="ok-button" label="&window.buttons.ok;"/>
+			<button id="cancel-button" label="&window.buttons.cancel;"/>
+		</html:div>
+    </vbox>
+    <script src="chrome://userchrome/content/windows/options/script.js" type="text/javascript"></script>
+</window>

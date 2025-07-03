@@ -1,0 +1,68 @@
+& {
+    --toolbar-spritesheet: url("chrome://namoroka/content/firefox-2/Toolbar.png");
+
+    &[namoroka-appearance-small-icons="true"] {
+        --toolbar-spritesheet: url("chrome://namoroka/content/firefox-2/Toolbar-small.png");
+    }
+}
+
+$iconRegionMap: (
+    "back-button": 0,
+    "forward-button": 1,
+    "stop-button": 2,
+    "reload-button": 3,
+    "home-button": 4,
+    "history-panelmenu": 6,
+    "bookmarks-menu-button": 7,
+    "print-button": 8,
+    "new-tab-button": 9,
+    "new-window-button": 10,
+    "cut-button": 11,
+    "copy-button": 12,
+    "paste-button": 13,
+    "email-link-button": 14,
+    "unified-extensions-button": 15,
+    "open-file-button": 16,
+);
+
+.toolbarbutton-1 {
+    @each $icon, $offset in $iconRegionMap {
+        &##{$icon} {
+            .toolbarbutton-icon {
+                // FUCK SCSS
+                --icon-offset: -#{$offset} !important;
+                list-style-image: none !important;
+                background-image: var(--toolbar-spritesheet) !important;
+                background-position-x: calc(var(--toolbarbutton-icon-size) * var(--icon-offset)) !important;
+            }
+
+            &:not([disabled="true"]):hover {
+                .toolbarbutton-icon {
+                    background-position-y: calc(var(--toolbarbutton-icon-size) * -1) !important;
+                }
+            }
+
+            &:not([disabled="true"]):hover:active {
+                .toolbarbutton-icon {
+                    background-position-y: calc(var(--toolbarbutton-icon-size) * -4) !important;
+                }
+            }
+
+            &:not([disabled="true"])[open="true"] {
+                .toolbarbutton-icon {
+                    background-position-y: calc(var(--toolbarbutton-icon-size) * -3) !important;
+                }
+            }
+
+            &[disabled="true"] {
+                .toolbarbutton-icon {
+                    background-position-y: calc(var(--toolbarbutton-icon-size) * -2);
+                }
+            }
+        }
+    }
+}
+
+.close-icon {
+    @include set-background("firefox-2/icons/close.png");
+}

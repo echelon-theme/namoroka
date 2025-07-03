@@ -1,0 +1,55 @@
+:root[namoroka-style-1] {
+    --arrowscrollbox-left-image: url("chrome://namoroka/content/firefox-2/icons/tab-arrow-start.png");
+    --arrowscrollbox-right-image: url("chrome://namoroka/content/firefox-2/icons/tab-arrow-end.png");
+}
+
+#tabbrowser-arrowscrollbox::part(overflow-start-indicator),
+#tabbrowser-arrowscrollbox::part(overflow-end-indicator) {
+    display: none !important;
+}
+
+#tabbrowser-arrowscrollbox[namoroka-style-1]::part(scrollbutton-up),
+#tabbrowser-arrowscrollbox[namoroka-style-1]::part(scrollbutton-down) {
+    width: 18px !important;
+    height: 23px !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background-color: -moz-dialog !important;
+    margin: 0 !important;
+    margin-block-start: 1px !important;
+    opacity: 1 !important;
+}
+
+#tabbrowser-arrowscrollbox[namoroka-style-1]::part(scrollbutton-up) {
+    border-top-right-radius: 5px !important;
+    background-image: url("chrome://namoroka/content/firefox-2/icons/tab-arrow-start-bkgnd-enabled.png") !important;
+}
+
+#tabbrowser-arrowscrollbox[namoroka-style-1]:not([scrolledtostart])::part(scrollbutton-up) {
+    &:hover {
+        background-image: url("chrome://namoroka/content/firefox-2/icons/tab-arrow-start-bkgnd-hover.png") !important;
+    }
+}
+
+#tabbrowser-arrowscrollbox[namoroka-style-1][scrolledtostart]::part(scrollbutton-up) {
+    background-image: url("chrome://namoroka/content/firefox-2/icons/tab-arrow-start-bkgnd-disabled.png") !important;
+}
+
+#tabbrowser-arrowscrollbox[namoroka-style-1]::part(scrollbutton-down) {
+    border-top-left-radius: 5px !important;
+    background-image: url("chrome://namoroka/content/firefox-2/icons/tab-arrow-end-bkgnd-enabled.png") !important;
+}
+
+#tabbrowser-arrowscrollbox[namoroka-style-1]:not([scrolledtoend])::part(scrollbutton-down) {
+    &:hover {
+        background-image: url("chrome://namoroka/content/firefox-2/icons/tab-arrow-end-bkgnd-hover.png") !important;
+    }
+}
+
+#tabbrowser-arrowscrollbox[namoroka-style-1][scrolledtoend]::part(scrollbutton-down) {
+    background-image: url("chrome://namoroka/content/firefox-2/icons/tab-arrow-end-bkgnd-disabled.png") !important;
+}
+
+#tabbrowser-arrowscrollbox:not([overflowing="true"])::part(scrollbox) {
+    padding-inline-start: 2px !important;
+}

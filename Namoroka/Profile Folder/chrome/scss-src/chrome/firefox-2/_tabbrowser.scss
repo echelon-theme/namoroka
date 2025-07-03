@@ -1,0 +1,205 @@
+& {
+    --tab-min-height: 22px !important;
+    --inline-tab-padding: 8px !important; 
+    --page-icon: url("chrome://namoroka/content/firefox-2/icons/page.png") !important;
+    --page-invalid-icon: var(--page-icon) !important;
+    --tab-background-radius: 4px !important;
+}
+
+#TabsToolbar {
+    border: 0 !important;
+    box-shadow: none !important;
+    background: -moz-Dialog url("chrome://namoroka/content/firefox-2/icons/tabbrowser-tabs-bkgnd.png") !important;
+    position: relative !important;
+    padding: 0 !important;
+    padding-block-end: 3px !important;
+
+    &::after {
+        content: '';
+        display: flex;
+        width: 100%;
+        height: 2px !important;
+        margin: 0px !important;
+        background: -moz-dialog url("chrome://namoroka/content/firefox-2/icons/tabstrip-bottom.png") repeat !important;
+        border-top: 1px solid threedshadow !important; 
+        border-bottom: 1px solid threedshadow !important;
+        position: absolute !important;
+        left: 0 !important;
+        bottom: 0 !important;
+        pointer-events: none !important;
+    }
+
+    .toolbar-items {
+        z-index: 1 !important;
+    }
+
+    .tabbrowser-tab {
+        appearance: none !important;
+        margin: 0 !important;
+        border: 0 !important;
+        padding: 0 !important;
+        background: transparent !important;
+        margin-block-start: 1px !important;
+        -moz-user-focus: normal !important;
+        overflow: visible !important;
+        max-height: var(--tab-min-height) !important;
+
+        .tab-stack {
+            height: 23px;
+        }
+
+        &[selected] {
+            .tab-stack {
+                height: 25px;
+            }
+        }
+
+        &:not([selected]) {
+            .tab-content {
+                padding-block-start: 2px !important;
+            }
+        }
+
+        .tab-background {
+            visibility: visible !important;
+            border-radius: 0 !important;
+            margin-block: 0 !important;
+            box-shadow: none !important;
+            background-color: transparent !important;
+            outline: 0 !important;
+            flex-direction: row !important;
+
+            .tab-context-line,
+            .tab-loading-burst {
+                visibility: collapse !important;
+            }
+
+            .tab-background-start,
+            .tab-background-middle,
+            .tab-background-end {
+                background-color: -moz-Dialog !important;
+            }
+
+            .tab-background-start,
+            .tab-background-end {
+                width: 8px !important;
+            }
+
+            .tab-background-start {
+                border-top-left-radius: var(--tab-background-radius) !important;
+                background-image: url("chrome://namoroka/content/firefox-2/icons/tab-left-bkgnd.png") !important;
+            }
+
+            .tab-background-middle {
+                flex: 1 !important;
+                background-image: url("chrome://namoroka/content/firefox-2/icons/tab-middle-bkgnd.png") !important;
+            }
+
+            .tab-background-end {
+                background-image: url("chrome://namoroka/content/firefox-2/icons/tab-right-bkgnd.png") !important;
+                border-top-right-radius: var(--tab-background-radius) !important;
+            }
+
+            &:not([selected]) {
+                .tab-background-start,
+                .tab-background-middle,
+                .tab-background-end {
+                    height: 23px !important;
+                    margin-bottom: 1px !important;
+                }
+            }
+
+            &[selected] {
+                .tab-background-start {
+                    background-image: url("chrome://namoroka/content/firefox-2/icons/tab-left.png") !important;
+                }
+
+                .tab-background-middle {
+                    background-image: url("chrome://namoroka/content/firefox-2/icons/tab-middle.png") !important;
+                }
+
+                .tab-background-end {
+                    background-image: url("chrome://namoroka/content/firefox-2/icons/tab-right.png") !important;
+                }
+            }
+        }
+
+        &:hover {
+            .tab-background {
+                &:not([selected]) {
+                    .tab-background-start {
+                        background-image: url("chrome://namoroka/content/firefox-2/icons/tab-left-hover.png") !important;
+                    }
+
+                    .tab-background-middle {
+                        background-image: url("chrome://namoroka/content/firefox-2/icons/tab-middle-hover.png") !important;
+                    }
+
+                    .tab-background-end {
+                        background-image: url("chrome://namoroka/content/firefox-2/icons/tab-right-hover.png") !important;
+                    }
+                }
+            }
+        }
+
+        .tab-text {
+            border: 1px dotted transparent !important;
+            margin-block: 0 !important;
+        }
+
+        &:focus {
+            .tab-text {
+                border: 1px dotted -moz-DialogText !important;
+            }
+        }
+
+        &:not([selected]) {
+            .tab-close-button:not(:hover, :hover:active) {
+                background-position-x: -48px !important;
+            }
+        }
+
+        .tab-close-button {
+            margin-inline-end: 0 !important;
+        }
+    }
+
+    .toolbarbutton-1 {
+        border: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    #alltabs-button {
+        width: 18px !important;
+        height: 23px !important;
+        margin-block-start: 1px !important;
+        margin-block-end: 1px !important;
+        padding-inline: 4px !important;
+        background-color: -moz-Dialog !important;
+        background-image: url("chrome://namoroka/content/firefox-2/icons/alltabs-box-end-bkgnd.png") !important;
+        list-style-image: url("chrome://namoroka/content/firefox-1/arrow/arrow-dn.gif") !important;
+        border-top-left-radius: var(--tab-background-radius) !important;
+
+        &:hover,
+        &[open="true"] {
+            background-image: url("chrome://namoroka/content/firefox-2/icons/alltabs-box-end-bkgnd-hover.png") !important;
+        }
+
+        .toolbarbutton-icon {
+            width: 5px !important;
+            height: 3px !important;
+            margin-block-start: 3px !important;
+        }
+    }
+
+    #tabbrowser-tabs[overflow="true"] ~ #alltabs-button {
+        border-top-left-radius: 0 !important;
+        background-image: url("chrome://namoroka/content/firefox-2/icons/alltabs-box-overflow-end-bkgnd.png") !important;
+
+        &:hover,
+        &[open="true"] {
+            background-image: url("chrome://namoroka/content/firefox-2/icons/alltabs-box-overflow-end-bkgnd-hover.png") !important;
+        }
+    }
+}

@@ -1,0 +1,194 @@
+& {
+    --urlbar-root-height: 22px !important;
+    --urlbar-container-padding: 0 !important;
+    --urlbar-margin-inline: 3px !important;
+    
+    --secure-icon: url("chrome://namoroka/content/firefox-2/Secure.png") !important;
+
+    @mixin navBar-button-background {
+        box-shadow: inset 0 0 0 1px -moz-Dialog !important;
+        background-image: linear-gradient(to bottom, transparent 0%, transparent 50%, rgb(0 0 0 / 4%) 50%, rgb(0 0 0 / 6%) 100%) !important;
+
+        &:hover {
+            background-image: linear-gradient(to bottom, rgb(255 255 255 / 10%) 0%, rgb(255 255 255 / 10%) 50%, rgb(0 0 0 / 8%) 50%, rgb(0 0 0 / 13%) 100%) !important;
+
+            &:active {
+                background-image: linear-gradient(to bottom, rgb(255 255 255 / 10%) 0%, rgb(255 255 255 / 10%) 50%, rgb(0 0 0 / 12%) 50%, rgb(0 0 0 / 21%) 100%) !important;
+            }
+        }
+    }
+
+    .searchbar-textbox::placeholder {
+        opacity: 1 !important;
+    }
+
+    #urlbar-container {
+        margin-inline-end: 0 !important;
+
+        #urlbar {
+            --urlbar-height: var(--urlbar-root-height) !important;
+
+            #urlbar-background {
+                appearance: none !important;
+                border: 1px solid #96969D !important;
+                border-radius: 0 !important;
+                background-color: -moz-field !important;
+            }
+
+            .autocomplete-history-dropmarker {
+                appearance: none !important;
+                background-color: -moz-Dialog !important;
+                border-inline-start: 1px solid #96969D !important;
+                position: relative;
+                @include navBar-button-background;
+
+                /* Firefox uses Shadow DOM for the arrow, which 
+                   is annoying as fuck to style so we just gonna
+                   use a psuedo element... LOL!
+                */
+                &::before {
+                    content: '';
+                    display: flex;
+                    width: 16px !important;
+                    height: 20px !important;
+                    background-image: url("chrome://namoroka/content/firefox-2/icons/autocomplete-dropmark-arrow.png") !important;
+                }
+
+                &:hover {
+                    &::before {
+                        background-position-x: -16px !important;
+                    }
+
+                    &:active {
+                        &::before {
+                            background-position-x: -48px !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    #nav-bar #go-button {
+        width: 26px !important;
+        height: var(--urlbar-root-height) !important;
+        padding: 0 !important;
+        border: 1px solid #96969D !important;
+        background-color: -moz-Dialog !important;
+        margin-inline-start: -1px !important;
+        border-top-right-radius: 4px !important;
+        border-bottom-right-radius: 4px !important;
+        align-items: center !important;
+        justify-content: center !important;
+        margin-inline-end: 5px !important;
+
+        @include navBar-button-background;
+
+        .toolbarbutton-icon {
+            width: 25px !important;
+            height: 22px !important;
+            margin: 0 !important;
+            background-image: url("chrome://namoroka/content/firefox-2/icons/Go-arrow.png") !important;
+        }
+
+        &:hover {
+            .toolbarbutton-icon {
+                background-position-x: -25px !important;
+            }
+
+            &:active {                
+                .toolbarbutton-icon {
+                    background-position-x: -75px !important;
+                }
+            }
+        }
+
+        .toolbarbutton-text {
+            visibility: collapse !important;
+        }
+    }
+
+    #search-container {
+        margin-inline-start: 3px !important;
+        margin-inline-end: 0 !important;
+    }
+
+    #searchbar {
+        appearance: none !important;
+        border: 0 !important;
+        border-radius: 0 !important;
+        background-color: transparent !important;
+
+        .searchbar-search-button {
+            border: 1px solid #A4A4AB !important;
+            border-inline-end-width: 0 !important;
+            background-color: -moz-Dialog !important;
+            box-shadow: inset 0 0 0 1px -moz-Dialog !important;
+            background-image: linear-gradient(to bottom, transparent 0%, transparent 50%, rgb(0 0 0 / 4%) 50%, rgb(0 0 0 / 6%) 100%) !important;
+
+            &:hover {
+                background-image: linear-gradient(to bottom, rgb(255 255 255 / 10%) 0%, rgb(255 255 255 / 10%) 50%, rgb(0 0 0 / 8%) 50%, rgb(0 0 0 / 13%) 100%) !important;
+            }
+
+            .searchbar-search-icon {
+                margin: 0 !important;
+                margin-inline-start: 3px !important;
+            }
+
+            .searchbar-search-icon-overlay {
+                width: 5px !important;
+                height: 3px !important;
+                align-self: center !important;
+                margin: 0 !important;
+                margin-inline: 3px !important;
+                list-style-image: url("chrome://namoroka/content/firefox-1/arrow/arrow-dn.gif") !important;
+            }
+        }
+
+        .searchbar-textbox {
+            border-inline-start: 1px solid #96969D !important;
+            border-block: 1px solid #96969D !important;
+            background-color: -moz-field !important;
+            padding-inline: 3px !important;
+            border-radius: 0 !important;
+        }
+
+        .search-go-container {
+            width: 26px !important;
+            height: var(--urlbar-root-height) !important;
+            padding: 0 !important;
+            background-color: -moz-Dialog !important;
+            border: 1px solid #96969D !important;
+            border-radius: 0 !important;
+            border-top-right-radius: 4px !important;
+            border-bottom-right-radius: 4px !important;
+            margin-inline-end: 5px !important;
+
+            @include navBar-button-background;
+            
+            .search-go-button {
+                display: flex !important;
+                width: 25px !important;
+                height: 22px !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                background-color: transparent !important;
+                border-radius: 0 !important;
+                background-image: url("chrome://namoroka/content/firefox-2/Search-glass.png") !important;
+                list-style-image: none !important;
+            }
+
+            &:hover {
+                .search-go-button {
+                    background-position-x: -25px !important;
+                }
+
+                &:active {                
+                    .search-go-button {
+                        background-position-x: -75px !important;
+                    }
+                }
+            }
+        }
+    }
+}

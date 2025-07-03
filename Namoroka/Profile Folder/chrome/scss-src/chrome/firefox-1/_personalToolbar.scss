@@ -1,0 +1,66 @@
+:root {
+    --folder-item: url("chrome://namoroka/content/firefox-1/folder-item.png") !important;
+}
+
+#PersonalToolbar {
+    max-height: 26px !important;
+    min-height: 26px !important;
+    padding-inline: 0 !important;
+
+    #PlacesToolbarItems {
+        margin-inline-start: 3px !important;
+    }
+    
+    toolbarbutton.bookmark-item:not(.subviewbutton) {
+        padding: 2px 3px !important;
+        border-radius: 0 !important;
+        margin: 0 !important;
+
+        &:hover:active,
+        &[open="true"] {
+            padding: 3px 2px 1px 4px !important;
+        }
+
+        .toolbarbutton-text { 
+            margin-block-start: 1px !important;
+        }
+    }
+
+    .toolbarbutton-1 {
+        margin-block: 0 !important;
+    }
+}
+
+#PlacesChevron, 
+#nav-bar #nav-bar-overflow-button {
+    align-items: center !important;
+    padding: 3px !important;
+    list-style-image: url("chrome://namoroka/content/firefox-1/toolbar/chevron.gif") !important;
+
+    &:hover:active,
+    &[open="true"] {
+        padding: 4px 2px 2px 4px !important;
+    }
+
+    .toolbarbutton-icon {
+        width: 8px !important;
+        height: 5px !important;
+        margin-inline-end: 5px !important;
+    }
+}
+
+.bookmark-item[container] {
+    list-style-image: none !important;
+
+    .toolbarbutton-icon {
+        background-image: var(--folder-item) !important;
+        background-position-x: -16px !important;
+    }
+
+    &:hover:active,
+    &[open="true"] {
+        .toolbarbutton-icon {
+            background-position-y: -16px !important;
+        }
+    }
+}

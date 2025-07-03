@@ -1,0 +1,75 @@
+#toolbar-menubar {
+    toolbarspring { 
+        max-width: 100% !important;
+    }
+
+    spacer[style*="order: 1000;"] { // ???????
+        visibility: collapse !important;
+    }
+
+    #navigator-throbber {
+        appearance: none !important;
+        -moz-user-focus: ignore !important;
+        margin: 0 !important;
+        border: 0 !important;
+        padding: 1px 3px 2px 4px !important;
+        min-width: 0 !important;
+        background-color: transparent !important;
+        list-style-image: url("chrome://namoroka/content/firefox-1/Throbber-small.png") !important;
+
+        &[busy="true"] {
+            list-style-image: url("chrome://namoroka/content/firefox-1/Throbber-small.gif") !important;
+            opacity: 0.5 !important;
+        }
+    }
+}
+
+menupopup {
+    menu,
+    menuitem {
+        &[_moz-menuactive="true"] {
+            background-color: Highlight !important;
+            color: HighlightText !important;
+        }
+    }
+}
+
+menu,
+menuitem {
+    color: MenuText !important;
+    font: menu !important;
+
+    &[disabled="true"],
+    &[_moz-menuactive="true"][disabled="true"] {
+        color: GrayText !important;
+        text-shadow: none !important;
+    }
+}
+
+menubar {
+    menu {
+        border: 1px solid transparent !important;
+        background-color: transparent !important;
+        padding: 2px 5px 2px 7px !important;
+        margin: 1px 0px 1px 0px !important;
+
+        &[_moz-menuactive="true"] {
+            border-top: 1px solid ThreeDHighlight !important;
+            border-right: 1px solid ThreeDShadow !important;
+            border-bottom: 1px solid ThreeDShadow !important;
+            border-left: 1px solid ThreeDHighlight !important;
+
+            &[open="true"] {
+                border-top: 1px solid ThreeDShadow !important;
+                border-right: 1px solid ThreeDHighlight !important;
+                border-bottom: 1px solid ThreeDHighlight !important;
+                border-left: 1px solid ThreeDShadow !important;
+            }
+        }
+
+        .menubar-text {
+            margin: 0 2px 0 0 !important;
+            color: inherit !important;
+        }
+    }
+}

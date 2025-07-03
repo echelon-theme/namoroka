@@ -1,0 +1,63 @@
+#nav-bar {
+    .toolbarbutton-menu-dropmarker {
+        pointer-events: all !important;
+    }
+
+    #back-button,
+    #forward-button {
+        padding: 0 !important;
+        border: 0 !important;
+
+        toolbarbutton {
+            height: 100% !important;
+        }
+    }
+
+    #go-button {
+        align-self: center !important;
+        padding: 2px 5px 2px 3px !important;
+
+        .toolbarbutton-icon {
+            width: 20px !important;
+            height: 20px !important;
+            background-image: url("chrome://namoroka/content/firefox-1/Go.png") !important;
+            margin-inline-end: 5px !important;
+        }
+
+        &:hover {
+            .toolbarbutton-icon {
+                background-position-x: -20px !important;
+            }
+
+            &:active {
+                padding: 3px 4px 1px 4px !important;
+                
+                .toolbarbutton-icon {
+                    background-position-x: -40px !important;
+                }
+            }
+        }
+
+        .toolbarbutton-text {
+            display: flex !important;
+        }
+    }
+
+    #stop-button,
+    #reload-button {
+        display: flex !important;
+    }
+}
+
+#PanelUI-button {
+    margin-inline-start: -1px !important;
+
+    #PanelUI-menu-button {
+        appearance: none !important;
+        list-style-image: none !important;
+        border: 0 !important;
+        max-width: 1px !important;
+        height: 1px !important;
+        padding: 0 !important;
+    }
+}

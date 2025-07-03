@@ -1,0 +1,263 @@
+[flex="1"] {
+	flex: 1;
+}
+
+groupbox {
+    position: relative;
+	margin: 5px;
+	padding: 5px;
+	padding-block-start: 12px;
+	border: 1px solid ThreeDShadow;
+	border-radius: 5px;
+}
+groupbox > caption {
+    position: absolute;
+    top: -6px;
+    left: 4px;
+	padding-inline: 5px;
+    background-color: -moz-Dialog;
+}
+
+groupbox > span {
+    margin: 6px;
+}
+
+menulist {
+    width: 256px;
+    height: 23px;
+}
+
+menulist::part(dropmarker) {
+    height: 100%;
+}
+
+input[type="color"] {
+    width: 35px;
+    height: 100%;
+}
+
+input[type="text"] {
+    flex-grow: 1;
+}
+
+input[type="number"] {
+    text-align: left;
+}
+
+checkbox[disabled="true"] {
+    opacity: 1;
+}
+
+.option-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+groupbox > p {
+    display: inline;
+    margin-top: 6px;
+    margin-left: 6px;
+    margin-bottom: 10px;
+}
+
+#contentArea {
+	padding: 8px;
+}
+
+#tabs {
+	-moz-default-appearance: listbox;
+	appearance: listbox;
+    min-height: 32px;
+    padding: 1px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+	justify-content: space-between;
+}
+
+#main-tabs {
+	display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.tab {
+	width: 74px;
+    padding: 2px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+	margin-block-end: 3px;
+	color: WindowText;
+	border: 1px solid transparent;
+	background-color: transparent;
+}
+
+.tab:not(.tab-selected):hover {
+	border-color: #98B4E2;
+    background-color: #e0e8f6;
+}
+
+.tab-selected {
+	border-color: #316AC5;
+    background-color: #c1d2ee !important;
+	color: black;
+}
+
+.tab:active > *,
+.tab-selected > * {
+	transform: translate(1px, 1px);
+}
+
+.tab-icon {
+    width: 32px;
+    height: 32px;
+    background-image: url("chrome://userchrome/content/windows/options/images/Options.png");
+}
+
+:root[echelon-appearance-xp] .tab-icon {
+    background-image: url("chrome://userchrome/content/windows/options/images/Options-xp.png");
+}
+
+#tab-general .tab-icon {
+    background-position: 0 0;
+}
+
+#tab-branding .tab-icon {
+    background-position: -32px 0;
+}
+
+#tab-native-controls .tab-icon {
+    background-position: -64px 0;
+}
+
+#tab-debug .tab-icon {
+    background-position: -96px 0;
+}
+
+#tab-about .tab-icon {
+    background-position: -128px 0;
+}
+
+.tab-label {
+	margin-block-start: 1px;
+    line-height: 1;
+    overflow: visible;
+}
+
+#tab-native-controls {
+    display: none;
+}
+
+@media (-moz-ev-native-controls-patch) {
+    #tab-native-controls {
+        display: flex;
+    }
+}
+
+#content {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+}
+
+#main-section {
+    flex-grow: 1;
+}
+
+#button-section {
+    display: flex;
+    justify-content: flex-end;
+	padding-inline: 10px;
+	padding-block-end: 11px;
+	padding-block-start: 6px;
+}
+
+#button-section button {
+	min-width: 67px;
+	min-height: 24px;
+}
+
+.section {
+	padding-inline-start: 5px;
+	padding-inline-end: 2px;
+    display: none;
+}
+
+.section-selected {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    flex: 1;
+    height: 100%;
+}
+
+.dialogheader {
+	margin: 0px 5px 5px 5px;
+	padding: 8px 10px 7px;
+	background-color: Highlight;
+	color: HighlightText;
+	box-shadow: inset 1px 1px 0 ThreeDShadow, inset -1px -1px 0 ThreeDHighlight, inset 0 0 0 2px ThreeDDarkShadow;
+	align-items: center;
+}
+
+.dialogheader-title {
+	flex: 1;
+	font-weight: bold;
+	font-size: 125%;
+}
+
+.expanderButton {
+	cursor: pointer !important;
+}
+
+.settingsContainer {
+	padding: 3px 5px 5px 20px;
+}
+
+button[type="disclosure"] {
+	min-width: 18px;
+	max-height: 14px;
+	border: 0;
+	padding: 0;
+	list-style-image: url("chrome://userchrome/content/images/twisty-clsd.png");
+	background-color: transparent;
+}
+
+button[type="disclosure"]:focus-within {
+	outline: 1px dotted ThreeDDarkShadow;
+	outline-offset: -1px;
+}
+
+button[type="disclosure"]:active .button-icon,
+.expanded button[type="disclosure"] .button-icon {
+	transform: translate(1px, 1px);
+}
+
+.expanded button[type="disclosure"] {
+	list-style-image: url("chrome://userchrome/content/images/twisty-open.png");
+}
+
+.expander {
+	border: 1px solid transparent;
+	margin: 2px;
+}
+
+.expander:not(.expanded) .settingsContainer {
+	display: none;
+}
+
+.expanderHeader {
+	display: flex;
+}
+
+.listBox {
+	-moz-default-appearance: listbox;
+	appearance: listbox;
+}
+
+.settingsBox {
+	margin: 5px;
+	padding: 5px;
+}

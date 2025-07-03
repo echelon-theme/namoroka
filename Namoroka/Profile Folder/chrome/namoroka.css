@@ -1,0 +1,1576 @@
+/* ::::: Firefox 1 ::::: */
+:root[namoroka-unified-extensions-disabled] #unified-extensions-button {
+  display: none !important;
+}
+
+@namespace xul url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+@namespace html url("http://www.w3.org/1999/xhtml");
+:root {
+  --toolbar-spritesheet: url("chrome://namoroka/content/firefox-1/Toolbar.png");
+}
+:root[namoroka-appearance-small-icons=true] {
+  --toolbar-spritesheet: url("chrome://namoroka/content/firefox-1/Toolbar-small.png");
+}
+
+#nav-bar .toolbarbutton-1 .toolbarbutton-icon {
+  width: var(--toolbarbutton-icon-size) !important;
+  height: var(--toolbarbutton-icon-size) !important;
+}
+
+.toolbarbutton-1#back-button .toolbarbutton-icon {
+  --icon-offset: -0 !important;
+  list-style-image: none !important;
+  background-image: var(--toolbar-spritesheet) !important;
+  background-position-x: calc(var(--toolbarbutton-icon-size) * var(--icon-offset)) !important;
+}
+.toolbarbutton-1#back-button:not([disabled=true]):hover .toolbarbutton-icon, .toolbarbutton-1#back-button:not([disabled=true]):hover:active .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -1) !important;
+}
+.toolbarbutton-1#back-button:not([disabled=true])[open=true] .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -3) !important;
+}
+.toolbarbutton-1#back-button[disabled=true] .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -2);
+}
+.toolbarbutton-1#forward-button .toolbarbutton-icon {
+  --icon-offset: -1 !important;
+  list-style-image: none !important;
+  background-image: var(--toolbar-spritesheet) !important;
+  background-position-x: calc(var(--toolbarbutton-icon-size) * var(--icon-offset)) !important;
+}
+.toolbarbutton-1#forward-button:not([disabled=true]):hover .toolbarbutton-icon, .toolbarbutton-1#forward-button:not([disabled=true]):hover:active .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -1) !important;
+}
+.toolbarbutton-1#forward-button:not([disabled=true])[open=true] .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -3) !important;
+}
+.toolbarbutton-1#forward-button[disabled=true] .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -2);
+}
+.toolbarbutton-1#stop-button .toolbarbutton-icon {
+  --icon-offset: -2 !important;
+  list-style-image: none !important;
+  background-image: var(--toolbar-spritesheet) !important;
+  background-position-x: calc(var(--toolbarbutton-icon-size) * var(--icon-offset)) !important;
+}
+.toolbarbutton-1#stop-button:not([disabled=true]):hover .toolbarbutton-icon, .toolbarbutton-1#stop-button:not([disabled=true]):hover:active .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -1) !important;
+}
+.toolbarbutton-1#stop-button:not([disabled=true])[open=true] .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -3) !important;
+}
+.toolbarbutton-1#stop-button[disabled=true] .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -2);
+}
+.toolbarbutton-1#reload-button .toolbarbutton-icon {
+  --icon-offset: -3 !important;
+  list-style-image: none !important;
+  background-image: var(--toolbar-spritesheet) !important;
+  background-position-x: calc(var(--toolbarbutton-icon-size) * var(--icon-offset)) !important;
+}
+.toolbarbutton-1#reload-button:not([disabled=true]):hover .toolbarbutton-icon, .toolbarbutton-1#reload-button:not([disabled=true]):hover:active .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -1) !important;
+}
+.toolbarbutton-1#reload-button:not([disabled=true])[open=true] .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -3) !important;
+}
+.toolbarbutton-1#reload-button[disabled=true] .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -2);
+}
+.toolbarbutton-1#home-button .toolbarbutton-icon {
+  --icon-offset: -4 !important;
+  list-style-image: none !important;
+  background-image: var(--toolbar-spritesheet) !important;
+  background-position-x: calc(var(--toolbarbutton-icon-size) * var(--icon-offset)) !important;
+}
+.toolbarbutton-1#home-button:not([disabled=true]):hover .toolbarbutton-icon, .toolbarbutton-1#home-button:not([disabled=true]):hover:active .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -1) !important;
+}
+.toolbarbutton-1#home-button:not([disabled=true])[open=true] .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -3) !important;
+}
+.toolbarbutton-1#home-button[disabled=true] .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -2);
+}
+.toolbarbutton-1#history-panelmenu .toolbarbutton-icon {
+  --icon-offset: -6 !important;
+  list-style-image: none !important;
+  background-image: var(--toolbar-spritesheet) !important;
+  background-position-x: calc(var(--toolbarbutton-icon-size) * var(--icon-offset)) !important;
+}
+.toolbarbutton-1#history-panelmenu:not([disabled=true]):hover .toolbarbutton-icon, .toolbarbutton-1#history-panelmenu:not([disabled=true]):hover:active .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -1) !important;
+}
+.toolbarbutton-1#history-panelmenu:not([disabled=true])[open=true] .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -3) !important;
+}
+.toolbarbutton-1#history-panelmenu[disabled=true] .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -2);
+}
+.toolbarbutton-1#bookmarks-menu-button .toolbarbutton-icon {
+  --icon-offset: -7 !important;
+  list-style-image: none !important;
+  background-image: var(--toolbar-spritesheet) !important;
+  background-position-x: calc(var(--toolbarbutton-icon-size) * var(--icon-offset)) !important;
+}
+.toolbarbutton-1#bookmarks-menu-button:not([disabled=true]):hover .toolbarbutton-icon, .toolbarbutton-1#bookmarks-menu-button:not([disabled=true]):hover:active .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -1) !important;
+}
+.toolbarbutton-1#bookmarks-menu-button:not([disabled=true])[open=true] .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -3) !important;
+}
+.toolbarbutton-1#bookmarks-menu-button[disabled=true] .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -2);
+}
+.toolbarbutton-1#print-button .toolbarbutton-icon {
+  --icon-offset: -8 !important;
+  list-style-image: none !important;
+  background-image: var(--toolbar-spritesheet) !important;
+  background-position-x: calc(var(--toolbarbutton-icon-size) * var(--icon-offset)) !important;
+}
+.toolbarbutton-1#print-button:not([disabled=true]):hover .toolbarbutton-icon, .toolbarbutton-1#print-button:not([disabled=true]):hover:active .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -1) !important;
+}
+.toolbarbutton-1#print-button:not([disabled=true])[open=true] .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -3) !important;
+}
+.toolbarbutton-1#print-button[disabled=true] .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -2);
+}
+.toolbarbutton-1#new-tab-button .toolbarbutton-icon {
+  --icon-offset: -9 !important;
+  list-style-image: none !important;
+  background-image: var(--toolbar-spritesheet) !important;
+  background-position-x: calc(var(--toolbarbutton-icon-size) * var(--icon-offset)) !important;
+}
+.toolbarbutton-1#new-tab-button:not([disabled=true]):hover .toolbarbutton-icon, .toolbarbutton-1#new-tab-button:not([disabled=true]):hover:active .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -1) !important;
+}
+.toolbarbutton-1#new-tab-button:not([disabled=true])[open=true] .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -3) !important;
+}
+.toolbarbutton-1#new-tab-button[disabled=true] .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -2);
+}
+.toolbarbutton-1#new-window-button .toolbarbutton-icon {
+  --icon-offset: -10 !important;
+  list-style-image: none !important;
+  background-image: var(--toolbar-spritesheet) !important;
+  background-position-x: calc(var(--toolbarbutton-icon-size) * var(--icon-offset)) !important;
+}
+.toolbarbutton-1#new-window-button:not([disabled=true]):hover .toolbarbutton-icon, .toolbarbutton-1#new-window-button:not([disabled=true]):hover:active .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -1) !important;
+}
+.toolbarbutton-1#new-window-button:not([disabled=true])[open=true] .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -3) !important;
+}
+.toolbarbutton-1#new-window-button[disabled=true] .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -2);
+}
+.toolbarbutton-1#cut-button .toolbarbutton-icon {
+  --icon-offset: -11 !important;
+  list-style-image: none !important;
+  background-image: var(--toolbar-spritesheet) !important;
+  background-position-x: calc(var(--toolbarbutton-icon-size) * var(--icon-offset)) !important;
+}
+.toolbarbutton-1#cut-button:not([disabled=true]):hover .toolbarbutton-icon, .toolbarbutton-1#cut-button:not([disabled=true]):hover:active .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -1) !important;
+}
+.toolbarbutton-1#cut-button:not([disabled=true])[open=true] .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -3) !important;
+}
+.toolbarbutton-1#cut-button[disabled=true] .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -2);
+}
+.toolbarbutton-1#copy-button .toolbarbutton-icon {
+  --icon-offset: -12 !important;
+  list-style-image: none !important;
+  background-image: var(--toolbar-spritesheet) !important;
+  background-position-x: calc(var(--toolbarbutton-icon-size) * var(--icon-offset)) !important;
+}
+.toolbarbutton-1#copy-button:not([disabled=true]):hover .toolbarbutton-icon, .toolbarbutton-1#copy-button:not([disabled=true]):hover:active .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -1) !important;
+}
+.toolbarbutton-1#copy-button:not([disabled=true])[open=true] .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -3) !important;
+}
+.toolbarbutton-1#copy-button[disabled=true] .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -2);
+}
+.toolbarbutton-1#paste-button .toolbarbutton-icon {
+  --icon-offset: -13 !important;
+  list-style-image: none !important;
+  background-image: var(--toolbar-spritesheet) !important;
+  background-position-x: calc(var(--toolbarbutton-icon-size) * var(--icon-offset)) !important;
+}
+.toolbarbutton-1#paste-button:not([disabled=true]):hover .toolbarbutton-icon, .toolbarbutton-1#paste-button:not([disabled=true]):hover:active .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -1) !important;
+}
+.toolbarbutton-1#paste-button:not([disabled=true])[open=true] .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -3) !important;
+}
+.toolbarbutton-1#paste-button[disabled=true] .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -2);
+}
+.toolbarbutton-1#email-link-button .toolbarbutton-icon {
+  --icon-offset: -14 !important;
+  list-style-image: none !important;
+  background-image: var(--toolbar-spritesheet) !important;
+  background-position-x: calc(var(--toolbarbutton-icon-size) * var(--icon-offset)) !important;
+}
+.toolbarbutton-1#email-link-button:not([disabled=true]):hover .toolbarbutton-icon, .toolbarbutton-1#email-link-button:not([disabled=true]):hover:active .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -1) !important;
+}
+.toolbarbutton-1#email-link-button:not([disabled=true])[open=true] .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -3) !important;
+}
+.toolbarbutton-1#email-link-button[disabled=true] .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -2);
+}
+.toolbarbutton-1#unified-extensions-button .toolbarbutton-icon {
+  --icon-offset: -15 !important;
+  list-style-image: none !important;
+  background-image: var(--toolbar-spritesheet) !important;
+  background-position-x: calc(var(--toolbarbutton-icon-size) * var(--icon-offset)) !important;
+}
+.toolbarbutton-1#unified-extensions-button:not([disabled=true]):hover .toolbarbutton-icon, .toolbarbutton-1#unified-extensions-button:not([disabled=true]):hover:active .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -1) !important;
+}
+.toolbarbutton-1#unified-extensions-button:not([disabled=true])[open=true] .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -3) !important;
+}
+.toolbarbutton-1#unified-extensions-button[disabled=true] .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -2);
+}
+.toolbarbutton-1#open-file-button .toolbarbutton-icon {
+  --icon-offset: -16 !important;
+  list-style-image: none !important;
+  background-image: var(--toolbar-spritesheet) !important;
+  background-position-x: calc(var(--toolbarbutton-icon-size) * var(--icon-offset)) !important;
+}
+.toolbarbutton-1#open-file-button:not([disabled=true]):hover .toolbarbutton-icon, .toolbarbutton-1#open-file-button:not([disabled=true]):hover:active .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -1) !important;
+}
+.toolbarbutton-1#open-file-button:not([disabled=true])[open=true] .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -3) !important;
+}
+.toolbarbutton-1#open-file-button[disabled=true] .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -2);
+}
+
+#downloads-indicator-anchor {
+  --icon-offset: -5 !important;
+  width: var(--toolbarbutton-icon-size) !important;
+  height: var(--toolbarbutton-icon-size) !important;
+  list-style-image: none !important;
+  background-image: var(--toolbar-spritesheet) !important;
+  background-position-x: calc(var(--toolbarbutton-icon-size) * var(--icon-offset)) !important;
+}
+
+.close-icon {
+  width: 16px !important;
+  height: 16px !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  background-color: transparent !important;
+  background-image: url("chrome://namoroka/content/firefox-1/icons/close.png") !important;
+  list-style-image: none !important;
+  background-position-x: 0 !important;
+}
+.close-icon:hover {
+  background-position-x: -16px !important;
+}
+.close-icon:hover:active, .close-icon[open] {
+  background-position-x: -32px !important;
+}
+
+#navigator-toolbox {
+  border-bottom-width: 0 !important;
+}
+
+.browser-toolbar {
+  background-color: -moz-Dialog !important;
+  color: -moz-DialogText !important;
+  border-block-start: 1px solid ThreeDHighlight !important;
+  border-block-end: 1px solid ThreeDShadow !important;
+}
+
+toolbar[type=menubar],
+menubar {
+  border-block-start-width: 0 !important;
+}
+
+:root {
+  --tab-min-height: 0 !important;
+  --inline-tab-padding: 0 !important;
+  --page-icon: url("chrome://namoroka/content/firefox-1/icons/page.png") !important;
+  --page-invalid-icon: url("chrome://namoroka/content/firefox-1/icons/page-invalid.png") !important;
+}
+
+#TabsToolbar {
+  border-block-start-width: 0 !important;
+  padding-block: 1px !important;
+  background-image: url("chrome://namoroka/content/firefox-1/icons/tabstrip-bottom.png") !important;
+  background-repeat: repeat-x !important;
+  background-position: bottom 1px center !important;
+  box-shadow: inset 0 -1px 0 ThreeDLightShadow !important;
+}
+#TabsToolbar .tabbrowser-tab {
+  appearance: tab !important;
+  border: 2px solid transparent !important;
+  border-bottom-width: 1px !important;
+  margin-top: 2px !important;
+  margin-bottom: 1px !important;
+  padding: 0px 4px 1px 4px !important;
+  background-color: -moz-Dialog !important;
+  color: -moz-DialogText !important;
+}
+#TabsToolbar .tabbrowser-tab[selected] {
+  font-weight: bold !important;
+  margin-block: 0 !important;
+  border-bottom-color: transparent !important;
+  padding: 2px 6px 4px 6px !important;
+}
+#TabsToolbar .tabbrowser-tab[selected]:first-of-type {
+  padding-inline: 5px !important;
+}
+#TabsToolbar .tabbrowser-tab[selected] .tab-throbber:not([pinned]),
+#TabsToolbar .tabbrowser-tab[selected] .tab-icon-pending:not([pinned]),
+#TabsToolbar .tabbrowser-tab[selected] .tab-icon-image:not([pinned]),
+#TabsToolbar .tabbrowser-tab[selected] .tab-sharing-icon-overlay:not([pinned]),
+#TabsToolbar .tabbrowser-tab[selected] .tab-icon-overlay:not([pinned]) {
+  margin-block-start: 1px !important;
+}
+#TabsToolbar .tabbrowser-tab .tab-background {
+  visibility: collapse !important;
+}
+#TabsToolbar .tabbrowser-tab .tab-content .tab-throbber:not([pinned]),
+#TabsToolbar .tabbrowser-tab .tab-content .tab-icon-pending:not([pinned]),
+#TabsToolbar .tabbrowser-tab .tab-content .tab-icon-image:not([pinned]),
+#TabsToolbar .tabbrowser-tab .tab-content .tab-sharing-icon-overlay:not([pinned]),
+#TabsToolbar .tabbrowser-tab .tab-content .tab-icon-overlay:not([pinned]) {
+  margin-inline-end: 3px !important;
+}
+#TabsToolbar .tabbrowser-tab .tab-content .tab-icon-image:not([src]),
+#TabsToolbar .tabbrowser-tab .tab-content .tab-icon-image:-moz-broken {
+  display: flex !important;
+  content: var(--page-icon) !important;
+}
+#TabsToolbar .tabbrowser-tab .tab-content .tab-label-container {
+  mask-image: none !important;
+  height: unset !important;
+}
+#TabsToolbar .tabbrowser-tab .tab-content .tab-label-container .tab-label {
+  width: 100% !important;
+  margin-block-start: 1px !important;
+  line-height: normal !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+#TabsToolbar .tabbrowser-tab .tab-content .tab-label-container .tab-secondary-label {
+  visibility: collapse !important;
+}
+:root:not([namoroka-style-1=true]) #TabsToolbar .tabbrowser-tab .tab-content .tab-close-button {
+  visibility: collapse !important;
+}
+#TabsToolbar .tabs-closebutton-box {
+  padding: 4px !important;
+}
+:root[namoroka-style-1=true] #TabsToolbar .tabs-closebutton-box {
+  visibility: collapse !important;
+}
+:root:not([namoroka-style-1=true]) #TabsToolbar #tabbrowser-tabs:not([overflow], [hashiddentabs]) ~ #alltabs-button {
+  display: none !important;
+}
+
+:root {
+  --toolbarbutton-icon-size: 24px !important;
+}
+:root[namoroka-appearance-small-icons=true] {
+  --toolbarbutton-icon-size: 16px !important;
+}
+
+.toolbarbutton-1,
+toolbarbutton.bookmark-item:not(.subviewbutton) {
+  appearance: auto !important;
+  -moz-default-appearance: toolbarbutton !important;
+  padding: 5px !important;
+  border: 1px solid transparent;
+  background-color: transparent !important;
+  color: -moz-DialogText !important;
+}
+:root[namoroka-appearance-small-icons=true] .toolbarbutton-1,
+:root[namoroka-appearance-small-icons=true] toolbarbutton.bookmark-item:not(.subviewbutton) {
+  padding: 3px !important;
+}
+:root[namoroka-appearance-small-icons=true] .toolbarbutton-1:not(.toolbarbutton-menubutton-button),
+:root[namoroka-appearance-small-icons=true] toolbarbutton.bookmark-item:not(.subviewbutton):not(.toolbarbutton-menubutton-button) {
+  margin-inline-end: 2px !important;
+}
+.toolbarbutton-1:hover:not([disabled=true]),
+toolbarbutton.bookmark-item:not(.subviewbutton):hover:not([disabled=true]) {
+  border-color: ThreeDHighlight ThreeDShadow ThreeDShadow ThreeDHighlight !important;
+}
+.toolbarbutton-1:hover:active:not([disabled=true]), .toolbarbutton-1[open=true]:not([disabled=true]),
+toolbarbutton.bookmark-item:not(.subviewbutton):hover:active:not([disabled=true]),
+toolbarbutton.bookmark-item:not(.subviewbutton)[open=true]:not([disabled=true]) {
+  border-color: ThreeDShadow ThreeDHighlight ThreeDHighlight ThreeDShadow !important;
+  padding: 5px 4px 5px 6px !important;
+}
+:root[namoroka-appearance-small-icons=true] .toolbarbutton-1:hover:active:not([disabled=true]), :root[namoroka-appearance-small-icons=true] .toolbarbutton-1[open=true]:not([disabled=true]),
+:root[namoroka-appearance-small-icons=true] toolbarbutton.bookmark-item:not(.subviewbutton):hover:active:not([disabled=true]),
+:root[namoroka-appearance-small-icons=true] toolbarbutton.bookmark-item:not(.subviewbutton)[open=true]:not([disabled=true]) {
+  padding: 3px 2px 3px 4px !important;
+}
+.toolbarbutton-1[disabled=true],
+toolbarbutton.bookmark-item:not(.subviewbutton)[disabled=true] {
+  opacity: 1 !important;
+  border-color: transparent !important;
+  padding: 5px !important;
+  color: GrayText !important;
+}
+.toolbarbutton-1[checked=true],
+toolbarbutton.bookmark-item:not(.subviewbutton)[checked=true] {
+  border-color: ThreeDShadow ThreeDHighlight ThreeDHighlight ThreeDShadow !important;
+  padding: 5px 4px 5px 6px !important;
+  background-image: url("chrome://namoroka/content/firefox-1/toolbar/Lighten.png") !important;
+  color: ButtonText !important;
+}
+:root[namoroka-appearance-small-icons=true] .toolbarbutton-1[checked=true],
+:root[namoroka-appearance-small-icons=true] toolbarbutton.bookmark-item:not(.subviewbutton)[checked=true] {
+  padding: 3px 2px 3px 4px !important;
+}
+.toolbarbutton-1[type=menu-button],
+toolbarbutton.bookmark-item:not(.subviewbutton)[type=menu-button] {
+  padding: 0 !important;
+  border: 0 !important;
+}
+.toolbarbutton-1 .toolbarbutton-icon,
+.toolbarbutton-1 .toolbarbutton-text,
+.toolbarbutton-1 .toolbarbutton-badge-stack,
+toolbarbutton.bookmark-item:not(.subviewbutton) .toolbarbutton-icon,
+toolbarbutton.bookmark-item:not(.subviewbutton) .toolbarbutton-text,
+toolbarbutton.bookmark-item:not(.subviewbutton) .toolbarbutton-badge-stack {
+  padding: 0 !important;
+  background-color: transparent !important;
+  border-radius: 0 !important;
+}
+.toolbarbutton-1 .toolbarbutton-text,
+toolbarbutton.bookmark-item:not(.subviewbutton) .toolbarbutton-text {
+  min-height: auto !important;
+  text-align: center !important;
+}
+.toolbarbutton-1 .toolbarbutton-menu-dropmarker,
+toolbarbutton.bookmark-item:not(.subviewbutton) .toolbarbutton-menu-dropmarker {
+  width: 11px !important;
+  height: 100% !important;
+  padding: 3px !important;
+  list-style-image: none !important;
+  background-image: url("chrome://namoroka/content/firefox-1/arrow/arrow-dn.gif") !important;
+  background-repeat: no-repeat !important;
+  background-position: center center;
+}
+.toolbarbutton-1 .toolbarbutton-menu-dropmarker[disabled=true],
+toolbarbutton.bookmark-item:not(.subviewbutton) .toolbarbutton-menu-dropmarker[disabled=true] {
+  background-image: url("chrome://namoroka/content/firefox-1/arrow/arrow-dn-dis.gif") !important;
+}
+
+#nav-bar .toolbarbutton-menu-dropmarker {
+  pointer-events: all !important;
+}
+#nav-bar #back-button,
+#nav-bar #forward-button {
+  padding: 0 !important;
+  border: 0 !important;
+}
+#nav-bar #back-button toolbarbutton,
+#nav-bar #forward-button toolbarbutton {
+  height: 100% !important;
+}
+#nav-bar #go-button {
+  align-self: center !important;
+  padding: 2px 5px 2px 3px !important;
+}
+#nav-bar #go-button .toolbarbutton-icon {
+  width: 20px !important;
+  height: 20px !important;
+  background-image: url("chrome://namoroka/content/firefox-1/Go.png") !important;
+  margin-inline-end: 5px !important;
+}
+#nav-bar #go-button:hover .toolbarbutton-icon {
+  background-position-x: -20px !important;
+}
+#nav-bar #go-button:hover:active {
+  padding: 3px 4px 1px 4px !important;
+}
+#nav-bar #go-button:hover:active .toolbarbutton-icon {
+  background-position-x: -40px !important;
+}
+#nav-bar #go-button .toolbarbutton-text {
+  display: flex !important;
+}
+#nav-bar #stop-button,
+#nav-bar #reload-button {
+  display: flex !important;
+}
+
+#PanelUI-button {
+  margin-inline-start: -1px !important;
+}
+#PanelUI-button #PanelUI-menu-button {
+  appearance: none !important;
+  list-style-image: none !important;
+  border: 0 !important;
+  max-width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+}
+
+#toolbar-menubar toolbarspring {
+  max-width: 100% !important;
+}
+#toolbar-menubar spacer[style*="order: 1000;"] {
+  visibility: collapse !important;
+}
+#toolbar-menubar #navigator-throbber {
+  appearance: none !important;
+  -moz-user-focus: ignore !important;
+  margin: 0 !important;
+  border: 0 !important;
+  padding: 1px 3px 2px 4px !important;
+  min-width: 0 !important;
+  background-color: transparent !important;
+  list-style-image: url("chrome://namoroka/content/firefox-1/Throbber-small.png") !important;
+}
+#toolbar-menubar #navigator-throbber[busy=true] {
+  list-style-image: url("chrome://namoroka/content/firefox-1/Throbber-small.gif") !important;
+  opacity: 0.5 !important;
+}
+
+menupopup menu[_moz-menuactive=true],
+menupopup menuitem[_moz-menuactive=true] {
+  background-color: Highlight !important;
+  color: HighlightText !important;
+}
+
+menu,
+menuitem {
+  color: MenuText !important;
+  font: menu !important;
+}
+menu[disabled=true], menu[_moz-menuactive=true][disabled=true],
+menuitem[disabled=true],
+menuitem[_moz-menuactive=true][disabled=true] {
+  color: GrayText !important;
+  text-shadow: none !important;
+}
+
+menubar menu {
+  border: 1px solid transparent !important;
+  background-color: transparent !important;
+  padding: 2px 5px 2px 7px !important;
+  margin: 1px 0px 1px 0px !important;
+}
+menubar menu[_moz-menuactive=true] {
+  border-top: 1px solid ThreeDHighlight !important;
+  border-right: 1px solid ThreeDShadow !important;
+  border-bottom: 1px solid ThreeDShadow !important;
+  border-left: 1px solid ThreeDHighlight !important;
+}
+menubar menu[_moz-menuactive=true][open=true] {
+  border-top: 1px solid ThreeDShadow !important;
+  border-right: 1px solid ThreeDHighlight !important;
+  border-bottom: 1px solid ThreeDHighlight !important;
+  border-left: 1px solid ThreeDShadow !important;
+}
+menubar menu .menubar-text {
+  margin: 0 2px 0 0 !important;
+  color: inherit !important;
+}
+
+:root {
+  --folder-item: url("chrome://namoroka/content/firefox-1/folder-item.png") !important;
+}
+
+#PersonalToolbar {
+  max-height: 26px !important;
+  min-height: 26px !important;
+  padding-inline: 0 !important;
+}
+#PersonalToolbar #PlacesToolbarItems {
+  margin-inline-start: 3px !important;
+}
+#PersonalToolbar toolbarbutton.bookmark-item:not(.subviewbutton) {
+  padding: 2px 3px !important;
+  border-radius: 0 !important;
+  margin: 0 !important;
+}
+#PersonalToolbar toolbarbutton.bookmark-item:not(.subviewbutton):hover:active, #PersonalToolbar toolbarbutton.bookmark-item:not(.subviewbutton)[open=true] {
+  padding: 3px 2px 1px 4px !important;
+}
+#PersonalToolbar toolbarbutton.bookmark-item:not(.subviewbutton) .toolbarbutton-text {
+  margin-block-start: 1px !important;
+}
+#PersonalToolbar .toolbarbutton-1 {
+  margin-block: 0 !important;
+}
+
+#PlacesChevron,
+#nav-bar #nav-bar-overflow-button {
+  align-items: center !important;
+  padding: 3px !important;
+  list-style-image: url("chrome://namoroka/content/firefox-1/toolbar/chevron.gif") !important;
+}
+#PlacesChevron:hover:active, #PlacesChevron[open=true],
+#nav-bar #nav-bar-overflow-button:hover:active,
+#nav-bar #nav-bar-overflow-button[open=true] {
+  padding: 4px 2px 2px 4px !important;
+}
+#PlacesChevron .toolbarbutton-icon,
+#nav-bar #nav-bar-overflow-button .toolbarbutton-icon {
+  width: 8px !important;
+  height: 5px !important;
+  margin-inline-end: 5px !important;
+}
+
+.bookmark-item[container] {
+  list-style-image: none !important;
+}
+.bookmark-item[container] .toolbarbutton-icon {
+  background-image: var(--folder-item) !important;
+  background-position-x: -16px !important;
+}
+.bookmark-item[container]:hover:active .toolbarbutton-icon, .bookmark-item[container][open=true] .toolbarbutton-icon {
+  background-position-y: -16px !important;
+}
+
+:root {
+  --urlbar-root-height: 22px !important;
+  --urlbar-min-height: var(--urlbar-root-height) !important;
+  --secure-icon: url("chrome://namoroka/content/firefox-1/Secure.png") !important;
+}
+@media (-moz-windows-classic) {
+  :root {
+    --urlbar-root-height: 24px !important;
+  }
+}
+
+#urlbar, #searchbar {
+  font-size: 1em !important;
+  color: -moz-DialogText !important;
+}
+
+#urlbar-background,
+#searchbar {
+  height: var(--urlbar-height) !important;
+  -moz-default-appearance: textfield !important;
+  appearance: textfield !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+#urlbar-input::placeholder,
+.searchbar-textbox::placeholder {
+  color: GrayText !important;
+  opacity: 0 !important;
+}
+
+#urlbar-container {
+  padding-block: 0 !important;
+}
+#urlbar-container #urlbar {
+  top: calc((var(--urlbar-container-height) - var(--urlbar-height)) / 2) !important;
+  --urlbar-height: var(--urlbar-root-height) !important;
+  /*
+      TODO: REMAKE -TRAVIS
+  */
+}
+#urlbar-container #urlbar[breakout] {
+  width: 100% !important;
+  left: 0 !important;
+}
+#urlbar-container #urlbar #page-proxy-deck {
+  width: 16px !important;
+  height: 16px !important;
+  margin: 2px 3px !important;
+  list-style-image: var(--page-icon) !important;
+}
+#urlbar-container #urlbar #page-proxy-deck image {
+  width: 100% !important;
+  height: 100% !important;
+}
+#urlbar-container #urlbar[pageproxystate=invalid] #page-proxy-deck {
+  list-style-image: var(--page-invalid-icon) !important;
+}
+#urlbar-container #urlbar #urlbar-input-container,
+#urlbar-container #urlbar .urlbar-input-container {
+  height: var(--urlbar-height) !important;
+  padding: var(--urlbar-container-padding) !important;
+  border-radius: 0 !important;
+  background-clip: content-box !important;
+}
+#urlbar-container #urlbar #urlbar-input-container[pageproxystate=valid],
+#urlbar-container #urlbar .urlbar-input-container[pageproxystate=valid] {
+  background-color: #F5F6BE !important;
+  color: #000000 !important;
+}
+#urlbar-container #urlbar #tracking-protection-icon-container,
+#urlbar-container #urlbar #identity-permission-box,
+#urlbar-container #urlbar #urlbar-go-button {
+  visibility: collapse !important;
+}
+#urlbar-container #urlbar #identity-box {
+  margin: 0 !important;
+}
+#urlbar-container #urlbar #identity-box:not(.verifiedDomain) {
+  visibility: collapse !important;
+}
+#urlbar-container #urlbar .autocomplete-history-dropmarker {
+  width: 17px !important;
+  height: 100% !important;
+}
+#urlbar-container #urlbar #urlbar-input {
+  margin-inline: 3px !important;
+}
+:root:not([namoroka-style-2]) #urlbar-container #urlbar #identity-box .identity-box-button {
+  border-radius: 0 !important;
+  padding: 0 !important;
+  background-color: transparent !important;
+}
+:root:not([namoroka-style-2]) #urlbar-container #urlbar #identity-box #identity-icon {
+  list-style-image: none !important;
+}
+:root:not([namoroka-style-2]) #urlbar-container #urlbar #identity-box[pageproxystate=valid].verifiedDomain #identity-icon {
+  list-style-image: var(--secure-icon) !important;
+}
+:root[namoroka-style-1] #urlbar-container #urlbar #identity-box[pageproxystate=valid].verifiedDomain #identity-icon {
+  width: 18px !important;
+  height: 18px !important;
+  list-style-image: none !important;
+  background-image: var(--secure-icon) !important;
+}
+:root[namoroka-style-1] #urlbar-container #urlbar #identity-box[pageproxystate=valid].verifiedDomain #identity-icon:hover {
+  background-position-y: -18px !important;
+}
+:root[namoroka-style-1] #urlbar-container #urlbar #identity-box[pageproxystate=valid].verifiedDomain #identity-icon:hover:active {
+  background-position-y: -72px !important;
+}
+:root:not([namoroka-style-2]) #urlbar-container #urlbar #page-action-buttons {
+  visibility: collapse !important;
+}
+#urlbar-container #urlbar .urlbarView {
+  display: flex !important;
+  width: 100% !important;
+  margin-inline: 0 !important;
+  background-color: Field !important;
+  border: 1px solid #000 !important;
+  overflow: visible !important;
+  padding: 0 2px !important;
+  color: -moz-DialogText !important;
+}
+#urlbar-container #urlbar .urlbarView::after {
+  content: "" !important;
+  display: inline-block !important;
+  width: calc(100% - 3px) !important;
+  height: calc(100% - 2px) !important;
+  position: absolute !important;
+  left: 6px !important;
+  top: 5px !important;
+  z-index: -1 !important;
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  filter: blur(1px) !important;
+}
+#urlbar-container #urlbar .urlbarView strong {
+  font-weight: normal !important;
+}
+#urlbar-container #urlbar .urlbarView .urlbarView-body-outer .urlbarView-body-inner {
+  border: 0 !important;
+}
+#urlbar-container #urlbar .urlbarView .urlbarView-body-outer .urlbarView-body-inner .urlbarView-results {
+  padding-block: 0 !important;
+}
+#urlbar-container #urlbar .urlbarView .urlbarView-body-outer .urlbarView-body-inner .urlbarView-results .urlbarView-row {
+  min-height: 18px !important;
+  max-height: 18px !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  margin-block-start: 0 !important;
+}
+#urlbar-container #urlbar .urlbarView .urlbarView-body-outer .urlbarView-body-inner .urlbarView-results .urlbarView-row .urlbarView-row-inner {
+  min-height: 18px !important;
+  max-height: 18px !important;
+  padding-inline: 12px !important;
+  padding-block: 0 !important;
+  padding-bottom: 1px !important;
+}
+#urlbar-container #urlbar .urlbarView .urlbarView-body-outer .urlbarView-body-inner .urlbarView-results .urlbarView-row .urlbarView-row-inner .urlbarView-url {
+  flex-basis: 100% !important;
+  flex-grow: 0 !important;
+  font-size: unset !important;
+  color: -moz-DialogText !important;
+  order: -1 !important;
+  margin-right: 15px !important;
+}
+#urlbar-container #urlbar .urlbarView .urlbarView-body-outer .urlbarView-body-inner .urlbarView-results .urlbarView-row .urlbarView-row-inner .urlbarView-no-wrap {
+  max-width: 35% !important;
+  flex-basis: 35% !important;
+  flex-grow: 1 !important;
+  box-sizing: border-box !important;
+}
+#urlbar-container #urlbar .urlbarView .urlbarView-body-outer .urlbarView-body-inner .urlbarView-results .urlbarView-row[row-selectable]:not([selected]):hover, #urlbar-container #urlbar .urlbarView .urlbarView-body-outer .urlbarView-body-inner .urlbarView-results .urlbarView-row[selected] {
+  color: HighlightText !important;
+  background-color: Highlight !important;
+}
+#urlbar-container #urlbar .urlbarView .urlbarView-body-outer .urlbarView-body-inner .urlbarView-results .urlbarView-row[row-selectable]:not([selected]):hover .urlbarView-url, #urlbar-container #urlbar .urlbarView .urlbarView-body-outer .urlbarView-body-inner .urlbarView-results .urlbarView-row[selected] .urlbarView-url {
+  color: HighlightText !important;
+}
+#urlbar-container #urlbar .urlbarView .urlbarView-body-outer .urlbarView-body-inner .urlbarView-results .urlbarView-row[type=search] .urlbarView-row-inner .urlbarView-no-wrap, #urlbar-container #urlbar .urlbarView .urlbarView-body-outer .urlbarView-body-inner .urlbarView-results .urlbarView-row[has-action=true] .urlbarView-row-inner .urlbarView-no-wrap {
+  width: 100% !important;
+  flex-basis: unset !important;
+  max-width: 100% !important;
+}
+@media screen and (min-height: 600px) {
+  #urlbar-container #urlbar .urlbarView .urlbarView-body-outer .urlbarView-results[wrap] > .urlbarView-row[has-url] > .urlbarView-row-inner > .urlbarView-url:-moz-locale-dir(ltr) {
+    padding-inline-start: 0 !important;
+  }
+  #urlbar-container #urlbar .urlbarView .urlbarView-body-outer .urlbarView-results[wrap] > .urlbarView-row[has-url] > .urlbarView-row-inner > .urlbarView-url,
+  #urlbar-container #urlbar .urlbarView .urlbarView-body-outer .urlbarView-results[wrap] > .urlbarView-row[type=bestmatch] > .urlbarView-row-inner > .urlbarView-row-body > .urlbarView-row-body-top > .urlbarView-url {
+    margin-top: 0 !important;
+  }
+  #urlbar-container #urlbar .urlbarView .urlbarView-body-outer .urlbarView-results[wrap] > .urlbarView-row:where(:not([rich-suggestion=with-icon])) > .urlbarView-row-inner {
+    flex-wrap: nowrap !important;
+  }
+}
+#urlbar-container #urlbar .urlbarView .search-one-offs:not([hidden]),
+#urlbar-container #urlbar .urlbarView .urlbarView-favicon,
+#urlbar-container #urlbar .urlbarView .urlbarView-type-icon,
+#urlbar-container #urlbar .urlbarView .urlbarView-title-separator,
+#urlbar-container #urlbar .urlbarView .urlbarView-tags,
+#urlbar-container #urlbar .urlbarView .urlbarView-action,
+#urlbar-container #urlbar .urlbarView .urlbarView-button,
+#urlbar-container #urlbar .urlbarView .urlbarView-row[label]::before {
+  visibility: collapse !important;
+}
+#urlbar-container #urlbar:not([open]) > .urlbarView, #urlbar-container #urlbar:not([breakout]) > .urlbarView {
+  display: none !important;
+}
+#urlbar-container .urlbarView-overflowable[overflow], #urlbar-container .urlbarView-url[overflow] {
+  mask-image: none !important;
+  text-overflow: ellipsis !important;
+}
+
+.searchbar-search-button .searchbar-search-icon {
+  margin-inline: 3px 8px !important;
+}
+.searchbar-search-button .searchbar-search-icon-overlay {
+  width: 9px !important;
+  height: 6px !important;
+  list-style-image: url("chrome://namoroka/content/firefox-1/search-dropdown.png") !important;
+  align-self: flex-end !important;
+  margin-inline: 0 !important;
+  margin-left: -11px !important;
+  margin-bottom: 1px !important;
+}
+
+#PopupSearchAutoComplete .search-panel-current-engine,
+#PopupSearchAutoComplete .search-one-offs,
+#PopupSearchAutoComplete .searchbar-separator {
+  visibility: collapse !important;
+}
+
+#status-bar {
+  margin-block-start: 2px !important;
+  appearance: statusbar !important;
+  border-top: 1px solid ThreeDShadow !important;
+  border-left: 1px solid ThreeDShadow !important;
+  border-right: 1px solid ThreeDHighlight !important;
+  border-bottom: 1px solid ThreeDHighlight !important;
+  background-color: -moz-Dialog !important;
+  min-height: 22px !important;
+  align-items: center;
+}
+#status-bar #statuspanel {
+  display: flex !important;
+  position: static !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  padding: 0 !important;
+  max-width: 100% !important;
+  min-width: 100% !important;
+  align-items: center !important;
+  padding-top: 1px !important;
+}
+#status-bar #statuspanel #statuspanel-label {
+  margin-block-start: 1px !important;
+  margin-block-end: 2px !important;
+  margin-inline-start: 6px !important;
+  margin-inline-end: 5px !important;
+  border: 0 !important;
+  padding: 0 !important;
+}
+#status-bar #statuspanel[inactive] #statuspanel-label {
+  opacity: 0 !important;
+}
+
+/* ::::: Firefox 2 ::::: */
+:root[namoroka-style-1] {
+  --toolbar-spritesheet: url("chrome://namoroka/content/firefox-2/Toolbar.png");
+}
+:root[namoroka-style-1][namoroka-appearance-small-icons=true] {
+  --toolbar-spritesheet: url("chrome://namoroka/content/firefox-2/Toolbar-small.png");
+}
+:root[namoroka-style-1] .toolbarbutton-1#back-button .toolbarbutton-icon {
+  --icon-offset: -0 !important;
+  list-style-image: none !important;
+  background-image: var(--toolbar-spritesheet) !important;
+  background-position-x: calc(var(--toolbarbutton-icon-size) * var(--icon-offset)) !important;
+}
+:root[namoroka-style-1] .toolbarbutton-1#back-button:not([disabled=true]):hover .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -1) !important;
+}
+:root[namoroka-style-1] .toolbarbutton-1#back-button:not([disabled=true]):hover:active .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -4) !important;
+}
+:root[namoroka-style-1] .toolbarbutton-1#back-button:not([disabled=true])[open=true] .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -3) !important;
+}
+:root[namoroka-style-1] .toolbarbutton-1#back-button[disabled=true] .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -2);
+}
+:root[namoroka-style-1] .toolbarbutton-1#forward-button .toolbarbutton-icon {
+  --icon-offset: -1 !important;
+  list-style-image: none !important;
+  background-image: var(--toolbar-spritesheet) !important;
+  background-position-x: calc(var(--toolbarbutton-icon-size) * var(--icon-offset)) !important;
+}
+:root[namoroka-style-1] .toolbarbutton-1#forward-button:not([disabled=true]):hover .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -1) !important;
+}
+:root[namoroka-style-1] .toolbarbutton-1#forward-button:not([disabled=true]):hover:active .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -4) !important;
+}
+:root[namoroka-style-1] .toolbarbutton-1#forward-button:not([disabled=true])[open=true] .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -3) !important;
+}
+:root[namoroka-style-1] .toolbarbutton-1#forward-button[disabled=true] .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -2);
+}
+:root[namoroka-style-1] .toolbarbutton-1#stop-button .toolbarbutton-icon {
+  --icon-offset: -2 !important;
+  list-style-image: none !important;
+  background-image: var(--toolbar-spritesheet) !important;
+  background-position-x: calc(var(--toolbarbutton-icon-size) * var(--icon-offset)) !important;
+}
+:root[namoroka-style-1] .toolbarbutton-1#stop-button:not([disabled=true]):hover .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -1) !important;
+}
+:root[namoroka-style-1] .toolbarbutton-1#stop-button:not([disabled=true]):hover:active .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -4) !important;
+}
+:root[namoroka-style-1] .toolbarbutton-1#stop-button:not([disabled=true])[open=true] .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -3) !important;
+}
+:root[namoroka-style-1] .toolbarbutton-1#stop-button[disabled=true] .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -2);
+}
+:root[namoroka-style-1] .toolbarbutton-1#reload-button .toolbarbutton-icon {
+  --icon-offset: -3 !important;
+  list-style-image: none !important;
+  background-image: var(--toolbar-spritesheet) !important;
+  background-position-x: calc(var(--toolbarbutton-icon-size) * var(--icon-offset)) !important;
+}
+:root[namoroka-style-1] .toolbarbutton-1#reload-button:not([disabled=true]):hover .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -1) !important;
+}
+:root[namoroka-style-1] .toolbarbutton-1#reload-button:not([disabled=true]):hover:active .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -4) !important;
+}
+:root[namoroka-style-1] .toolbarbutton-1#reload-button:not([disabled=true])[open=true] .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -3) !important;
+}
+:root[namoroka-style-1] .toolbarbutton-1#reload-button[disabled=true] .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -2);
+}
+:root[namoroka-style-1] .toolbarbutton-1#home-button .toolbarbutton-icon {
+  --icon-offset: -4 !important;
+  list-style-image: none !important;
+  background-image: var(--toolbar-spritesheet) !important;
+  background-position-x: calc(var(--toolbarbutton-icon-size) * var(--icon-offset)) !important;
+}
+:root[namoroka-style-1] .toolbarbutton-1#home-button:not([disabled=true]):hover .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -1) !important;
+}
+:root[namoroka-style-1] .toolbarbutton-1#home-button:not([disabled=true]):hover:active .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -4) !important;
+}
+:root[namoroka-style-1] .toolbarbutton-1#home-button:not([disabled=true])[open=true] .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -3) !important;
+}
+:root[namoroka-style-1] .toolbarbutton-1#home-button[disabled=true] .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -2);
+}
+:root[namoroka-style-1] .toolbarbutton-1#history-panelmenu .toolbarbutton-icon {
+  --icon-offset: -6 !important;
+  list-style-image: none !important;
+  background-image: var(--toolbar-spritesheet) !important;
+  background-position-x: calc(var(--toolbarbutton-icon-size) * var(--icon-offset)) !important;
+}
+:root[namoroka-style-1] .toolbarbutton-1#history-panelmenu:not([disabled=true]):hover .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -1) !important;
+}
+:root[namoroka-style-1] .toolbarbutton-1#history-panelmenu:not([disabled=true]):hover:active .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -4) !important;
+}
+:root[namoroka-style-1] .toolbarbutton-1#history-panelmenu:not([disabled=true])[open=true] .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -3) !important;
+}
+:root[namoroka-style-1] .toolbarbutton-1#history-panelmenu[disabled=true] .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -2);
+}
+:root[namoroka-style-1] .toolbarbutton-1#bookmarks-menu-button .toolbarbutton-icon {
+  --icon-offset: -7 !important;
+  list-style-image: none !important;
+  background-image: var(--toolbar-spritesheet) !important;
+  background-position-x: calc(var(--toolbarbutton-icon-size) * var(--icon-offset)) !important;
+}
+:root[namoroka-style-1] .toolbarbutton-1#bookmarks-menu-button:not([disabled=true]):hover .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -1) !important;
+}
+:root[namoroka-style-1] .toolbarbutton-1#bookmarks-menu-button:not([disabled=true]):hover:active .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -4) !important;
+}
+:root[namoroka-style-1] .toolbarbutton-1#bookmarks-menu-button:not([disabled=true])[open=true] .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -3) !important;
+}
+:root[namoroka-style-1] .toolbarbutton-1#bookmarks-menu-button[disabled=true] .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -2);
+}
+:root[namoroka-style-1] .toolbarbutton-1#print-button .toolbarbutton-icon {
+  --icon-offset: -8 !important;
+  list-style-image: none !important;
+  background-image: var(--toolbar-spritesheet) !important;
+  background-position-x: calc(var(--toolbarbutton-icon-size) * var(--icon-offset)) !important;
+}
+:root[namoroka-style-1] .toolbarbutton-1#print-button:not([disabled=true]):hover .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -1) !important;
+}
+:root[namoroka-style-1] .toolbarbutton-1#print-button:not([disabled=true]):hover:active .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -4) !important;
+}
+:root[namoroka-style-1] .toolbarbutton-1#print-button:not([disabled=true])[open=true] .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -3) !important;
+}
+:root[namoroka-style-1] .toolbarbutton-1#print-button[disabled=true] .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -2);
+}
+:root[namoroka-style-1] .toolbarbutton-1#new-tab-button .toolbarbutton-icon {
+  --icon-offset: -9 !important;
+  list-style-image: none !important;
+  background-image: var(--toolbar-spritesheet) !important;
+  background-position-x: calc(var(--toolbarbutton-icon-size) * var(--icon-offset)) !important;
+}
+:root[namoroka-style-1] .toolbarbutton-1#new-tab-button:not([disabled=true]):hover .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -1) !important;
+}
+:root[namoroka-style-1] .toolbarbutton-1#new-tab-button:not([disabled=true]):hover:active .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -4) !important;
+}
+:root[namoroka-style-1] .toolbarbutton-1#new-tab-button:not([disabled=true])[open=true] .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -3) !important;
+}
+:root[namoroka-style-1] .toolbarbutton-1#new-tab-button[disabled=true] .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -2);
+}
+:root[namoroka-style-1] .toolbarbutton-1#new-window-button .toolbarbutton-icon {
+  --icon-offset: -10 !important;
+  list-style-image: none !important;
+  background-image: var(--toolbar-spritesheet) !important;
+  background-position-x: calc(var(--toolbarbutton-icon-size) * var(--icon-offset)) !important;
+}
+:root[namoroka-style-1] .toolbarbutton-1#new-window-button:not([disabled=true]):hover .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -1) !important;
+}
+:root[namoroka-style-1] .toolbarbutton-1#new-window-button:not([disabled=true]):hover:active .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -4) !important;
+}
+:root[namoroka-style-1] .toolbarbutton-1#new-window-button:not([disabled=true])[open=true] .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -3) !important;
+}
+:root[namoroka-style-1] .toolbarbutton-1#new-window-button[disabled=true] .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -2);
+}
+:root[namoroka-style-1] .toolbarbutton-1#cut-button .toolbarbutton-icon {
+  --icon-offset: -11 !important;
+  list-style-image: none !important;
+  background-image: var(--toolbar-spritesheet) !important;
+  background-position-x: calc(var(--toolbarbutton-icon-size) * var(--icon-offset)) !important;
+}
+:root[namoroka-style-1] .toolbarbutton-1#cut-button:not([disabled=true]):hover .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -1) !important;
+}
+:root[namoroka-style-1] .toolbarbutton-1#cut-button:not([disabled=true]):hover:active .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -4) !important;
+}
+:root[namoroka-style-1] .toolbarbutton-1#cut-button:not([disabled=true])[open=true] .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -3) !important;
+}
+:root[namoroka-style-1] .toolbarbutton-1#cut-button[disabled=true] .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -2);
+}
+:root[namoroka-style-1] .toolbarbutton-1#copy-button .toolbarbutton-icon {
+  --icon-offset: -12 !important;
+  list-style-image: none !important;
+  background-image: var(--toolbar-spritesheet) !important;
+  background-position-x: calc(var(--toolbarbutton-icon-size) * var(--icon-offset)) !important;
+}
+:root[namoroka-style-1] .toolbarbutton-1#copy-button:not([disabled=true]):hover .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -1) !important;
+}
+:root[namoroka-style-1] .toolbarbutton-1#copy-button:not([disabled=true]):hover:active .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -4) !important;
+}
+:root[namoroka-style-1] .toolbarbutton-1#copy-button:not([disabled=true])[open=true] .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -3) !important;
+}
+:root[namoroka-style-1] .toolbarbutton-1#copy-button[disabled=true] .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -2);
+}
+:root[namoroka-style-1] .toolbarbutton-1#paste-button .toolbarbutton-icon {
+  --icon-offset: -13 !important;
+  list-style-image: none !important;
+  background-image: var(--toolbar-spritesheet) !important;
+  background-position-x: calc(var(--toolbarbutton-icon-size) * var(--icon-offset)) !important;
+}
+:root[namoroka-style-1] .toolbarbutton-1#paste-button:not([disabled=true]):hover .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -1) !important;
+}
+:root[namoroka-style-1] .toolbarbutton-1#paste-button:not([disabled=true]):hover:active .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -4) !important;
+}
+:root[namoroka-style-1] .toolbarbutton-1#paste-button:not([disabled=true])[open=true] .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -3) !important;
+}
+:root[namoroka-style-1] .toolbarbutton-1#paste-button[disabled=true] .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -2);
+}
+:root[namoroka-style-1] .toolbarbutton-1#email-link-button .toolbarbutton-icon {
+  --icon-offset: -14 !important;
+  list-style-image: none !important;
+  background-image: var(--toolbar-spritesheet) !important;
+  background-position-x: calc(var(--toolbarbutton-icon-size) * var(--icon-offset)) !important;
+}
+:root[namoroka-style-1] .toolbarbutton-1#email-link-button:not([disabled=true]):hover .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -1) !important;
+}
+:root[namoroka-style-1] .toolbarbutton-1#email-link-button:not([disabled=true]):hover:active .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -4) !important;
+}
+:root[namoroka-style-1] .toolbarbutton-1#email-link-button:not([disabled=true])[open=true] .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -3) !important;
+}
+:root[namoroka-style-1] .toolbarbutton-1#email-link-button[disabled=true] .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -2);
+}
+:root[namoroka-style-1] .toolbarbutton-1#unified-extensions-button .toolbarbutton-icon {
+  --icon-offset: -15 !important;
+  list-style-image: none !important;
+  background-image: var(--toolbar-spritesheet) !important;
+  background-position-x: calc(var(--toolbarbutton-icon-size) * var(--icon-offset)) !important;
+}
+:root[namoroka-style-1] .toolbarbutton-1#unified-extensions-button:not([disabled=true]):hover .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -1) !important;
+}
+:root[namoroka-style-1] .toolbarbutton-1#unified-extensions-button:not([disabled=true]):hover:active .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -4) !important;
+}
+:root[namoroka-style-1] .toolbarbutton-1#unified-extensions-button:not([disabled=true])[open=true] .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -3) !important;
+}
+:root[namoroka-style-1] .toolbarbutton-1#unified-extensions-button[disabled=true] .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -2);
+}
+:root[namoroka-style-1] .toolbarbutton-1#open-file-button .toolbarbutton-icon {
+  --icon-offset: -16 !important;
+  list-style-image: none !important;
+  background-image: var(--toolbar-spritesheet) !important;
+  background-position-x: calc(var(--toolbarbutton-icon-size) * var(--icon-offset)) !important;
+}
+:root[namoroka-style-1] .toolbarbutton-1#open-file-button:not([disabled=true]):hover .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -1) !important;
+}
+:root[namoroka-style-1] .toolbarbutton-1#open-file-button:not([disabled=true]):hover:active .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -4) !important;
+}
+:root[namoroka-style-1] .toolbarbutton-1#open-file-button:not([disabled=true])[open=true] .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -3) !important;
+}
+:root[namoroka-style-1] .toolbarbutton-1#open-file-button[disabled=true] .toolbarbutton-icon {
+  background-position-y: calc(var(--toolbarbutton-icon-size) * -2);
+}
+:root[namoroka-style-1] .close-icon {
+  background-image: url("chrome://namoroka/content/firefox-2/icons/close.png") !important;
+  list-style-image: none !important;
+}
+:root[namoroka-style-1] {
+  --tab-min-height: 22px !important;
+  --inline-tab-padding: 8px !important;
+  --page-icon: url("chrome://namoroka/content/firefox-2/icons/page.png") !important;
+  --page-invalid-icon: var(--page-icon) !important;
+  --tab-background-radius: 4px !important;
+}
+:root[namoroka-style-1] #TabsToolbar {
+  border: 0 !important;
+  box-shadow: none !important;
+  background: -moz-Dialog url("chrome://namoroka/content/firefox-2/icons/tabbrowser-tabs-bkgnd.png") !important;
+  position: relative !important;
+  padding: 0 !important;
+  padding-block-end: 3px !important;
+}
+:root[namoroka-style-1] #TabsToolbar::after {
+  content: "";
+  display: flex;
+  width: 100%;
+  height: 2px !important;
+  margin: 0px !important;
+  background: -moz-dialog url("chrome://namoroka/content/firefox-2/icons/tabstrip-bottom.png") repeat !important;
+  border-top: 1px solid threedshadow !important;
+  border-bottom: 1px solid threedshadow !important;
+  position: absolute !important;
+  left: 0 !important;
+  bottom: 0 !important;
+  pointer-events: none !important;
+}
+:root[namoroka-style-1] #TabsToolbar .toolbar-items {
+  z-index: 1 !important;
+}
+:root[namoroka-style-1] #TabsToolbar .tabbrowser-tab {
+  appearance: none !important;
+  margin: 0 !important;
+  border: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  margin-block-start: 1px !important;
+  -moz-user-focus: normal !important;
+  overflow: visible !important;
+  max-height: var(--tab-min-height) !important;
+}
+:root[namoroka-style-1] #TabsToolbar .tabbrowser-tab .tab-stack {
+  height: 23px;
+}
+:root[namoroka-style-1] #TabsToolbar .tabbrowser-tab[selected] .tab-stack {
+  height: 25px;
+}
+:root[namoroka-style-1] #TabsToolbar .tabbrowser-tab:not([selected]) .tab-content {
+  padding-block-start: 2px !important;
+}
+:root[namoroka-style-1] #TabsToolbar .tabbrowser-tab .tab-background {
+  visibility: visible !important;
+  border-radius: 0 !important;
+  margin-block: 0 !important;
+  box-shadow: none !important;
+  background-color: transparent !important;
+  outline: 0 !important;
+  flex-direction: row !important;
+}
+:root[namoroka-style-1] #TabsToolbar .tabbrowser-tab .tab-background .tab-context-line,
+:root[namoroka-style-1] #TabsToolbar .tabbrowser-tab .tab-background .tab-loading-burst {
+  visibility: collapse !important;
+}
+:root[namoroka-style-1] #TabsToolbar .tabbrowser-tab .tab-background .tab-background-start,
+:root[namoroka-style-1] #TabsToolbar .tabbrowser-tab .tab-background .tab-background-middle,
+:root[namoroka-style-1] #TabsToolbar .tabbrowser-tab .tab-background .tab-background-end {
+  background-color: -moz-Dialog !important;
+}
+:root[namoroka-style-1] #TabsToolbar .tabbrowser-tab .tab-background .tab-background-start,
+:root[namoroka-style-1] #TabsToolbar .tabbrowser-tab .tab-background .tab-background-end {
+  width: 8px !important;
+}
+:root[namoroka-style-1] #TabsToolbar .tabbrowser-tab .tab-background .tab-background-start {
+  border-top-left-radius: var(--tab-background-radius) !important;
+  background-image: url("chrome://namoroka/content/firefox-2/icons/tab-left-bkgnd.png") !important;
+}
+:root[namoroka-style-1] #TabsToolbar .tabbrowser-tab .tab-background .tab-background-middle {
+  flex: 1 !important;
+  background-image: url("chrome://namoroka/content/firefox-2/icons/tab-middle-bkgnd.png") !important;
+}
+:root[namoroka-style-1] #TabsToolbar .tabbrowser-tab .tab-background .tab-background-end {
+  background-image: url("chrome://namoroka/content/firefox-2/icons/tab-right-bkgnd.png") !important;
+  border-top-right-radius: var(--tab-background-radius) !important;
+}
+:root[namoroka-style-1] #TabsToolbar .tabbrowser-tab .tab-background:not([selected]) .tab-background-start,
+:root[namoroka-style-1] #TabsToolbar .tabbrowser-tab .tab-background:not([selected]) .tab-background-middle,
+:root[namoroka-style-1] #TabsToolbar .tabbrowser-tab .tab-background:not([selected]) .tab-background-end {
+  height: 23px !important;
+  margin-bottom: 1px !important;
+}
+:root[namoroka-style-1] #TabsToolbar .tabbrowser-tab .tab-background[selected] .tab-background-start {
+  background-image: url("chrome://namoroka/content/firefox-2/icons/tab-left.png") !important;
+}
+:root[namoroka-style-1] #TabsToolbar .tabbrowser-tab .tab-background[selected] .tab-background-middle {
+  background-image: url("chrome://namoroka/content/firefox-2/icons/tab-middle.png") !important;
+}
+:root[namoroka-style-1] #TabsToolbar .tabbrowser-tab .tab-background[selected] .tab-background-end {
+  background-image: url("chrome://namoroka/content/firefox-2/icons/tab-right.png") !important;
+}
+:root[namoroka-style-1] #TabsToolbar .tabbrowser-tab:hover .tab-background:not([selected]) .tab-background-start {
+  background-image: url("chrome://namoroka/content/firefox-2/icons/tab-left-hover.png") !important;
+}
+:root[namoroka-style-1] #TabsToolbar .tabbrowser-tab:hover .tab-background:not([selected]) .tab-background-middle {
+  background-image: url("chrome://namoroka/content/firefox-2/icons/tab-middle-hover.png") !important;
+}
+:root[namoroka-style-1] #TabsToolbar .tabbrowser-tab:hover .tab-background:not([selected]) .tab-background-end {
+  background-image: url("chrome://namoroka/content/firefox-2/icons/tab-right-hover.png") !important;
+}
+:root[namoroka-style-1] #TabsToolbar .tabbrowser-tab .tab-text {
+  border: 1px dotted transparent !important;
+  margin-block: 0 !important;
+}
+:root[namoroka-style-1] #TabsToolbar .tabbrowser-tab:focus .tab-text {
+  border: 1px dotted -moz-DialogText !important;
+}
+:root[namoroka-style-1] #TabsToolbar .tabbrowser-tab:not([selected]) .tab-close-button:not(:hover, :hover:active) {
+  background-position-x: -48px !important;
+}
+:root[namoroka-style-1] #TabsToolbar .tabbrowser-tab .tab-close-button {
+  margin-inline-end: 0 !important;
+}
+:root[namoroka-style-1] #TabsToolbar .toolbarbutton-1 {
+  border: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+:root[namoroka-style-1] #TabsToolbar #alltabs-button {
+  width: 18px !important;
+  height: 23px !important;
+  margin-block-start: 1px !important;
+  margin-block-end: 1px !important;
+  padding-inline: 4px !important;
+  background-color: -moz-Dialog !important;
+  background-image: url("chrome://namoroka/content/firefox-2/icons/alltabs-box-end-bkgnd.png") !important;
+  list-style-image: url("chrome://namoroka/content/firefox-1/arrow/arrow-dn.gif") !important;
+  border-top-left-radius: var(--tab-background-radius) !important;
+}
+:root[namoroka-style-1] #TabsToolbar #alltabs-button:hover, :root[namoroka-style-1] #TabsToolbar #alltabs-button[open=true] {
+  background-image: url("chrome://namoroka/content/firefox-2/icons/alltabs-box-end-bkgnd-hover.png") !important;
+}
+:root[namoroka-style-1] #TabsToolbar #alltabs-button .toolbarbutton-icon {
+  width: 5px !important;
+  height: 3px !important;
+  margin-block-start: 3px !important;
+}
+:root[namoroka-style-1] #TabsToolbar #tabbrowser-tabs[overflow=true] ~ #alltabs-button {
+  border-top-left-radius: 0 !important;
+  background-image: url("chrome://namoroka/content/firefox-2/icons/alltabs-box-overflow-end-bkgnd.png") !important;
+}
+:root[namoroka-style-1] #TabsToolbar #tabbrowser-tabs[overflow=true] ~ #alltabs-button:hover, :root[namoroka-style-1] #TabsToolbar #tabbrowser-tabs[overflow=true] ~ #alltabs-button[open=true] {
+  background-image: url("chrome://namoroka/content/firefox-2/icons/alltabs-box-overflow-end-bkgnd-hover.png") !important;
+}
+:root[namoroka-style-1] {
+  --urlbar-root-height: 22px !important;
+  --urlbar-container-padding: 0 !important;
+  --urlbar-margin-inline: 3px !important;
+  --secure-icon: url("chrome://namoroka/content/firefox-2/Secure.png") !important;
+}
+:root[namoroka-style-1] .searchbar-textbox::placeholder {
+  opacity: 1 !important;
+}
+:root[namoroka-style-1] #urlbar-container {
+  margin-inline-end: 0 !important;
+}
+:root[namoroka-style-1] #urlbar-container #urlbar {
+  --urlbar-height: var(--urlbar-root-height) !important;
+}
+:root[namoroka-style-1] #urlbar-container #urlbar #urlbar-background {
+  appearance: none !important;
+  border: 1px solid #96969D !important;
+  border-radius: 0 !important;
+  background-color: -moz-field !important;
+}
+:root[namoroka-style-1] #urlbar-container #urlbar .autocomplete-history-dropmarker {
+  appearance: none !important;
+  background-color: -moz-Dialog !important;
+  border-inline-start: 1px solid #96969D !important;
+  position: relative;
+  box-shadow: inset 0 0 0 1px -moz-Dialog !important;
+  background-image: linear-gradient(to bottom, transparent 0%, transparent 50%, rgba(0, 0, 0, 0.04) 50%, rgba(0, 0, 0, 0.06) 100%) !important;
+  /* Firefox uses Shadow DOM for the arrow, which 
+     is annoying as fuck to style so we just gonna
+     use a psuedo element... LOL!
+  */
+}
+:root[namoroka-style-1] #urlbar-container #urlbar .autocomplete-history-dropmarker:hover {
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(0, 0, 0, 0.08) 50%, rgba(0, 0, 0, 0.13) 100%) !important;
+}
+:root[namoroka-style-1] #urlbar-container #urlbar .autocomplete-history-dropmarker:hover:active {
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(0, 0, 0, 0.12) 50%, rgba(0, 0, 0, 0.21) 100%) !important;
+}
+:root[namoroka-style-1] #urlbar-container #urlbar .autocomplete-history-dropmarker::before {
+  content: "";
+  display: flex;
+  width: 16px !important;
+  height: 20px !important;
+  background-image: url("chrome://namoroka/content/firefox-2/icons/autocomplete-dropmark-arrow.png") !important;
+}
+:root[namoroka-style-1] #urlbar-container #urlbar .autocomplete-history-dropmarker:hover::before {
+  background-position-x: -16px !important;
+}
+:root[namoroka-style-1] #urlbar-container #urlbar .autocomplete-history-dropmarker:hover:active::before {
+  background-position-x: -48px !important;
+}
+:root[namoroka-style-1] #nav-bar #go-button {
+  width: 26px !important;
+  height: var(--urlbar-root-height) !important;
+  padding: 0 !important;
+  border: 1px solid #96969D !important;
+  background-color: -moz-Dialog !important;
+  margin-inline-start: -1px !important;
+  border-top-right-radius: 4px !important;
+  border-bottom-right-radius: 4px !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-inline-end: 5px !important;
+  box-shadow: inset 0 0 0 1px -moz-Dialog !important;
+  background-image: linear-gradient(to bottom, transparent 0%, transparent 50%, rgba(0, 0, 0, 0.04) 50%, rgba(0, 0, 0, 0.06) 100%) !important;
+}
+:root[namoroka-style-1] #nav-bar #go-button:hover {
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(0, 0, 0, 0.08) 50%, rgba(0, 0, 0, 0.13) 100%) !important;
+}
+:root[namoroka-style-1] #nav-bar #go-button:hover:active {
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(0, 0, 0, 0.12) 50%, rgba(0, 0, 0, 0.21) 100%) !important;
+}
+:root[namoroka-style-1] #nav-bar #go-button .toolbarbutton-icon {
+  width: 25px !important;
+  height: 22px !important;
+  margin: 0 !important;
+  background-image: url("chrome://namoroka/content/firefox-2/icons/Go-arrow.png") !important;
+}
+:root[namoroka-style-1] #nav-bar #go-button:hover .toolbarbutton-icon {
+  background-position-x: -25px !important;
+}
+:root[namoroka-style-1] #nav-bar #go-button:hover:active .toolbarbutton-icon {
+  background-position-x: -75px !important;
+}
+:root[namoroka-style-1] #nav-bar #go-button .toolbarbutton-text {
+  visibility: collapse !important;
+}
+:root[namoroka-style-1] #search-container {
+  margin-inline-start: 3px !important;
+  margin-inline-end: 0 !important;
+}
+:root[namoroka-style-1] #searchbar {
+  appearance: none !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background-color: transparent !important;
+}
+:root[namoroka-style-1] #searchbar .searchbar-search-button {
+  border: 1px solid #A4A4AB !important;
+  border-inline-end-width: 0 !important;
+  background-color: -moz-Dialog !important;
+  box-shadow: inset 0 0 0 1px -moz-Dialog !important;
+  background-image: linear-gradient(to bottom, transparent 0%, transparent 50%, rgba(0, 0, 0, 0.04) 50%, rgba(0, 0, 0, 0.06) 100%) !important;
+}
+:root[namoroka-style-1] #searchbar .searchbar-search-button:hover {
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(0, 0, 0, 0.08) 50%, rgba(0, 0, 0, 0.13) 100%) !important;
+}
+:root[namoroka-style-1] #searchbar .searchbar-search-button .searchbar-search-icon {
+  margin: 0 !important;
+  margin-inline-start: 3px !important;
+}
+:root[namoroka-style-1] #searchbar .searchbar-search-button .searchbar-search-icon-overlay {
+  width: 5px !important;
+  height: 3px !important;
+  align-self: center !important;
+  margin: 0 !important;
+  margin-inline: 3px !important;
+  list-style-image: url("chrome://namoroka/content/firefox-1/arrow/arrow-dn.gif") !important;
+}
+:root[namoroka-style-1] #searchbar .searchbar-textbox {
+  border-inline-start: 1px solid #96969D !important;
+  border-block: 1px solid #96969D !important;
+  background-color: -moz-field !important;
+  padding-inline: 3px !important;
+  border-radius: 0 !important;
+}
+:root[namoroka-style-1] #searchbar .search-go-container {
+  width: 26px !important;
+  height: var(--urlbar-root-height) !important;
+  padding: 0 !important;
+  background-color: -moz-Dialog !important;
+  border: 1px solid #96969D !important;
+  border-radius: 0 !important;
+  border-top-right-radius: 4px !important;
+  border-bottom-right-radius: 4px !important;
+  margin-inline-end: 5px !important;
+  box-shadow: inset 0 0 0 1px -moz-Dialog !important;
+  background-image: linear-gradient(to bottom, transparent 0%, transparent 50%, rgba(0, 0, 0, 0.04) 50%, rgba(0, 0, 0, 0.06) 100%) !important;
+}
+:root[namoroka-style-1] #searchbar .search-go-container:hover {
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(0, 0, 0, 0.08) 50%, rgba(0, 0, 0, 0.13) 100%) !important;
+}
+:root[namoroka-style-1] #searchbar .search-go-container:hover:active {
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(0, 0, 0, 0.12) 50%, rgba(0, 0, 0, 0.21) 100%) !important;
+}
+:root[namoroka-style-1] #searchbar .search-go-container .search-go-button {
+  display: flex !important;
+  width: 25px !important;
+  height: 22px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background-color: transparent !important;
+  border-radius: 0 !important;
+  background-image: url("chrome://namoroka/content/firefox-2/Search-glass.png") !important;
+  list-style-image: none !important;
+}
+:root[namoroka-style-1] #searchbar .search-go-container:hover .search-go-button {
+  background-position-x: -25px !important;
+}
+:root[namoroka-style-1] #searchbar .search-go-container:hover:active .search-go-button {
+  background-position-x: -75px !important;
+}
+:root[namoroka-style-1] #navigator-toolbox {
+  border-block-start: 1px solid ThreeDShadow !important;
+}
+:root[namoroka-style-1] toolbar[type=menubar] {
+  border-block-start-width: 1px !important;
+}
+:root[namoroka-style-1] menu,
+:root[namoroka-style-1] menuitem {
+  color: MenuText !important;
+  font: menu !important;
+}
+:root[namoroka-style-1] menu[disabled=true], :root[namoroka-style-1] menu[_moz-menuactive=true][disabled=true],
+:root[namoroka-style-1] menuitem[disabled=true],
+:root[namoroka-style-1] menuitem[_moz-menuactive=true][disabled=true] {
+  color: GrayText !important;
+  text-shadow: none !important;
+}
+:root[namoroka-style-1] menubar menu {
+  border: 1px solid transparent !important;
+  background-color: transparent !important;
+  padding: 1px 3px 1px 2px !important;
+  margin: 0px 0px 1px 0px !important;
+}
+:root[namoroka-style-1] menubar menu[_moz-menuactive=true] {
+  padding: 1px 3px 1px 2px !important;
+  border-color: transparent !important;
+  background-color: Highlight !important;
+  color: HighlightText !important;
+}
+:root[namoroka-style-1] menubar menu[_moz-menuactive=true][open=true] {
+  border-color: transparent !important;
+}
+:root[namoroka-style-1] menubar menu .menubar-text {
+  padding-top: 2px !important;
+  margin: 1px 4px 2px 5px !important;
+  color: inherit !important;
+}
+:root[namoroka-style-1] :root {
+  --folder-item: url("chrome://namoroka/content/firefox-2/folder-item.png") !important;
+}
+
+/* ::::: Firefox 3 ::::: */
+
+/*# sourceMappingURL=namoroka.css.map */

@@ -1,0 +1,11 @@
+content userchromejs                                                ./
+content userscripts                                                 ../JS/
+content modules                                                     ../JS/modules/
+
+locale  namoroka                                                    en-US ../locale/en-US/
+
+skin	userstyles	                                                classic/1.0	../CSS/
+content userchrome                                                  ../ contentaccessible=yes
+content namoroka                                                    ../assets/images/ contentaccessible=yes
+
+override chrome://global/skin/arrowscrollbox.css                    ../assets/override/global/skin/arrowscrollbox.css

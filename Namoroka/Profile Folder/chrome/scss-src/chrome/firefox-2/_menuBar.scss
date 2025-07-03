@@ -1,0 +1,37 @@
+menu,
+menuitem {
+    color: MenuText !important;
+    font: menu !important;
+
+    &[disabled="true"],
+    &[_moz-menuactive="true"][disabled="true"] {
+        color: GrayText !important;
+        text-shadow: none !important;
+    }
+}
+
+menubar {
+    menu {
+        border: 1px solid transparent !important;
+        background-color: transparent !important;
+        padding: 1px 3px 1px 2px !important;
+        margin: 0px 0px 1px 0px !important;
+
+        &[_moz-menuactive="true"] {
+            padding: 1px 3px 1px 2px !important;
+            border-color: transparent !important;
+            background-color : Highlight !important;
+            color: HighlightText !important;
+
+            &[open="true"] {
+                border-color: transparent !important;
+            }
+        }
+
+        .menubar-text {
+            padding-top: 2px !important;
+            margin: 1px 4px 2px 5px !important;
+            color: inherit !important;
+        }
+    }
+}

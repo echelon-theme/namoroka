@@ -1,0 +1,15 @@
+#navigator-toolbox {
+    border-bottom-width: 0 !important;
+}
+
+.browser-toolbar {
+    background-color: -moz-Dialog !important;
+    color: -moz-DialogText !important;
+    border-block-start: 1px solid ThreeDHighlight !important;
+    border-block-end: 1px solid ThreeDShadow !important;
+}
+
+toolbar[type="menubar"],
+menubar {
+    border-block-start-width: 0 !important;
+}

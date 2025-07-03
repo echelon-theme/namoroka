@@ -1,0 +1,28 @@
+#PopupSearchAutoComplete {
+    &::part(content) {
+        width: calc(var(--panel-width) - 35px) !important;
+        display: flex !important;
+        padding: 0 !important;
+        border: 1px solid black !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        margin-inline-start: 35px !important;
+        background-color: -moz-field !important;
+    }
+
+    .autocomplete-richlistitem {
+        padding: 4px 9px 2px 9px !important;
+        color: -moz-FieldText !important;
+        background-color: -moz-field !important;
+
+        &:hover {
+            background-color: Highlight !important;
+            color: HighlightText !important;
+        }
+
+        .ac-type-icon,
+        .ac-site-icon {
+            visibility: collapse !important;
+        }
+    }
+}

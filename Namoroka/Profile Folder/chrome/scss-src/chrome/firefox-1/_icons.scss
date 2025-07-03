@@ -1,0 +1,86 @@
+@import "_mixins.scss";
+
+:root {
+    --toolbar-spritesheet: url("chrome://namoroka/content/firefox-1/Toolbar.png");
+
+    &[namoroka-appearance-small-icons="true"] {
+        --toolbar-spritesheet: url("chrome://namoroka/content/firefox-1/Toolbar-small.png");
+    }
+}
+
+$iconRegionMap: (
+    "back-button": 0,
+    "forward-button": 1,
+    "stop-button": 2,
+    "reload-button": 3,
+    "home-button": 4,
+    "history-panelmenu": 6,
+    "bookmarks-menu-button": 7,
+    "print-button": 8,
+    "new-tab-button": 9,
+    "new-window-button": 10,
+    "cut-button": 11,
+    "copy-button": 12,
+    "paste-button": 13,
+    "email-link-button": 14,
+    "unified-extensions-button": 15,
+    "open-file-button": 16,
+);
+
+#nav-bar {
+    .toolbarbutton-1 {
+        .toolbarbutton-icon {
+            width: var(--toolbarbutton-icon-size) !important;
+            height: var(--toolbarbutton-icon-size) !important;
+        }
+    }
+}
+
+.toolbarbutton-1 {
+    @each $icon, $offset in $iconRegionMap {
+        &##{$icon} {
+            .toolbarbutton-icon {
+                // FUCK SCSS
+                --icon-offset: -#{$offset} !important;
+                list-style-image: none !important;
+                background-image: var(--toolbar-spritesheet) !important;
+                background-position-x: calc(var(--toolbarbutton-icon-size) * var(--icon-offset)) !important;
+            }
+
+            &:not([disabled="true"]):hover,
+            &:not([disabled="true"]):hover:active {
+                .toolbarbutton-icon {
+                    background-position-y: calc(var(--toolbarbutton-icon-size) * -1) !important;
+                }
+            }
+
+            &:not([disabled="true"])[open="true"] {
+                .toolbarbutton-icon {
+                    background-position-y: calc(var(--toolbarbutton-icon-size) * -3) !important;
+                }
+            }
+
+            &[disabled="true"] {
+                .toolbarbutton-icon {
+                    background-position-y: calc(var(--toolbarbutton-icon-size) * -2);
+                }
+            }
+        }
+    }
+}
+
+// downloads button tryna be different
+#downloads-indicator-anchor {
+    --icon-offset: -5 !important;
+    width: var(--toolbarbutton-icon-size) !important;
+    height: var(--toolbarbutton-icon-size) !important;
+    list-style-image: none !important;
+    background-image: var(--toolbar-spritesheet) !important;
+    background-position-x: calc(var(--toolbarbutton-icon-size) * var(--icon-offset)) !important;
+}
+
+.close-icon {
+    @include set-size(16px, 16px);
+    @include set-background("firefox-1/icons/close.png");
+    @include set-horizontal-states(0, 16px, 32px);
+}

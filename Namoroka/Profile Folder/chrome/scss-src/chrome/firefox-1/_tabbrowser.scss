@@ -1,0 +1,108 @@
+:root {
+    --tab-min-height: 0 !important;
+    --inline-tab-padding: 0 !important; // we do this ourselves
+    --page-icon: url("chrome://namoroka/content/firefox-1/icons/page.png") !important;
+    --page-invalid-icon: url("chrome://namoroka/content/firefox-1/icons/page-invalid.png") !important;
+}
+
+#TabsToolbar {
+    border-block-start-width: 0 !important;
+    padding-block: 1px !important;
+    background-image: url("chrome://namoroka/content/firefox-1/icons/tabstrip-bottom.png") !important;
+    background-repeat: repeat-x !important;
+    background-position: bottom 1px center !important;
+    box-shadow: inset 0 -1px 0 ThreeDLightShadow !important;
+
+    .tabbrowser-tab {
+        appearance: tab !important;
+        border: 2px solid transparent !important;
+        border-bottom-width: 1px !important;
+        margin-top: 2px !important;
+        margin-bottom: 1px !important;
+        padding: 0px 4px 1px 4px !important;
+        background-color: -moz-Dialog !important;
+        color: -moz-DialogText !important;
+   
+        &[selected] {
+            font-weight: bold !important;
+            margin-block: 0 !important;
+            border-bottom-color: transparent !important;
+            padding: 2px 6px 4px 6px !important;
+            
+            &:first-of-type {
+                padding-inline: 5px !important;
+            }
+
+            .tab-throbber, 
+            .tab-icon-pending, 
+            .tab-icon-image, 
+            .tab-sharing-icon-overlay, 
+            .tab-icon-overlay {
+                &:not([pinned]) {
+                    margin-block-start: 1px !important;
+                }
+            }
+        }
+        
+        .tab-background {
+            visibility: collapse !important;
+        }
+
+        .tab-content {
+            .tab-throbber, 
+            .tab-icon-pending, 
+            .tab-icon-image, 
+            .tab-sharing-icon-overlay, 
+            .tab-icon-overlay {
+                &:not([pinned]) {
+                    margin-inline-end: 3px !important;
+                }
+            }
+
+            // Firefox 1 always showed the tab icon
+            .tab-icon-image:not([src]), 
+            .tab-icon-image:-moz-broken {
+                display: flex !important;
+                content: var(--page-icon) !important;
+            }
+
+            .tab-label-container {
+                mask-image: none !important;
+                height: unset !important;
+
+                .tab-label {
+                    width: 100% !important;
+                    margin-block-start: 1px !important;
+                    line-height: normal !important;
+                    overflow: hidden !important;
+                    text-overflow: ellipsis !important;
+                }
+
+                .tab-secondary-label {
+                    visibility: collapse !important;
+                }
+            }
+
+            :root:not([namoroka-style-1="true"]) & {
+                .tab-close-button {
+                    visibility: collapse !important;
+                }
+            }
+        }
+
+    }
+
+    .tabs-closebutton-box {
+        padding: 4px !important;
+
+        :root[namoroka-style-1="true"] & {
+            visibility: collapse !important;
+        }
+    }
+
+    :root:not([namoroka-style-1="true"]) & {
+        #tabbrowser-tabs:not([overflow], [hashiddentabs]) ~ #alltabs-button {
+            display: none !important;
+        }
+    }
+}

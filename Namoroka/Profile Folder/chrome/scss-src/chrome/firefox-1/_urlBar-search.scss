@@ -1,0 +1,306 @@
+:root {
+    --urlbar-root-height: 22px !important;
+    --urlbar-min-height: var(--urlbar-root-height) !important;
+
+    --secure-icon: url("chrome://namoroka/content/firefox-1/Secure.png") !important;
+
+    @media (-moz-windows-classic) {
+        & {
+            --urlbar-root-height: 24px !important;
+        }
+    }
+}
+
+#urlbar, #searchbar {
+    font-size: 1em !important;
+    color: -moz-DialogText !important;
+}
+
+#urlbar-background, 
+#searchbar {
+    height: var(--urlbar-height) !important;
+    -moz-default-appearance: textfield !important;
+    appearance: textfield !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+#urlbar-input::placeholder,
+.searchbar-textbox::placeholder {
+    color: GrayText !important;
+    opacity: 0 !important;
+}
+
+#urlbar-container {
+    padding-block: 0 !important;
+
+    #urlbar {
+        top: calc((var(--urlbar-container-height) - var(--urlbar-height)) / 2) !important;
+        --urlbar-height: var(--urlbar-root-height) !important;
+
+        &[breakout] {
+            width: 100% !important;
+            left: 0 !important;
+        }
+
+        #page-proxy-deck {
+            width: 16px !important;
+            height: 16px !important;
+            margin: 2px 3px !important;
+            list-style-image: var(--page-icon) !important;
+
+            image {
+                width: 100% !important;
+                height: 100% !important;
+            }
+        }
+
+        &[pageproxystate="invalid"] {
+            #page-proxy-deck {
+                list-style-image: var(--page-invalid-icon) !important;
+            }
+        }
+
+        #urlbar-input-container,
+        .urlbar-input-container {
+            height: var(--urlbar-height) !important;
+            padding: var(--urlbar-container-padding) !important;
+            border-radius: 0 !important;
+            background-clip: content-box !important;
+
+            &[pageproxystate="valid"] {
+                background-color: #F5F6BE !important;
+                color: #000000 !important;
+            }
+        }
+
+        #tracking-protection-icon-container,
+        #identity-permission-box,
+        #urlbar-go-button
+        {
+            visibility: collapse !important;
+        }
+
+        #identity-box {
+            margin: 0 !important;
+
+            &:not(.verifiedDomain) {
+                visibility: collapse !important;
+            }
+        }
+
+        .autocomplete-history-dropmarker {
+            width: 17px !important;
+            height: 100% !important;
+        }
+
+        #urlbar-input {
+            margin-inline: 3px !important;
+        }
+
+        :root:not([namoroka-style-2]) & {
+            #identity-box {
+                .identity-box-button {
+                    border-radius: 0 !important;
+                    padding: 0 !important;
+                    background-color: transparent !important;
+                }
+
+                #identity-icon {
+                    list-style-image: none !important;
+                }
+
+                &[pageproxystate="valid"] {
+                    &.verifiedDomain {
+                        #identity-icon {
+                            list-style-image: var(--secure-icon) !important;
+                        }
+                    }
+                }
+            }
+        }
+
+        :root[namoroka-style-1] & {
+            #identity-box {
+                &[pageproxystate="valid"] {
+                    &.verifiedDomain {
+                        #identity-icon {
+                            width: 18px !important;
+                            height: 18px !important;
+                            list-style-image: none !important;
+                            background-image: var(--secure-icon) !important;
+
+                            &:hover {
+                                background-position-y: -18px !important;
+
+                                &:active {
+                                    background-position-y: -72px !important;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        :root:not([namoroka-style-2]) & {
+            #page-action-buttons {
+                visibility: collapse !important;
+            }
+        }
+
+        /*
+            TODO: REMAKE -TRAVIS
+        */
+        .urlbarView {
+            display: flex !important;
+            width: 100% !important;
+            margin-inline: 0 !important;
+            background-color: Field !important;
+            border: 1px solid #000 !important;
+            overflow: visible !important;
+            padding: 0 2px !important;
+            color: -moz-DialogText !important;
+
+            &::after {
+                content: '' !important;
+                display: inline-block !important;
+                width: calc(100% - 3px) !important;
+                height: calc(100% - 2px) !important;
+                position: absolute !important;
+                left: 6px !important;
+                top: 5px !important;
+                z-index: -1 !important;
+                background-color: rgb(0 0 0 / 50%) !important;
+                filter: blur(1px) !important;
+            }
+
+            strong {
+                font-weight: normal !important;
+            }
+
+            .urlbarView-body-outer {
+                .urlbarView-body-inner {
+                    border: 0 !important;
+
+                    .urlbarView-results {
+                        padding-block: 0 !important;
+
+                        .urlbarView-row {
+                            min-height: 18px !important;
+                            max-height: 18px !important;
+                            border: 0 !important;
+                            border-radius: 0 !important;
+                            margin-block-start: 0 !important;
+
+                            .urlbarView-row-inner {
+                                min-height: 18px !important;
+                                max-height: 18px !important;
+                                padding-inline: 12px !important;
+                                padding-block: 0 !important;
+                                padding-bottom: 1px !important;
+
+                                .urlbarView-url {
+                                    flex-basis: 100% !important;
+                                    flex-grow: 0 !important;
+                                    font-size: unset !important;
+                                    color: -moz-DialogText !important;
+                                    order: -1 !important;
+                                    margin-right: 15px !important;
+                                }
+
+                                .urlbarView-no-wrap {
+                                    max-width: 35% !important;
+                                    flex-basis: 35% !important;
+                                    flex-grow: 1 !important;
+                                    box-sizing: border-box !important;
+                                }
+                            }
+
+                            &[row-selectable]:not([selected]):hover,
+                            &[selected] {
+                                color: HighlightText !important;
+                                background-color: Highlight !important;
+
+                                .urlbarView-url {
+                                    color: HighlightText !important;
+                                }
+                            }
+
+                            &[type="search"],
+                            &[has-action="true"] {
+                                .urlbarView-row-inner {
+                                    .urlbarView-no-wrap {
+                                        width: 100% !important;
+                                        flex-basis: unset !important;
+                                        max-width: 100% !important;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                @media screen and (min-height: 600px) {
+                    .urlbarView-results[wrap]>.urlbarView-row[has-url]>.urlbarView-row-inner>.urlbarView-url:-moz-locale-dir(ltr) {
+                        padding-inline-start: 0 !important;
+                    }
+
+                    .urlbarView-results[wrap]>.urlbarView-row[has-url]>.urlbarView-row-inner>.urlbarView-url,
+                    .urlbarView-results[wrap]>.urlbarView-row[type="bestmatch"]>.urlbarView-row-inner>.urlbarView-row-body>.urlbarView-row-body-top>.urlbarView-url {
+                        margin-top: 0 !important;
+                    }
+
+                    .urlbarView-results[wrap]>.urlbarView-row:where(:not([rich-suggestion="with-icon"]))>.urlbarView-row-inner {
+                        flex-wrap: nowrap !important;
+                    }
+                }
+            }
+
+            .search-one-offs:not([hidden]),
+            .urlbarView-favicon,
+            .urlbarView-type-icon, 
+            .urlbarView-title-separator,
+            .urlbarView-tags,
+            .urlbarView-action,
+            .urlbarView-button,
+            .urlbarView-row[label]::before {
+                visibility: collapse !important;
+            }
+        }
+    }  
+
+    #urlbar:not([open]) > .urlbarView, #urlbar:not([breakout]) > .urlbarView {
+        display: none !important;
+    }
+
+    .urlbarView-overflowable[overflow], .urlbarView-url[overflow] {
+        mask-image: none !important;
+        text-overflow: ellipsis !important;
+    }
+}
+
+
+.searchbar-search-button {
+    .searchbar-search-icon {
+        margin-inline: 3px 8px !important;
+    }
+    
+    .searchbar-search-icon-overlay {
+        width: 9px !important;
+        height: 6px !important;
+        list-style-image: url("chrome://namoroka/content/firefox-1/search-dropdown.png") !important;
+        align-self: flex-end !important;
+        margin-inline: 0 !important;
+        margin-left: -11px !important;
+        margin-bottom: 1px !important;
+    }
+}
+
+#PopupSearchAutoComplete {
+    .search-panel-current-engine,
+    .search-one-offs,
+    .searchbar-separator {
+        visibility: collapse !important;
+    }
+}

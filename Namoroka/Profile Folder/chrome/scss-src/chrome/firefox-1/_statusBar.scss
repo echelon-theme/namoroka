@@ -1,0 +1,38 @@
+#status-bar {
+    margin-block-start: 2px !important;
+    appearance: statusbar !important;
+    border-top: 1px solid ThreeDShadow !important;
+    border-left: 1px solid ThreeDShadow !important;
+    border-right: 1px solid ThreeDHighlight !important;
+    border-bottom: 1px solid ThreeDHighlight !important;
+    background-color: -moz-Dialog !important;
+    min-height: 22px !important;
+    align-items: center;
+
+    #statuspanel {
+        display: flex !important;
+        position: static !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        padding: 0 !important;
+        max-width: 100% !important;
+        min-width: 100% !important;
+        align-items: center !important;
+        padding-top: 1px !important;
+
+        #statuspanel-label {
+            margin-block-start: 1px !important;
+            margin-block-end: 2px !important;
+            margin-inline-start: 6px !important;
+            margin-inline-end: 5px !important;
+            border: 0 !important;
+            padding: 0 !important;
+        }
+
+        &[inactive] {
+            #statuspanel-label {
+                opacity: 0 !important;
+            }
+        }
+    }
+}

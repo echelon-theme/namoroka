@@ -1,5 +1,9 @@
 #status-bar {
-    margin-block-start: 2px !important;
+    @media (-moz-windows-classic) {
+        & {
+            margin-block-start: 2px !important;
+        }
+    }
     appearance: statusbar !important;
     border-top: 1px solid ThreeDShadow !important;
     border-left: 1px solid ThreeDShadow !important;

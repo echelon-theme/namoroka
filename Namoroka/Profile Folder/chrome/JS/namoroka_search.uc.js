@@ -38,15 +38,6 @@
 			"google@search.mozilla.orgdefault": "chrome://namoroka/content/searchplugins/google.ico",
 		};
 
-		static get menupopupFragment() {
-			return `
-				<menupopup id="searchbar-popup" class="searchbar-popup" position="after_start">
-					<menuseparator/>
-					<menuitem id="open-engine-manager" class="open-engine-manager" label="${LocaleUtils.str(menusBundle, "namoroka_enginemanager_label")}" accesskey="${LocaleUtils.str(menusBundle, "namoroka_enginemanager_accesskey")}" oncommand="openPreferences('paneSearch')" />
-				</menupopup>
-			`;
-		};
-
 		static async obtainIcons()
 		{
 			if (!this.obtainedIcons)
@@ -137,21 +128,31 @@
 
 		static async searchBarSearchButton()
 		{
-			let menupopup = MozXULElement.parseXULToFragment(this.menupopupFragment);
 			let searchButton = await waitForElement(".searchbar-search-button");
 
-			searchButton.appendChild(menupopup);
+			if (!searchButton.querySelector("menupopup")) {
+				let menupopup = MozXULElement.parseXULToFragment(`
+					<menupopup id="searchbar-popup" class="searchbar-popup" position="after_start">
+						<menuseparator/>
+						<menuitem id="open-engine-manager" class="open-engine-manager" label="${LocaleUtils.str(menusBundle, "namoroka_enginemanager_label")}" accesskey="${LocaleUtils.str(menusBundle, "namoroka_enginemanager_accesskey")}" oncommand="openPreferences('paneSearch')" />
+					</menupopup>
+				`);
 
-			searchButton.addEventListener("mousedown", event => {
-				event.stopPropagation();
-				event.preventDefault();
-                searchButton.querySelector("menupopup").openPopup(searchButton, "after_start");
-			});
+				searchButton.appendChild(menupopup);
+				
+				searchButton.addEventListener("mousedown", event => {
+					event.stopPropagation();
+					event.preventDefault();
+					NamorokaSearchManager.buildSearchEngineMenu();
+					searchButton.querySelector("menupopup").openPopup(searchButton, "after_start");
+				});
+			}
 
-			menupopup.addEventListener("popupshowing", this.buildSearchEngineMenu());
+			return;
 		}
 
-		static async buildSearchEngineMenu() {
+		static async buildSearchEngineMenu() 
+		{
 			let menupopup = await waitForElement("#searchbar-popup");
 
 			let items = menupopup.childNodes;
@@ -193,6 +194,7 @@
 		static async installSearchBoxHook()
 		{
 			let searchbar = await waitForElement("#searchbar");
+			let toolboxRoot = await waitForElement("#navigator-toolbox");
 			this.searchbar = searchbar;
 			this.updateDisplay_orig = searchbar.updateDisplay;
 			searchbar.updateDisplay = this.updateDisplay_hook.bind(this);
@@ -201,6 +203,9 @@
 			document.addEventListener("focusout", this.onUnfocusSearchbar.bind(this));
 
 			this.searchBarSearchButton();
+
+			toolboxRoot.addEventListener("customizationchange", this.searchBarSearchButton);
+			toolboxRoot.addEventListener("aftercustomization", this.searchBarSearchButton);
 		}
 	}
 

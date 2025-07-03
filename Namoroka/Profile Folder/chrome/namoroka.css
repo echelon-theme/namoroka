@@ -881,7 +881,6 @@ menubar menu .menubar-text {
 }
 
 #status-bar {
-  margin-block-start: 2px !important;
   appearance: statusbar !important;
   border-top: 1px solid ThreeDShadow !important;
   border-left: 1px solid ThreeDShadow !important;
@@ -890,6 +889,11 @@ menubar menu .menubar-text {
   background-color: -moz-Dialog !important;
   min-height: 22px !important;
   align-items: center;
+}
+@media (-moz-windows-classic) {
+  #status-bar {
+    margin-block-start: 2px !important;
+  }
 }
 #status-bar #statuspanel {
   display: flex !important;

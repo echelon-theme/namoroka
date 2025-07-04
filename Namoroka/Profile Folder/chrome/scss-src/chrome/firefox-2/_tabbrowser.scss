@@ -4,6 +4,7 @@
     --page-icon: url("chrome://namoroka/content/firefox-2/icons/page.png") !important;
     --page-invalid-icon: var(--page-icon) !important;
     --tab-background-radius: 4px !important;
+    --new-tab-icon: url("chrome://namoroka/content/firefox-2/tabbrowser/newtab.png") !important;
 }
 
 #TabsToolbar {
@@ -168,6 +169,29 @@
         border: 0 !important;
         margin: 0 !important;
         padding: 0 !important;
+    }
+
+    #tabs-newtab-button {
+        width: 31px !important;
+        background-image: url("chrome://namoroka/content/firefox-2/icons/tab-left-bkgnd.png"), url("chrome://namoroka/content/firefox-2/icons/tab-middle-bkgnd.png"), url("chrome://namoroka/content/firefox-2/icons/tab-right-bkgnd.png") !important;
+        background-size: 8px 75px, calc(100% - 16px) 75px, 8px 75px !important;
+        background-repeat: no-repeat !important;
+        background-position: left top, 8px top, right top !important;
+        margin-top: 1px !important;
+        margin-bottom: 1px !important;
+        background-color: -moz-Dialog !important;
+        border-top-left-radius: var(--tab-background-radius) !important;
+        border-top-right-radius: var(--tab-background-radius) !important;
+        list-style-image: url("chrome://namoroka/content/firefox-3/tabbrowser/newtab.png") !important;
+
+        &:hover {
+            background-image: url("chrome://namoroka/content/firefox-2/icons/tab-left-hover.png"), url("chrome://namoroka/content/firefox-2/icons/tab-middle-hover.png"), url("chrome://namoroka/content/firefox-2/icons/tab-right-hover.png") !important;
+        }
+
+        .toolbarbutton-icon {
+            width: 18px !important;
+            height: 18px !important;
+        }
     }
 
     #alltabs-button {

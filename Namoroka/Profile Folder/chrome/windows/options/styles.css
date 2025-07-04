@@ -144,10 +144,7 @@ groupbox > p {
 	margin-block-start: 1px;
     line-height: 1;
     overflow: visible;
-}
-
-#tab-native-controls {
-    display: none;
+    text-align: center;
 }
 
 @media (-moz-ev-native-controls-patch) {
@@ -221,7 +218,7 @@ button[type="disclosure"] {
 	max-height: 14px;
 	border: 0;
 	padding: 0;
-	list-style-image: url("chrome://userchrome/content/images/twisty-clsd.png");
+	list-style-image: url("chrome://namoroka/content/firefox-1/twisty-clsd.png");
 	background-color: transparent;
 }
 
@@ -236,7 +233,7 @@ button[type="disclosure"]:active .button-icon,
 }
 
 .expanded button[type="disclosure"] {
-	list-style-image: url("chrome://userchrome/content/images/twisty-open.png");
+	list-style-image: url("chrome://namoroka/content/firefox-1/twisty-open.png");
 }
 
 .expander {

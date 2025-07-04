@@ -3,6 +3,7 @@
     --inline-tab-padding: 0 !important; // we do this ourselves
     --page-icon: url("chrome://namoroka/content/firefox-1/icons/page.png") !important;
     --page-invalid-icon: url("chrome://namoroka/content/firefox-1/icons/page-invalid.png") !important;
+    --new-tab-icon: url("chrome://namoroka/content/firefox-1/tabbrowser/newtab.png") !important;
 }
 
 #TabsToolbar {
@@ -100,6 +101,24 @@
             }
         }
 
+    }
+
+    .toolbarbutton-1 {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    #tabs-newtab-button,
+    #new-tab-button {
+        width: 27px !important;
+        list-style-image: var(--new-tab-icon) !important;
+
+        .toolbarbutton-icon {
+            width: 16px !important;
+            height: 16px !important;
+            list-style-image: inherit !important;
+            background-image: none !important;
+        }
     }
 
     .tabs-closebutton-box {

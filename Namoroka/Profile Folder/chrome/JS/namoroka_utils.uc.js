@@ -144,15 +144,15 @@ class PrefUtils
 	}
 }
 
-//class BrandUtils
-//{	
-//	static bundle = Services.strings.createBundle("chrome://branding/locale/brand.properties");
-//
-//	static getBrandingKey(key)
-//	{
-//		return this.bundle.GetStringFromName(key);
-//	}
-//}
+class BrandUtils
+{	
+	static bundle = Services.strings.createBundle("chrome://branding/locale/brand.properties");
+
+	static getBrandingKey(key)
+	{
+		return this.bundle.GetStringFromName(key);
+	}
+}
 
 class LocaleUtils
 {
@@ -176,4 +176,4 @@ class LocaleUtils
     }
 }
 
-let EXPORTED_SYMBOLS = [ "PrefUtils", "waitForElement", "renderElement", "LocaleUtils" ];
+let EXPORTED_SYMBOLS = [ "PrefUtils", "waitForElement", "renderElement", "BrandUtils", "LocaleUtils" ];

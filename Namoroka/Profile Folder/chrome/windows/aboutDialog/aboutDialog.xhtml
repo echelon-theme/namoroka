@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet href="chrome://global/skin/global.css" type="text/css"?>
+<?xml-stylesheet href="chrome://global/content/xul.css" type="text/css"?>
+
+<?xml-stylesheet href="chrome://userchrome/content/windows/aboutDialog/aboutDialog.css" type="text/css"?>
+
+<!DOCTYPE window SYSTEM "chrome://namoroka/locale/dtd/aboutDialog.dtd">
+
+<dialog xmlns:html="http://www.w3.org/1999/xhtml"
+        xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+        id="aboutDialog"
+        windowtype="Browser:About"
+        buttons="accept,extra2">
+
+    <script src="chrome://userchrome/content/windows/aboutDialog/aboutDialog.js" type="text/javascript"></script>
+
+    <deck id="modes" flex="1">
+        <vbox flex="1" id="clientBox">
+            <label id="version" />
+            <description id="copyright"></description>
+            <textarea id="userAgent" readonly="true"></textarea>
+        </vbox>
+        <vbox flex="1" id="creditsBox">
+            <browser id="creditsPage" flex="1" />
+        </vbox>
+    </deck>
+
+    <separator class="groove" id="groove"/>
+
+</dialog>

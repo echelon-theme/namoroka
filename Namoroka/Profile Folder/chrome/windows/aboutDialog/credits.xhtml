@@ -1,0 +1,447 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE window [
+    <!ENTITY % credits SYSTEM "chrome://namoroka/locale/dtd/credits.dtd">
+    %credits;
+    <!ENTITY % license SYSTEM "chrome://namoroka/locale/dtd/license.dtd">
+    %license;
+]>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <script>
+            var gCreditsInterval = -1;
+
+            function uninit() {
+                if (gCreditsInterval > -1)
+                    clearInterval(gCreditsInterval);
+            }
+
+            function init() {
+                var cb = document.getElementById("creditsBox");
+                cb.scrollTop = 0;
+                setTimeout(runCredits, 3000);
+            }
+
+            function runCredits() {
+                gCreditsInterval = setInterval("creditsCallback()", 25);
+            }
+
+            function creditsCallback() {
+                var cb = document.getElementById("creditsBox");
+                var newtop = cb.scrollTop + 1;
+                cb.scrollTop = newtop;
+                if (cb.scrollTop != newtop) {
+                    // we're at the bottom
+                    clearInterval(gCreditsInterval);
+                    setTimeout(function () { cb.scrollTop = 0 }, 10000);
+                }
+            }
+        </script>
+
+        <style>
+            html {
+                background-color: white;
+            }
+
+            * {
+                cursor: default;
+                -moz-user-select: none;
+            }
+
+            #titleBox {
+                position: fixed;
+                left: 0px;
+                top: 0px;
+                right: 0px;
+                bottom: auto;
+                z-index: 999;
+            }
+
+            #footerBox {
+                position: fixed;
+                left: 0px;
+                top: auto;
+                right: 0px;
+                bottom: 0px;
+                z-index: 999;
+            }
+
+            #creditsBox {
+                position: absolute;
+                left: 0px;
+                top: 0px;
+                bottom: 8px;
+                overflow: hidden;
+                z-index: 1;
+                width: 280px;
+                margin-left: 10px;
+                margin-right: 10px;
+                font-family: Arial, sans-serif;
+                font-size: small;
+            }
+
+            h3 {
+                font-weight: bold;
+                font-size: small;
+                text-align: center;
+                margin: 15px 0px 5px 0px;
+            }
+
+            .creditsGroup {
+                margin-bottom: 1px;
+                text-align: center;
+            }
+
+            .footnote {
+                font-size: x-small;
+                text-align: justify;
+            }
+
+            h2.title {
+                margin-top: 200px;
+                margin-bottom: 60px;
+                text-align: center;
+            }
+
+            .links {
+                font-weight: bold;
+                font-size: small;
+                text-align: center;
+                margin: 0px 0px 100px 0px;
+            }
+
+            .links div {
+                font-weight: normal;
+                font-style: italic;
+            }
+
+            .motto {
+                margin-top: 2px;
+                font-style: italic;
+                font-size: small;
+                font-weight: normal;
+                padding-left: 2em;
+            }
+
+            #gecko {
+                margin-top:    100px;
+                margin-bottom: 100px;
+                font-size: medium;
+            }
+
+            a {
+                color: blue;
+                text-decoration: underline;
+            }
+
+            ul {
+                margin-top: 0px;
+                margin-left: 0px;
+                padding-left: 0px;
+            }
+
+            li {
+                list-style-type: none;
+            }
+
+            .center {
+                text-align: center;
+            }
+        </style>
+
+        <script src="chrome://userchrome/content/windows/aboutDialog/aboutDialog.js" type="text/javascript"></script>
+    </head>
+
+    <body onload="init();" onunload="uninit();">
+        <div id="titleBox">
+            <img src="chrome://branding/content/aboutCredits.png" />
+        </div>
+
+        <div id="creditsBox">
+            <h2 class="title">Mozilla Firefox™
+                <div class="motto">Rediscover the Web</div>
+            </h2>
+            <div class="links">
+                <div>&credit.thanks2;</div>
+                &credit.prethanks;
+                <a href="" link="http://worldfirefoxday.com" onclick="visitLink(event);">&credit.friends;</a>
+                &credit.and;
+                <a href="" link="about:credits" onclick="visitLink(event);">&credit.contributors;</a>
+                &credit.postthanks;
+            </div>
+        
+            <div class="creditsGroup">
+                <ul>
+                    <li>Josh Aas</li>
+                    <li>Robert Accettura</li>
+                    <li>Tomoya Asai</li>
+                    <li>Dietrich Ayala</li>
+                    <li>Mitchell Baker</li>
+                    <li>Adam Barea</li>
+                    <li>Jason Barnabe</li>
+                    <li>David Baron</li>
+                    <li>Christopher Beard</li>
+                    <li>Glen Beasley</li>
+                    <li>Juan Becerra</li>
+                    <li>Brian Behlendorf</li>
+                    <li>Mike Beltzner</li>
+                    <li>Mic Berman</li>
+                    <li>Uri Bernstein</li>
+                    <li>Christian Biesinger</li>
+                    <li>Seth Bindernagel</li>
+                    <li>Chris Blizzard</li>
+                    <li>Jamey Boje</li>
+                    <li>Nelson Bolyard</li>
+                    <li>Carsten Book</li>
+                    <li>Paul Booker</li>
+                    <li>Igor Bukanov</li>
+                    <li>Simon Bünzli</li>
+                    <li>Rob Campbell</li>
+                    <li>Regis Caspar</li>
+                    <li>Marco Casteleijn</li>
+                    <li>Biswatosh Chakraborty</li>
+                    <li>Tony Chang</li>
+                    <li>Wan-Teh Chang</li>
+                    <li>Ginn Chen</li>
+                    <li>Pascal Chevrel</li>
+                    <li>Bob Clary</li>
+                    <li>Wil Clouser</li>
+                    <li>Stephen Colbert</li>
+                    <li>Mary Colvig</li>
+                    <li>Majken Connor</li>
+                    <li>Mike Connor</li>
+                    <li>Chris Cooper</li>
+                    <li>Michael Daumling</li>
+                    <li>Neil Deakin</li>
+                    <li>Sherman Dickman</li>
+                    <li>Steven Donner</li>
+                    <li>Asa Dotzler</li>
+                    <li>Rafael Ebron</li>
+                    <li>Brendan Eich</li>
+                    <li>Ximon Eighteen</li>
+                    <li>Kai Engert</li>
+                    <li>Steve England</li>
+                    <li>Darin Fisher</li>
+                    <li>Jayson Fittipaldi</li>
+                    <li>Justin Fitzhugh</li>
+                    <li>Ryan Flint</li>
+                    <li>Justin Frankel</li>
+                    <li>Simon Fraser</li>
+                    <li>Eli Friedman</li>
+                    <li>Alex Fritze</li>
+                    <li>Lisa Gansky</li>
+                    <li>Mike Gao</li>
+                    <li>Steven Garrity</li>
+                    <li>Michael Glenn</li>
+                    <li>Jay Goldman</li>
+                    <li>Ben Goodger</li>
+                    <li>Dão Gottwald</li>
+                    <li>Zak Greant</li>
+                    <li>Pam Greene</li>
+                    <li>Adam Guthrie</li>
+                    <li>Vidar Haarr</li>
+                    <li>Andrei Hajdukewycz</li>
+                    <li>Mark Hammond</li>
+                    <li>Basil Hashem</li>
+                    <li>Ian Hayward</li>
+                    <li>Axel Hecht</li>
+                    <li>Frank Hecker</li>
+                    <li>Robert Helmer</li>
+                    <li>Jon Hicks</li>
+                    <li>Ian Hickson</li>
+                    <li>Graydon Hoare</li>
+                    <li>Chris Hofmann</li>
+                    <li>Mike Hommey</li>
+                    <li>Joe Hughes</li>
+                    <li>Ed Hume</li>
+                    <li>Ivan Icin</li>
+                    <li>Joichi Ito</li>
+                    <li>Gen Kanai</li>
+                    <li>Blake Kaplan</li>
+                    <li>Michael Kaply</li>
+                    <li>Mitch Kapor</li>
+                    <li>Peter Kasting</li>
+                    <li>Alfred Kayser</li>
+                    <li>Paul Kim</li>
+                    <li>Masatoshi Kimura</li>
+                    <li>Ria Klaasen</li>
+                    <li>Andrea Knight</li>
+                    <li>Marcia Knous</li>
+                    <li>Dave Laundon</li>
+                    <li>Raymond Lee</li>
+                    <li>Aaron Leventhal</li>
+                    <li>Mark Liddell</li>
+                    <li>Dave Liebreich</li>
+                    <li>Anne-Julie Ligneau</li>
+                    <li>John Lilly</li>
+                    <li>Zach Lipton</li>
+                    <li>Nian Liu</li>
+                    <li>Reed Loden</li>
+                    <li>Robert Longson</li>
+                    <li>Scott MacGregor</li>
+                    <li>Ere Maijala</li>
+                    <li>Gervase Markham</li>
+                    <li>Sean Martell</li>
+                    <li>Heather Meeker</li>
+                    <li>Myk Melez</li>
+                    <li>Mark Mentovai</li>
+                    <li>Alex Menzies</li>
+                    <li>Steven Michaud</li>
+                    <li>Bernd Mielke</li>
+                    <li>Joey Minta</li>
+                    <li>Simon Montagu</li>
+                    <li>Mike Morgan</li>
+                    <li>Scooter Morris</li>
+                    <li>Masayuki Nakano</li>
+                    <li>Marria Nazif</li>
+                    <li>Ian Neal</li>
+                    <li>Kaori Negoro</li>
+                    <li>Tristan Nitot</li>
+                    <li>Alice Nodelman</li>
+                    <li>Robert O'Callahan</li>
+                    <li>Mats Palmgren</li>
+                    <li>Stuart Parmenter</li>
+                    <li>Jay Patel</li>
+                    <li>Igor Pavlov</li>
+                    <li>Javier Pedemonte</li>
+                    <li>Alfred Peng</li>
+                    <li>Christian Persch</li>
+                    <li>Olli Pettay</li>
+                    <li>Chase Phillips</li>
+                    <li>Julien Pierre</li>
+                    <li>Mark Pilgrim</li>
+                    <li>Mike Pinkerton</li>
+                    <li>Alex Polvi</li>
+                    <li>Nickolay Ponomarev</li>
+                    <li>Karen Prescott</li>
+                    <li>Feng Qian</li>
+                    <li>Robert Rainwater</li>
+                    <li>Brian Rakowski</li>
+                    <li>J. Paul Reed</li>
+                    <li>Robert Relyea</li>
+                    <li>Deb Richardson</li>
+                    <li>Tim Riley</li>
+                    <li>Phil Ringnalda</li>
+                    <li>David Rolnitzky</li>
+                    <li>Asaf Romano</li>
+                    <li>Doron Rosenberg</li>
+                    <li>Blake Ross</li>
+                    <li>James Ross</li>
+                    <li>Tim Rowley</li>
+                    <li>Cameron Roy</li>
+                    <li>Jesse Ruderman</li>
+                    <li>Brian Ryner</li>
+                    <li>Alexander Sack</li>
+                    <li>Hideo Saito</li>
+                    <li>Ken Saunders</li>
+                    <li>Robert Sayre</li>
+                    <li>Fritz Schneider</li>
+                    <li>Mike Schroepfer</li>
+                    <li>Phil Schwan</li>
+                    <li>Justin Scott</li>
+                    <li>Chris Seawood</li>
+                    <li>Leon Sha</li>
+                    <li>Gavin Sharp</li>
+                    <li>Mike Shaver</li>
+                    <li>Eric Shepherd</li>
+                    <li>Hiroshi Shimoda</li>
+                    <li>Jungshik Shin</li>
+                    <li>Jonas Sicking</li>
+                    <li>Roger B. Sidje</li>
+                    <li>Benjamin Smedberg</li>
+                    <li>Jon Smirl</li>
+                    <li>Josh Soref</li>
+                    <li>Seth Spitzer</li>
+                    <li>Johnny Stenback</li>
+                    <li>Luke Stone</li>
+                    <li>Robert Strong</li>
+                    <li>Annie Sullivan</li>
+                    <li>Amir Szekely</li>
+                    <li>Dave Townsend</li>
+                    <li>Ben Turner</li>
+                    <li>Doug Turner</li>
+                    <li>Peter Van der Beken</li>
+                    <li>Peter van der Woude</li>
+                    <li>Daniel Veditz</li>
+                    <li>Michael Ventor</li>
+                    <li>Joost Verburg</li>
+                    <li>Jorge Villalobos</li>
+                    <li>Alexei Volkov</li>
+                    <li>Vladimir Vukicevic</li>
+                    <li>Håkan Waara</li>
+                    <li>Jeff Walden</li>
+                    <li>Tracy Walker</li>
+                    <li>Martijn Wargers</li>
+                    <li>Jonathan Watt</li>
+                    <li>Steffen Wilberg</li>
+                    <li>Brett Wilson</li>
+                    <li>Michael Wu</li>
+                    <li>Satoko Takita Yamaguchi (Chibi)</li>
+                    <li>Kohei Yoshino</li>
+                    <li>Boris Zbarsky</li>
+                </ul>
+        
+                credit.translation;
+            </div>
+        
+            <!-- organizational supporters -->
+            <div class="creditsGroup">
+                <h3>&credit.thanks;</h3>
+                <ul>
+                    <li>Google</li>
+                    <li>Yahoo!</li>
+                    <li>IBM</li>
+                    <li>Sun Microsystems</li>
+                    <li></li>
+                    <li>Oregon State University - Open Source Lab</li>
+                    <li></li>
+                    <li>A&amp;R Edelman</li>
+                    <li>arcendo communications GmbH</li>
+                    <li>fuse pr</li>
+                    <li></li>
+                    <li>Cooley Godward, LLP</li>
+                    <li>Greenburg Traurig, LLP</li>
+                    <li></li>
+                    <li>Nobox</li>
+                    <li>Glaxstar</li>
+                    <li>Radiant Core</li>
+                    <li>silverorange</li>
+                    <li>Revver</li>
+                    <li></li>
+                    <li>MozillaZine Community</li>
+                </ul>
+            </div>
+        
+            <p id="gecko" class="center">&credit.poweredByGecko;</p>
+        
+            <p class="footnote">
+                Mozilla Firefox &license.part0; ©1998-2006 &license.part1;
+                <a href="" link="about:credits" onclick="visitLink(event);">&license.contrib;</a>,
+                &license.part2;
+                <a href="" link="about:license" onclick="visitLink(event);">about:license</a>
+                &license.part3;
+            </p>
+        
+            <p class="footnote">
+                Mozilla Firefox and the Firefox logo are trademarks of the Mozilla
+                Foundation. You are not granted rights or licenses to the trademarks
+                of the Mozilla Foundation or any party, including without limitation the
+                Firefox name or logo.</p>
+        
+            <p class="footnote">
+                U.S. GOVERNMENT END USERS. The Software “is a commercial item,”
+                as that term is defined in 48 C.F.R. 2.101 (Oct. 1995), consisting of
+                “commercial computer software” and “commercial computer software
+                documentation,” as such terms are used in 48 C.F.R. 12.212 (Sept. 1995).
+                Consistent with 48 C.F.R. 12.212 and 48 C.F.R. 227.7202-1 through
+                227.7202-4 (June 1995), all U.S. Government End Users acquire the
+                Software with only those rights set forth herein.</p>
+        
+        </div>
+        
+        <div id="footerBox">
+            <img src="chrome://branding/content/aboutFooter.png" />
+        </div>
+    </body>
+</html>

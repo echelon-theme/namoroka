@@ -1,0 +1,67 @@
+#aboutDialog {
+    padding: 0 0 10px 0;
+    min-width: 299px;
+    max-width: 299px;
+
+    #modes {
+        min-height: 380px;
+
+        #clientBox {
+            background-image: url("chrome://branding/content/about.png");
+            background-repeat: no-repeat;
+            padding-block-start: 203px;
+            background-color: #FFF;
+            color: #000;
+
+            #version {
+                font-weight: bold;
+                color: #909090;
+                margin: 1em 0px 10px 17px;
+            }
+
+            #userAgent {
+                margin: 11px 20px 0px 13px;
+                background-color: #FFFFFF;
+                color: #000000;
+                padding: 1px 0px 0px 3px;
+                appearance: none;
+                overflow: hidden;
+                border: 0px;
+                cursor: text;
+                user-select: all;
+            }
+
+            #copyright {
+                margin: 0px 0px 3px 16px;
+            }
+        }
+    }
+
+    #groove {
+        margin-block-start: 0px;
+    }
+
+    &::part(credits) {
+        margin-inline-start: 13px;
+    }
+
+    &::part(accept) {
+        margin-inline-end: 13px;
+    }
+
+    &::part(credits),
+    &::part(accept) {
+        min-height: 24px !important;
+        padding: 1px 4px 2px 3px !important;
+
+        .button-box {
+            border: 1px solid transparent !important;
+        }
+
+        &:focus,
+        &:focus-visible {
+            outline: 1px dotted ThreeDDarkShadow !important;
+            outline-offset: -3px;
+        }
+    }
+}

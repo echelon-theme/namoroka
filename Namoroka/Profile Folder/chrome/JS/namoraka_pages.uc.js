@@ -9,6 +9,8 @@
     const ABOUT_PAGES = {
         "newtab": "chrome://userchrome/content/pages/home/home.xhtml",
         "home": "chrome://userchrome/content/pages/home/home.xhtml",
+        "namoroka": "chrome://userchrome/content/windows/options/options.xhtml",
+        "nrabout": "chrome://userchrome/content/windows/aboutDialog/aboutDialog.xhtml"
     };
     const { AboutPageManager } = ChromeUtils.importESModule("chrome://modules/content/AboutPageManager.sys.mjs");
 

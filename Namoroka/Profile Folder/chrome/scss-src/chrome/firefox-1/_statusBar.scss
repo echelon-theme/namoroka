@@ -4,12 +4,19 @@
             margin-block-start: 2px !important;
         }
     }
-    appearance: statusbar !important;
+    background-color: -moz-Dialog !important;
     border-top: 1px solid ThreeDShadow !important;
     border-left: 1px solid ThreeDShadow !important;
     border-right: 1px solid ThreeDHighlight !important;
     border-bottom: 1px solid ThreeDHighlight !important;
-    background-color: -moz-Dialog !important;
+
+    @media not (-moz-windows-classic) {
+        // weird marble quirk makes me have to do this
+        & {
+            appearance: statusbar !important;
+        }
+    }
+    
     min-height: 22px !important;
     align-items: center;
 

@@ -881,18 +881,22 @@ menubar menu .menubar-text {
 }
 
 #status-bar {
-  appearance: statusbar !important;
+  background-color: -moz-Dialog !important;
   border-top: 1px solid ThreeDShadow !important;
   border-left: 1px solid ThreeDShadow !important;
   border-right: 1px solid ThreeDHighlight !important;
   border-bottom: 1px solid ThreeDHighlight !important;
-  background-color: -moz-Dialog !important;
   min-height: 22px !important;
   align-items: center;
 }
 @media (-moz-windows-classic) {
   #status-bar {
     margin-block-start: 2px !important;
+  }
+}
+@media not (-moz-windows-classic) {
+  #status-bar {
+    appearance: statusbar !important;
   }
 }
 :root[inFullscreen=true] #status-bar {

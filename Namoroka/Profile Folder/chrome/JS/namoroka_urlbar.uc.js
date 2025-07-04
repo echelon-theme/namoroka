@@ -62,7 +62,7 @@
 
         let pageProxyDeck = window.MozXULElement.parseXULToFragment(`
             <deck id="page-proxy-deck">
-                <image id="page-proxy-favicon"></image>
+                <html:img decoding="sync" id="page-proxy-favicon" />
             </deck>
         `);
 

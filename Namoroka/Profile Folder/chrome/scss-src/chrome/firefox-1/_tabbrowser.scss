@@ -61,7 +61,8 @@
 
             // Firefox 1 always showed the tab icon
             .tab-icon-image:not([src]), 
-            .tab-icon-image:-moz-broken {
+            .tab-icon-image:-moz-broken,
+            .tab-icon-image[src="chrome://branding/content/icon32.png"] {
                 display: flex !important;
                 content: var(--page-icon) !important;
             }

@@ -354,7 +354,8 @@ menubar {
   margin-inline-end: 3px !important;
 }
 #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-image:not([src]),
-#TabsToolbar .tabbrowser-tab .tab-content .tab-icon-image:-moz-broken {
+#TabsToolbar .tabbrowser-tab .tab-content .tab-icon-image:-moz-broken,
+#TabsToolbar .tabbrowser-tab .tab-content .tab-icon-image[src="chrome://branding/content/icon32.png"] {
   display: flex !important;
   content: var(--page-icon) !important;
 }
@@ -695,14 +696,17 @@ menubar menu .menubar-text {
   width: 16px !important;
   height: 16px !important;
   margin: 2px 3px !important;
-  list-style-image: var(--page-icon) !important;
 }
-#urlbar-container #urlbar #page-proxy-deck image {
+#urlbar-container #urlbar #page-proxy-deck #page-proxy-favicon {
   width: 100% !important;
   height: 100% !important;
+  visibility: visible !important;
 }
-#urlbar-container #urlbar[pageproxystate=invalid] #page-proxy-deck {
-  list-style-image: var(--page-invalid-icon) !important;
+#urlbar-container #urlbar #page-proxy-deck #page-proxy-favicon:not([src]), #urlbar-container #urlbar #page-proxy-deck #page-proxy-favicon[src="chrome://branding/content/icon32.png"] {
+  content: var(--page-icon) !important;
+}
+#urlbar-container #urlbar[pageproxystate=invalid] #page-proxy-deck #page-proxy-favicon:not([src]), #urlbar-container #urlbar[pageproxystate=invalid] #page-proxy-deck #page-proxy-favicon[src="chrome://branding/content/icon32.png"] {
+  content: var(--page-invalid-icon) !important;
 }
 #urlbar-container #urlbar #urlbar-input-container,
 #urlbar-container #urlbar .urlbar-input-container {

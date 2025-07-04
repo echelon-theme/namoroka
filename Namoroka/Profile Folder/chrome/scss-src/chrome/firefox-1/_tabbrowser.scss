@@ -58,11 +58,20 @@
                     margin-inline-end: 3px !important;
                 }
             }
+            
+            .tab-throbber[busy] {
+                background-image: url("chrome://namoroka/content/firefox-1/Throbber-small.gif") !important;
+                opacity: 0.6 !important;
+
+                &[progress] {
+                    opacity: 0.6 !important;
+                }
+            }
 
             // Firefox 1 always showed the tab icon
-            .tab-icon-image:not([src]), 
-            .tab-icon-image:-moz-broken,
-            .tab-icon-image[src="chrome://branding/content/icon32.png"] {
+            .tab-icon-image:not([src], [busy="true"]), 
+            .tab-icon-image:not([busy="true"]):-moz-broken,
+            .tab-icon-image:not([busy="true"])[src="chrome://branding/content/icon32.png"] {
                 display: flex !important;
                 content: var(--page-icon) !important;
             }

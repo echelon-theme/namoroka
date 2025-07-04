@@ -353,9 +353,16 @@ menubar {
 #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-overlay:not([pinned]) {
   margin-inline-end: 3px !important;
 }
-#TabsToolbar .tabbrowser-tab .tab-content .tab-icon-image:not([src]),
-#TabsToolbar .tabbrowser-tab .tab-content .tab-icon-image:-moz-broken,
-#TabsToolbar .tabbrowser-tab .tab-content .tab-icon-image[src="chrome://branding/content/icon32.png"] {
+#TabsToolbar .tabbrowser-tab .tab-content .tab-throbber[busy] {
+  background-image: url("chrome://namoroka/content/firefox-1/Throbber-small.gif") !important;
+  opacity: 0.6 !important;
+}
+#TabsToolbar .tabbrowser-tab .tab-content .tab-throbber[busy][progress] {
+  opacity: 0.6 !important;
+}
+#TabsToolbar .tabbrowser-tab .tab-content .tab-icon-image:not([src], [busy=true]),
+#TabsToolbar .tabbrowser-tab .tab-content .tab-icon-image:not([busy=true]):-moz-broken,
+#TabsToolbar .tabbrowser-tab .tab-content .tab-icon-image:not([busy=true])[src="chrome://branding/content/icon32.png"] {
   display: flex !important;
   content: var(--page-icon) !important;
 }

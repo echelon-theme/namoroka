@@ -217,13 +217,39 @@
         }
     }
 
-    #tabbrowser-tabs[overflow="true"] ~ #alltabs-button {
-        border-top-left-radius: 0 !important;
-        background-image: url("chrome://namoroka/content/firefox-2/icons/alltabs-box-overflow-end-bkgnd.png") !important;
+    #tabbrowser-tabs[overflow="true"] {
+        & ~ .toolbarbutton-1 {
+            width: 18px !important;
+            height: 23px !important;
+            margin-block-start: 1px !important;
+            margin-block-end: 1px !important;
+            padding-inline-start: 1px !important;
+            background-color: -moz-Dialog !important;
+            background-image: url("chrome://namoroka/content/firefox-2/icons/alltabs-box-overflow-end-bkgnd.png") !important;
 
-        &:hover,
-        &[open="true"] {
-            background-image: url("chrome://namoroka/content/firefox-2/icons/alltabs-box-overflow-end-bkgnd-hover.png") !important;
+            &:hover,
+            &[open="true"] {
+                background-image: url("chrome://namoroka/content/firefox-2/icons/alltabs-box-overflow-end-bkgnd-hover.png") !important;
+            }
+        }
+
+        & ~ #new-tab-button {
+            list-style-image: url("chrome://namoroka/content/firefox-3/tabbrowser/newtab.png") !important;
+
+            .toolbarbutton-icon {
+                width: 18px !important;
+                height: 18px !important;
+            }
+        }
+
+        & ~ #alltabs-button {
+            border-top-left-radius: 0 !important;
+            background-image: url("chrome://namoroka/content/firefox-2/icons/alltabs-box-overflow-end-bkgnd.png") !important;
+
+            &:hover,
+            &[open="true"] {
+                background-image: url("chrome://namoroka/content/firefox-2/icons/alltabs-box-overflow-end-bkgnd-hover.png") !important;
+            }
         }
     }
 }

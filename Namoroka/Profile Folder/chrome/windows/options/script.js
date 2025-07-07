@@ -2,6 +2,57 @@ const { PrefUtils, BrandUtils } = ChromeUtils.import("chrome://userscripts/conte
 const { NamorokaThemeManager } = ChromeUtils.importESModule("chrome://modules/content/NamorokaThemeManager.sys.mjs");
 const gOptionsBundle = document.getElementById("optionsBundle");
 
+let g_themeManager = new NamorokaThemeManager;
+g_themeManager.init(
+    document.documentElement,
+    {
+        style: true
+    }
+);
+
+document.querySelectorAll("namoroka-listbox").forEach(listbox => {
+    let items = listbox.querySelectorAll("namoroka-listitem");
+
+    items.forEach(item => {
+        let itemLabel = document.createXULElement("label");
+        
+        if (item.hasAttribute("label")) {
+            itemLabel.value = item.getAttribute("label");
+            itemLabel.setAttribute("flex", "1");
+            
+            item.appendChild(itemLabel);
+        }
+
+        item.addEventListener("click", () => {
+            items.forEach(item => {
+                item.removeAttribute("selected");
+            });
+
+            listbox.setValue(item.getAttribute("value"));
+            item.setAttribute("selected", "true");
+
+            item.dispatchEvent(new CustomEvent("namoroka-listbox-change"));
+            document.dispatchEvent(new CustomEvent("namoroka-listbox-change"));
+        });
+    });
+
+    listbox.setValue = function(aValue) {
+        let selectedItem = listbox.querySelector(`namoroka-listitem[value="${aValue}"]`);
+        selectedItem.setAttribute("selected", "true");
+        
+        listbox.setAttribute("value", aValue);
+        listbox.value = aValue;
+
+        setPreviewImage(selectedItem.getAttribute("src"));
+    }
+});
+
+function setPreviewImage(aURL) {
+    let previewImage = document.querySelector("#previewImage");
+
+    previewImage.setAttribute("src", aURL);
+}
+
 function refreshViewProperties()
 {
     // Handle local display changes when the user changes configuration.
@@ -20,7 +71,14 @@ for (const option of document.querySelectorAll(".option"))
             break;
         case "int":
         case "enum":
-            option.value = PrefUtils.tryGetIntPref(option.dataset.option);
+            if (option.localName == "namoroka-listbox") 
+            {
+                option.setValue(PrefUtils.tryGetIntPref(option.dataset.option));
+            }
+            else
+            {
+                option.value = PrefUtils.tryGetIntPref(option.dataset.option);
+            }
             break;
         case "string":
             option.value = PrefUtils.tryGetStringPref(option.dataset.option);
@@ -32,6 +90,8 @@ for (const option of document.querySelectorAll(".option"))
         option.addEventListener("command", refreshViewProperties);
     else if (option.localName == "checkbox")
         option.addEventListener("CheckboxStateChange", refreshViewProperties);
+    else if (option.localName == "namoroka-listbox")
+        option.addEventListener("namoroka-listbox-change", refreshViewProperties);
     else if (option.localName == "input")
         option.addEventListener("input", refreshViewProperties);
 }

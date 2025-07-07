@@ -23,6 +23,76 @@
   visibility: collapse !important;
 }
 
+toolbarbutton menupopup[placespopup] {
+  appearance: auto !important;
+  -moz-default-appearance: menupopup !important;
+  background-color: Menu !important;
+  border: 1px solid -moz-Dialog !important;
+  --panel-background: transparent !important;
+  --panel-border-color: transparent !important;
+  --nested-margin: -3px !important;
+  --panel-shadow-margin: 0px !important;
+  --panel-color: MenuText !important;
+  --panel-padding: 0 !important;
+}
+toolbarbutton menupopup[placespopup] > :is(menu, menuitem) {
+  appearance: auto !important;
+  -moz-default-appearance: menuitem !important;
+  max-width: 42em !important;
+  margin: 0 !important;
+  min-height: auto !important;
+}
+toolbarbutton menupopup[placespopup] > :is(menu, menuitem) .menu-text,
+toolbarbutton menupopup[placespopup] > :is(menu, menuitem) .menu-iconic-text {
+  margin-inline-start: 2px !important;
+  padding-inline-end: 2px !important;
+}
+toolbarbutton menupopup[placespopup] > :is(menu, menuitem) .menu-text {
+  padding-inline-start: 1.45em !important;
+  appearance: auto !important;
+  -moz-default-appearance: menuitemtext !important;
+}
+toolbarbutton menupopup[placespopup] > :is(menu, menuitem) .menu-right {
+  appearance: auto !important;
+  -moz-default-appearance: menuarrow !important;
+  margin-inline-end: -2px !important;
+  list-style-image: none !important;
+  width: 1.28em !important;
+  padding-top: 1px !important;
+}
+toolbarbutton menupopup[placespopup] > :is(menu, menuitem) .menu-accel, toolbarbutton menupopup[placespopup] > :is(menu, menuitem) .menu-iconic-accel {
+  margin-inline: 0.74em 1.35em !important;
+  margin-inline-start: 0.74em !important;
+  color: inherit !important;
+}
+toolbarbutton menupopup[placespopup] > :is(.menu-iconic, .menuitem-iconic) .menu-iconic-left {
+  appearance: auto !important;
+  -moz-default-appearance: menuimage !important;
+  padding-top: 2px !important;
+  margin: 0 !important;
+}
+toolbarbutton menupopup[placespopup] menuseparator {
+  appearance: auto !important;
+  -moz-default-appearance: menuseparator !important;
+  padding: 3px 1px 4px !important;
+  border-top: 1px solid ThreeDShadow !important;
+  border-bottom: 1px solid ThreeDHighlight !important;
+  margin: 0 !important;
+}
+toolbarbutton menupopup[placespopup] menuseparator::before {
+  content: none !important;
+}
+
+@media not (-moz-windows-non-native-menus) {
+  menupopup,
+  toolbarbutton menupopup[placespopup] {
+    border-top-color: -moz-Dialog !important;
+    border-left-color: -moz-Dialog !important;
+    border-bottom-color: ThreeDDarkShadow !important;
+    border-right-color: ThreeDDarkShadow !important;
+    box-shadow: inset -1px -1px 0 ThreeDShadow, inset 1px 1px 0 ThreeDHighlight !important;
+  }
+}
 /* ::::: Firefox 2 ::::: */
 :root[namoroka-style-1] {
   --arrowscrollbox-left-image: url("chrome://namoroka/content/firefox-2/icons/tab-arrow-start.png");

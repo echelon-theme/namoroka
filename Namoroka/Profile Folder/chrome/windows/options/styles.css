@@ -116,28 +116,32 @@ groupbox > p {
     background-image: url("chrome://userchrome/content/windows/options/images/Options.png");
 }
 
-:root[echelon-appearance-xp] .tab-icon {
-    background-image: url("chrome://userchrome/content/windows/options/images/Options-xp.png");
+:root[namoroka-style-1="true"] .tab-icon {
+    background-image: url("chrome://userchrome/content/windows/options/images/Options-ff2.png");
+}
+
+.tab-selected .tab-icon {
+    background-position-y: -32px;
 }
 
 #tab-general .tab-icon {
-    background-position: 0 0;
+    background-position-x: 0;
 }
 
 #tab-branding .tab-icon {
-    background-position: -32px 0;
+    background-position-x: -32px;
 }
 
 #tab-native-controls .tab-icon {
-    background-position: -64px 0;
+    background-position-x: -64px;
 }
 
 #tab-debug .tab-icon {
-    background-position: -96px 0;
+    background-position-x: -96px;
 }
 
 #tab-about .tab-icon {
-    background-position: -128px 0;
+    background-position-x: -128px;
 }
 
 .tab-label {
@@ -257,4 +261,36 @@ button[type="disclosure"]:active .button-icon,
 .settingsBox {
 	margin: 5px;
 	padding: 5px;
+}
+
+#skinsList {
+    height: 84px;
+    flex-direction: column;
+    margin: 2px 4px 2px 4px;
+}
+
+namoroka-listitem {
+    border: 1px dotted transparent;
+}
+
+namoroka-listitem label {
+    padding-inline-start: 4px;
+    padding-block: 1px;
+    margin: 0;
+}
+
+namoroka-listitem[selected] {
+    border-color: rgb(245,219,149);
+    background-color: Highlight;
+    color: HighlightText;   
+}
+
+#previewImageContainer {
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid ThreeDShadow;
+    border-left: 1px solid ThreeDShadow;
+    border-bottom: 1px solid ThreeDHighlight;
+    border-right: 1px solid ThreeDHighlight;
+    margin: 0.5em 4px 0.5em 4px;
 }

@@ -14,7 +14,8 @@
 
 <!ENTITY general.appearance "Appearance">
 
-<!ENTITY general.appearance.style      "Namoroka Style">
+<!ENTITY general.appearance.style      "Namoroka Style:">
+<!ENTITY general.appearance.description "Selecting a new theme changes the look of buttons, dialog boxes, menus, toolbars, and other items. It does not change the way these items function.">
 <!ENTITY general.appearance.style.ff1  "Firefox 1">
 <!ENTITY general.appearance.style.ff2  "Firefox 2">
 <!ENTITY general.appearance.style.ff3  "Firefox 3">
@@ -22,3 +23,22 @@
 <!ENTITY general.appearance.hideAddons "Hide &quot;Extensions&quot; button (not recommended)">
 <!ENTITY general.appearance.hideTabBar "Hide the tab bar when only one web site is open">
 <!ENTITY general.appearance.smallIcons "Use Small Icons">
+
+<!ENTITY nativeControls.notice "This tab allows you to configure ephemeralViolette&apos;s native controls patch.">
+
+<!ENTITY nativeControls.general "General">
+<!ENTITY nativeControls.general.osOverride "Override Windows Version">
+<!ENTITY nativeControls.general.osOverride.seven "Windows 7">
+<!ENTITY nativeControls.general.osOverride.eight "Windows 8.x">
+<!ENTITY nativeControls.general.osOverride.ten "Windows 10">
+
+<!ENTITY nativeControls.general.glassOverride "Override Glass:">
+<!ENTITY nativeControls.general.glassOverride.default "Default">
+<!ENTITY nativeControls.general.glassOverride.forceOn "Force on">
+<!ENTITY nativeControls.general.glassOverride.forceOff "Force off">
+
+<!ENTITY nativeControls.general.disableComposition "Disable DWM composition">
+
+<!ENTITY nativeControls.captionMask "Aero caption button mask">
+<!ENTITY nativeControls.captionMask.width "Width:">
+<!ENTITY nativeControls.captionMask.height "Height:">

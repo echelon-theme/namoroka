@@ -50,22 +50,25 @@
 								<html:span class="dialogheader-description"></html:span>
 							</hbox>
 							<vbox flex="1">
-								<groupbox>
-									<caption>&general.appearance;</caption>
-									<hbox class="option-container">
-										<label value="&general.appearance.style;"/>
-										<menulist native="" class="option" data-type="enum" data-option="Namoroka.Appearance.Style">
-											<menupopup>
-												<menuitem label="&general.appearance.style.ff1;" value="0"/>
-												<menuitem label="&general.appearance.style.ff2;" value="1"/>
-												<menuitem label="&general.appearance.style.ff3;" value="2"/>
-											</menupopup>
-										</menulist>
-									</hbox>
-									<checkbox native="" label="&general.appearance.smallIcons;" class="option" data-type="bool" data-option="Namoroka.Appearance.Small-Icons"/>
-									<checkbox native="" label="&general.appearance.hideTabBar;" class="option" data-type="bool" data-option="Namoroka.Tabbrowser.HideOnOneTab"/>
-									<checkbox native="" label="&general.appearance.hideAddons;" class="option" data-type="bool" data-option="Namoroka.Unified-Extensions.Disabled"/>
-								</groupbox>
+								<description>&general.appearance.description;</description>
+								<description>&general.appearance.style;</description>
+								<namoroka-listbox id="skinsList" class="listBox option" data-type="enum" data-option="Namoroka.Appearance.Style">
+									<namoroka-listitem label="&general.appearance.style.ff1;" 
+													   src="chrome://userchrome/content/windows/options/preview/ff1.png"
+													   value="0" />
+									<namoroka-listitem label="&general.appearance.style.ff2;" 
+													   src="chrome://userchrome/content/windows/options/preview/ff2.png"
+													   value="1" />
+									<namoroka-listitem label="&general.appearance.style.ff3;" 
+													   src="chrome://userchrome/content/windows/options/preview/ff3.png"
+													   value="2" />
+								</namoroka-listbox>
+								<hbox id="previewImageContainer">
+									<image id="previewImage" />
+								</hbox>
+								<checkbox native="" label="&general.appearance.smallIcons;" class="option" data-type="bool" data-option="Namoroka.Appearance.Small-Icons"/>
+								<checkbox native="" label="&general.appearance.hideTabBar;" class="option" data-type="bool" data-option="Namoroka.Tabbrowser.HideOnOneTab"/>
+								<checkbox native="" label="&general.appearance.hideAddons;" class="option" data-type="bool" data-option="Namoroka.Unified-Extensions.Disabled"/>
 							</vbox>
 						</vbox>
 					</html:div>
@@ -83,24 +86,51 @@
 								<html:span class="dialogheader-title">&tabs.nativeControls;</html:span>
 								<html:span class="dialogheader-description"></html:span>
 							</hbox>
+							<description>&nativeControls.notice;</description>
 							<vbox class="listBox settingsBox" flex="1">
 								<vbox class="expander" id="expander-tabbedBrowsing">
 								  <hbox class="expanderHeader">	
 									<button type="disclosure" id="expanderButton" class="expanderButton" />
-									<label class="header expanderButton" flex="1" value="Expander Header" />
+									<label class="header expanderButton" flex="1" value="&nativeControls.general;" />
 								  </hbox>
 								  <vbox class="settingsContainer">
-									<p>Expander Content</p>
-								  </vbox>
+									<html:div class="option-container">
+										<label value="&nativeControls.general.osOverride;"/>
+										<menulist native="" class="option" data-type="enum" data-option="widget.ev-native-controls-patch.override-win-version">
+											<menupopup>
+												<menuitem label="&nativeControls.general.osOverride.seven;" value="7"/>
+												<menuitem label="&nativeControls.general.osOverride.eight;" value="8"/>
+												<menuitem label="&nativeControls.general.osOverride.ten;" value="10"/>
+											</menupopup>
+										</menulist>
+									</html:div>
+									<html:div class="option-container">
+										<label value="&nativeControls.general.glassOverride;"/>
+										<menulist native="" class="option" data-type="enum" data-option="widget.ev-native-controls-patch.force-glass-reporting">
+											<menupopup>
+												<menuitem label="&nativeControls.general.glassOverride.default;" value="0"/>
+												<menuitem label="&nativeControls.general.glassOverride.forceOn;" value="1"/>
+												<menuitem label="&nativeControls.general.glassOverride.forceOff;" value="2"/>
+											</menupopup>
+										</menulist>
+									</html:div>
+									<checkbox native="" label="&nativeControls.general.disableComposition;" class="option" data-type="bool" data-option="widget.ev-native-controls-patch.force-dwm-report-off"/>								  </vbox>
 								</vbox>
 								<vbox class="expander" id="expander-test">
 								  <hbox class="expanderHeader">	
 									<button type="disclosure" id="expanderButton" class="expanderButton" />
-									<label class="header expanderButton" flex="1" value="Expander Header" />
+									<label class="header expanderButton" flex="1" value="&nativeControls.captionMask;" />
 								  </hbox>
 								  <vbox class="settingsContainer">
-									<p>Expander Content</p>
-								  </vbox>
+										<html:div class="option-container">
+											<label value="&nativeControls.captionMask.width;"/>
+											<html:input type="number" id="default-title" class="option" data-type="int" onkeydown="return event.keyCode !== 190" data-option="widget.ev-native-controls-patch.override-aero-caption-buttons-mask-width"/>
+										</html:div>
+										<html:div class="option-container">
+											<label value="&nativeControls.captionMask.height;"/>
+											<html:input type="number" id="default-title" class="option" data-type="int" onkeydown="return event.keyCode !== 190" data-option="widget.ev-native-controls-patch.override-aero-caption-buttons-mask-height"/>
+										</html:div>
+									</vbox>
 								</vbox>
 							</vbox>
 						</vbox>

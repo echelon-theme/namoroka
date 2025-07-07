@@ -1420,6 +1420,25 @@ menubar menu .menubar-text {
   height: 3px !important;
   margin-block-start: 3px !important;
 }
+:root[namoroka-style-1] #TabsToolbar #tabbrowser-tabs[overflow=true] ~ .toolbarbutton-1 {
+  width: 18px !important;
+  height: 23px !important;
+  margin-block-start: 1px !important;
+  margin-block-end: 1px !important;
+  padding-inline-start: 1px !important;
+  background-color: -moz-Dialog !important;
+  background-image: url("chrome://namoroka/content/firefox-2/icons/alltabs-box-overflow-end-bkgnd.png") !important;
+}
+:root[namoroka-style-1] #TabsToolbar #tabbrowser-tabs[overflow=true] ~ .toolbarbutton-1:hover, :root[namoroka-style-1] #TabsToolbar #tabbrowser-tabs[overflow=true] ~ .toolbarbutton-1[open=true] {
+  background-image: url("chrome://namoroka/content/firefox-2/icons/alltabs-box-overflow-end-bkgnd-hover.png") !important;
+}
+:root[namoroka-style-1] #TabsToolbar #tabbrowser-tabs[overflow=true] ~ #new-tab-button {
+  list-style-image: url("chrome://namoroka/content/firefox-3/tabbrowser/newtab.png") !important;
+}
+:root[namoroka-style-1] #TabsToolbar #tabbrowser-tabs[overflow=true] ~ #new-tab-button .toolbarbutton-icon {
+  width: 18px !important;
+  height: 18px !important;
+}
 :root[namoroka-style-1] #TabsToolbar #tabbrowser-tabs[overflow=true] ~ #alltabs-button {
   border-top-left-radius: 0 !important;
   background-image: url("chrome://namoroka/content/firefox-2/icons/alltabs-box-overflow-end-bkgnd.png") !important;

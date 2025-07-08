@@ -1,6 +1,11 @@
-const { PrefUtils, BrandUtils } = ChromeUtils.import("chrome://userscripts/content/namoroka_utils.uc.js");
-const { NamorokaThemeManager } = ChromeUtils.importESModule("chrome://modules/content/NamorokaThemeManager.sys.mjs");
-const gOptionsBundle = document.getElementById("optionsBundle");
+const { LocaleUtils, PrefUtils, BrandUtils } = ChromeUtils.import("chrome://userscripts/content/namoroka_utils.uc.js");
+
+ChromeUtils.defineESModuleGetters(window, {
+    NamorokaThemeManager: "chrome://modules/content/NamorokaThemeManager.sys.mjs",
+    NamorokaUpdateChecker: "chrome://modules/content/NamorokaUpdateChecker.sys.mjs",
+});
+
+const gOptionsBundle = "chrome://namoroka/locale/properties/namoroka-options.properties";
 
 let g_themeManager = new NamorokaThemeManager;
 g_themeManager.init(
@@ -61,7 +66,7 @@ function refreshViewProperties()
     // Handle local display changes when the user changes configuration.
     let restartRequired = isRestartRequired();
 
-    document.querySelector(".restart-required-label").style.display = restartRequired ? "inline" : "none";
+    document.querySelector(".restart-required-label").style.display = restartRequired ? "flex" : "none";
 }
 
 /* Fill current values */
@@ -139,16 +144,16 @@ function okApplyHandler(e, closeWindow = false)
     let restartStruct = {
         accepted: false,
         icon: "warning",
-        title: gOptionsBundle.getString("restart_prompt_title"),
-        message: gOptionsBundle.getString("restart_prompt_message"),
-        acceptButtonText: gOptionsBundle.getString("restart_prompt_restart")
+        title: LocaleUtils.str(gOptionsBundle, "restart_prompt_title"),
+        message: LocaleUtils.str(gOptionsBundle, "restart_prompt_message"),
+        acceptButtonText: LocaleUtils.str(gOptionsBundle, "restart_prompt_restart")
     };
 
     if (restartRequired)
     {
         window.openDialog(
             "chrome://userchrome/content/windows/common/dialog.xhtml",
-            gOptionsBundle.getString("restart_prompt_title"),
+            LocaleUtils.str(gOptionsBundle, "restart_prompt_title"),
             "chrome,centerscreen,resizeable=no,dependent,modal",
             restartStruct
         );
@@ -185,6 +190,7 @@ function okApplyHandler(e, closeWindow = false)
 
 /* Events */
 document.getElementById("ok-button").addEventListener("click", e => okApplyHandler(e, true));
+document.getElementById("apply-button").addEventListener("click", e => okApplyHandler(e, false));
 
 document.getElementById("cancel-button").addEventListener("click", function()
 {
@@ -232,3 +238,41 @@ document.documentElement.addEventListener('keypress', function(e) {
 		window.close();
 	}
 });
+
+async function loadVersion() {
+    let localEchelonJSON = await NamorokaUpdateChecker.getBuildData("local");
+
+    document.querySelectorAll("#version").forEach(async identifier => {
+        if (identifier.getAttribute("numberonly")) {
+            identifier.value = localEchelonJSON.version;
+        }
+        else {
+            identifier.value = LocaleUtils.str(gOptionsBundle, "version_format", localEchelonJSON.version);
+        }
+	});
+
+    document.querySelectorAll("#build").forEach(async identifier => {
+        if (identifier.getAttribute("numberonly")) {
+            if (identifier.getAttribute("includehash")) {
+                identifier.value = `${localEchelonJSON.build} (${localEchelonJSON.hash})`
+            }
+            else {
+                identifier.value = localEchelonJSON.build;
+            }
+        }
+        else {
+            identifier.value = LocaleUtils.str(gOptionsBundle, "build_format", localEchelonJSON.build);
+        }
+	});
+
+    document.querySelectorAll("#channel").forEach(async identifier => {
+        identifier.value = localEchelonJSON.branch;
+	});
+
+    for (const aboutSection of document.querySelectorAll("label[data-content]"))
+    {
+        aboutSection.value = eval(aboutSection.dataset.content);
+    }
+}
+
+document.addEventListener("DOMContentLoaded", loadVersion);

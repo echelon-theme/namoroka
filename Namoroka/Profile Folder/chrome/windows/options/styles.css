@@ -256,6 +256,7 @@ button[type="disclosure"]:active .button-icon,
 .listBox {
 	-moz-default-appearance: listbox;
 	appearance: listbox;
+    overflow-y: auto;
 }
 
 .settingsBox {
@@ -319,4 +320,38 @@ namoroka-listitem[selected] {
     background-image: url("chrome://userchrome/content/windows/options/images/about-header-wordmark.png");
     background-repeat: no-repeat;
     background-position: center center;
+}
+
+.aboutBoxHeaderContainer #version {
+    font-weight: bold;
+    color: GrayText;
+    margin: 0;
+    margin-block-start: 8px;
+}
+
+.infoHeader {
+    font-weight: bold;
+}
+
+.aboutBox .option-container label:not(.infoHeader) {
+    color: GrayText;
+}
+
+.aboutBox .option-container {
+    margin-block: 5px;
+}
+
+.infoContainer {
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.infoContainer .expander {
+    min-width: 200px;
+}
+
+.restart-required-label {
+    flex: 1;
+    align-items: center;
+    color: red;
 }

@@ -42,3 +42,13 @@
 <!ENTITY nativeControls.captionMask "Aero Caption Button Mask">
 <!ENTITY nativeControls.captionMask.width "Width">
 <!ENTITY nativeControls.captionMask.height "Height">
+
+<!ENTITY about.namorokaInfo "Namoroka">
+<!ENTITY about.namorokaInfoVersion "Version">
+<!ENTITY about.namorokaInfoBuild "Build">
+<!ENTITY about.namorokaInfoChannel "Update Channel">
+
+<!ENTITY about.namorokaBrowser "Browser">
+<!ENTITY about.namorokaBrowserName "Browser Name">
+<!ENTITY about.namorokaBrowserVer "Engine Version">
+<!ENTITY about.namorokaBrowserChannel "Update Channel">

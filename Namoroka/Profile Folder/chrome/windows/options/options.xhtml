@@ -151,10 +151,50 @@
 							</hbox>
 							<vbox class="listBox settingsBox aboutBox" flex="1">
 								<vbox class="aboutBoxHeaderContainer">
-									<image class="aboutBoxHeader"/>
-									<image class="aboutHeaderLogo"/>
-									<label id="version" />	
+									<image class="aboutBoxHeader" />
+									<image class="aboutHeaderLogo" />
+									<label id="version" pack="center" />
 								</vbox>
+								<hbox class="infoContainer" flex="1">
+									<vbox class="expander expanded" id="expander-nativeControlsGeneral">
+										<hbox class="expanderHeader">
+											<label class="header" flex="1" value="&about.namorokaInfo;" />
+										</hbox>
+										<vbox class="settingsContainer">
+											<html:div class="option-container">
+												<label id="versionLabel" class="infoHeader" value="&about.namorokaInfoVersion;" />
+												<label id="version" numberonly="true" />
+											</html:div>
+											<html:div class="option-container">
+												<label id="buildLabel" class="infoHeader" value="&about.namorokaInfoBuild;" />
+												<label id="build" includehash="true" numberonly="true" />
+											</html:div>
+											<html:div class="option-container">
+												<label id="channelLabel" class="infoHeader" value="&about.namorokaInfoChannel;" />
+												<label id="channel" />
+											</html:div>
+										</vbox>
+									</vbox>
+									<vbox class="expander expanded" id="expander-nativeControlsGeneral">
+										<hbox class="expanderHeader">
+											<label class="header" flex="1" value="&about.namorokaBrowser;" />
+										</hbox>
+										<vbox class="settingsContainer">
+											<html:div class="option-container">
+												<label id="versionLabel" class="infoHeader" value="&about.namorokaBrowserName;" />
+												<label data-content="Services.appinfo.name" />
+											</html:div>
+											<html:div class="option-container">
+												<label id="buildLabel" class="infoHeader" value="&about.namorokaBrowserVer;" />
+												<label data-content="Services.appinfo.version" />
+											</html:div>
+											<html:div class="option-container">
+												<label id="channelLabel" class="infoHeader" value="&about.namorokaBrowserChannel;" />
+												<label data-content="Services.appinfo.defaultUpdateChannel" />
+											</html:div>
+										</vbox>
+									</vbox>
+								</hbox>
 							</vbox>
 						</vbox>
 					</html:div>
@@ -165,6 +205,7 @@
 			<html:span class="restart-required-label" style="display:none">&window.restartRequired;</html:span>
 			<button id="ok-button" label="&window.buttons.ok;"/>
 			<button id="cancel-button" label="&window.buttons.cancel;"/>
+			<button id="apply-button" label="&window.buttons.apply;" accesskey="&window.buttons.apply.accesskey;"/>
 		</html:div>
     </vbox>
     <script src="chrome://userchrome/content/windows/options/script.js" type="text/javascript"></script>

@@ -9,7 +9,7 @@
 <!ENTITY tabs.general "General">
 <!ENTITY tabs.branding "Branding">
 <!ENTITY tabs.nativeControls "Native Controls">
-<!ENTITY tabs.about "About">
+<!ENTITY tabs.about "About Namoroka">
 <!ENTITY tabs.debug "Debug">
 
 <!ENTITY general.appearance "Appearance">
@@ -32,13 +32,13 @@
 <!ENTITY nativeControls.general.osOverride.eight "Windows 8.x">
 <!ENTITY nativeControls.general.osOverride.ten "Windows 10">
 
-<!ENTITY nativeControls.general.glassOverride "Override Glass:">
+<!ENTITY nativeControls.general.glassOverride "Override Glass">
 <!ENTITY nativeControls.general.glassOverride.default "Default">
 <!ENTITY nativeControls.general.glassOverride.forceOn "Force on">
 <!ENTITY nativeControls.general.glassOverride.forceOff "Force off">
 
 <!ENTITY nativeControls.general.disableComposition "Disable DWM composition">
 
-<!ENTITY nativeControls.captionMask "Aero caption button mask">
-<!ENTITY nativeControls.captionMask.width "Width:">
-<!ENTITY nativeControls.captionMask.height "Height:">
+<!ENTITY nativeControls.captionMask "Aero Caption Button Mask">
+<!ENTITY nativeControls.captionMask.width "Width">
+<!ENTITY nativeControls.captionMask.height "Height">

@@ -88,7 +88,7 @@
 							</hbox>
 							<description>&nativeControls.notice;</description>
 							<vbox class="listBox settingsBox" flex="1">
-								<vbox class="expander" id="expander-tabbedBrowsing">
+								<vbox class="expander expanded" id="expander-nativeControlsGeneral">
 								  <hbox class="expanderHeader">	
 									<button type="disclosure" id="expanderButton" class="expanderButton" />
 									<label class="header expanderButton" flex="1" value="&nativeControls.general;" />
@@ -116,7 +116,7 @@
 									</html:div>
 									<checkbox native="" label="&nativeControls.general.disableComposition;" class="option" data-type="bool" data-option="widget.ev-native-controls-patch.force-dwm-report-off"/>								  </vbox>
 								</vbox>
-								<vbox class="expander" id="expander-test">
+								<vbox class="expander expanded" id="expander-nativeControlsMask">
 								  <hbox class="expanderHeader">	
 									<button type="disclosure" id="expanderButton" class="expanderButton" />
 									<label class="header expanderButton" flex="1" value="&nativeControls.captionMask;" />
@@ -149,6 +149,13 @@
 								<html:span class="dialogheader-title">&tabs.about;</html:span>
 								<html:span class="dialogheader-description"></html:span>
 							</hbox>
+							<vbox class="listBox settingsBox aboutBox" flex="1">
+								<vbox class="aboutBoxHeaderContainer">
+									<image class="aboutBoxHeader"/>
+									<image class="aboutHeaderLogo"/>
+									<label id="version" />	
+								</vbox>
+							</vbox>
 						</vbox>
 					</html:div>
 				</html:div>

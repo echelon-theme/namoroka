@@ -6,7 +6,10 @@ let g_themeManager = new NamorokaThemeManager;
 g_themeManager.init(
     document.documentElement,
     {
-        style: true
+        style: true,
+        bools: [
+            "Namoroka.Option.Debug"
+        ]
     }
 );
 

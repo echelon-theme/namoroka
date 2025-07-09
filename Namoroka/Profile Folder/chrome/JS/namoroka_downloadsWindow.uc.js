@@ -14,7 +14,7 @@ let NAMOROKA_DOWNLOADS_CSS_URI = Services.io.newURI(
 {
     var { waitForElement, LocaleUtils } = ChromeUtils.import("chrome://userscripts/content/namoroka_utils.uc.js");
     waitForElement = waitForElement.bind(window);
-
+    
     let downloadsBundle = "chrome://namoroka/locale/properties/downloads-window.properties";
 
     /*
@@ -24,9 +24,10 @@ let NAMOROKA_DOWNLOADS_CSS_URI = Services.io.newURI(
         /*
         * I would do a event listener and just
         * do a preventDefault and stopPropagation
-        * but that shit is too slow
+        * but that shit is too slow besides this
+        * shit is easier and cleaner to do
         */
-        e.setAttribute("onmousedown", "g_namorokaDownloadsWindow._openDialog();");
+        e.setAttribute("onmousedown", "g_namorokaDownloadsWindow._openDialog(event)");
     });
 
     class NamorokaDownloadsWindow
@@ -46,22 +47,24 @@ let NAMOROKA_DOWNLOADS_CSS_URI = Services.io.newURI(
         /*
         * Universal Open Dialog because they changed some shit between 115-128
         */
-        _openDialog() {
-            var organizer = Services.wm.getMostRecentWindow("Places:Organizer");
+        _openDialog(aEvent) {
+            if (aEvent.type == "mousedown" && aEvent.button == 0) {
+                var organizer = Services.wm.getMostRecentWindow("Places:Organizer");
 
-            if (!organizer || organizer.closed) 
+                if (!organizer || organizer.closed) 
+                    {
+                    openDialog(
+                        "chrome://browser/content/places/places.xhtml",
+                        "",
+                        "chrome, toolbar=no, dialog=no, resizable",
+                        "Downloads"
+                    );
+                }
+                else 
                 {
-                openDialog(
-                    "chrome://browser/content/places/places.xhtml",
-                    "",
-                    "chrome, toolbar=no, dialog=no, resizable",
-                    "Downloads"
-                );
-            }
-            else 
-            {
-                organizer.PlacesOrganizer.selectLeftPaneContainerByHierarchy("Downloads");
-                organizer.focus();
+                    organizer.PlacesOrganizer.selectLeftPaneContainerByHierarchy("Downloads");
+                    organizer.focus();
+                }
             }
         }
 
@@ -124,7 +127,7 @@ let NAMOROKA_DOWNLOADS_CSS_URI = Services.io.newURI(
         }
 
         _onDownloadShowFolder() {
-            let { Downloads } = ChromeUtils.import("resource://gre/modules/Downloads.jsm");
+            let { Downloads } = ChromeUtils.import("resource://gre/modules/Downloads.sys.mjs");
 
             Downloads.getPreferredDownloadsDirectory().then(downloadsDir => {
                 if (downloadsDir) {

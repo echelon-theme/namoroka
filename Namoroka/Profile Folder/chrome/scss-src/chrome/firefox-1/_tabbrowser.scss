@@ -78,6 +78,10 @@
                 &[progress] {
                     opacity: 0.6 !important;
                 }
+
+                &::before {
+                    content: none !important;
+                }
             }
 
             // Firefox 1 always showed the tab icon

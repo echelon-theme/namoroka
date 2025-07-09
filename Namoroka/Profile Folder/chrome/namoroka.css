@@ -369,6 +369,9 @@ menubar {
 #TabsToolbar .tabbrowser-tab .tab-content .tab-throbber[busy][progress] {
   opacity: 0.6 !important;
 }
+#TabsToolbar .tabbrowser-tab .tab-content .tab-throbber[busy]::before {
+  content: none !important;
+}
 #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-image:not([src], [busy=true]),
 #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-image:not([busy=true]):-moz-broken,
 #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-image:not([busy=true])[src="chrome://branding/content/icon32.png"] {

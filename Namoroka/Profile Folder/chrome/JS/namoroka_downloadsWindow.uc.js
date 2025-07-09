@@ -91,10 +91,23 @@ let NAMOROKA_DOWNLOADS_CSS_URI = Services.io.newURI(
             if (windowURL == "chrome://browser/content/places/places.xhtml") {
                 let currentView = ContentArea.currentView._richlistbox.getAttribute("id");
 
+			    let { NamorokaThemeManager } = ChromeUtils.importESModule("chrome://modules/content/NamorokaThemeManager.sys.mjs");
+                let g_themeManager = new NamorokaThemeManager;
+                g_themeManager.init(
+                    document.documentElement,
+                    {
+                        style: true,
+                    }
+                );
+
                 if (currentView == "downloadsListBox") {
                     // Load Sheet
                     window.windowUtils.loadSheet(NAMOROKA_DOWNLOADS_CSS_URI, Ci.nsIDOMWindowUtils.AUTHOR_SHEET);
-                    
+
+                    // Resize Window
+                    window.resizeTo(400, 300);
+
+                    // Change Window Title
                     window.document.documentElement.setAttribute("title", LocaleUtils.str(downloadsBundle, "window_title"));
                     
                     // Append Fragment

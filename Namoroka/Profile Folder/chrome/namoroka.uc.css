@@ -84,8 +84,8 @@ toolbarbutton menupopup[placespopup] menuseparator::before {
 }
 
 @media not (-moz-windows-non-native-menus) {
-  menupopup,
-  toolbarbutton menupopup[placespopup] {
+  :root:not([namoroka-style-1]) menupopup,
+  :root:not([namoroka-style-1]) toolbarbutton menupopup[placespopup] {
     border-top-color: -moz-Dialog !important;
     border-left-color: -moz-Dialog !important;
     border-bottom-color: ThreeDDarkShadow !important;

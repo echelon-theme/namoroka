@@ -1,0 +1,130 @@
+#placesList,
+#placesToolbar {
+    visibility: collapse !important;
+}
+
+#placesViewsBox {
+    margin: 10px 10px 5px 10px !important;
+    -moz-default-appearance: listbox !important;
+    appearance: auto !important;
+
+    #downloadsListBox {
+        color: -moz-FieldText !important;
+        background-color: -moz-Field !important;
+        border: 0 !important;
+        background-image: url("chrome://userchrome/content/windows/downloads/viewFader.png") !important;
+
+        richlistitem {
+            padding-block: 13px !important;
+            padding-inline-start: 13px !important;
+            padding-inline-end: 10px !important;
+            min-height: 25px;
+            outline: 0 !important;
+            background-color: transparent !important;
+            border-bottom: 1px dotted #C0C0C0 !important;
+            color: inherit !important;
+
+            &[selected="true"] {
+                background-image: url("chrome://userchrome/content/windows/downloads/downloadSelected.png") !important;
+                border-bottom: 1px dotted #7F9DB9 !important;
+            }
+
+            .downloadMainArea {
+                align-items: flex-start !important;
+            }
+
+            .downloadProgress {
+                appearance: auto !important;
+                -moz-default-appearance: progress-bar !important;
+                border: 1px solid ThreeDShadow !important;
+                border-right-color: ThreeDHighlight !important;
+                border-bottom-color: ThreeDHighlight !important;
+                height: unset !important;
+                border-radius: unset !important;
+                background-color: ThreeDFace !important;
+
+                &::-moz-progress-bar {
+                    appearance: auto !important;
+                    -moz-default-appearance: progresschunk !important;
+                    border-radius: unset !important;
+                    background-color: Highlight !important
+                }
+            }
+
+            .downloadTypeIcon {
+                margin: 0 !important;
+                margin-inline-end: 10px !important;
+                align-self: flex-start !important;
+            }
+
+            .downloadDetails {
+                font-size: unset !important;
+                opacity: 1 !important;
+            }
+
+            .downloadButton {
+                padding: 0 !important;
+            }
+        }
+    }
+}
+
+#commandBar {
+    padding: 0px 10px 5px 10px !important;
+}
+
+#saveToFolder {
+    appearance: auto !important;
+    -moz-default-appearance: toolbarbutton !important;
+    padding: 1px 6px 3px 5px !important;
+    border: 1px solid transparent;
+    background-color: transparent !important;
+    color: -moz-DialogText !important;  
+
+    &:hover:not([disabled="true"]) {
+        border-color: ThreeDHighlight ThreeDShadow ThreeDShadow ThreeDHighlight !important;
+
+        &:active {
+            padding: 2px 5px 2px 6px !important;
+            border-color: ThreeDShadow ThreeDHighlight ThreeDHighlight ThreeDShadow !important;
+        }
+    }
+
+    .toolbarbutton-text {
+        text-align: left !important;
+        margin-block-start: 1px !important;
+        margin-inline-start: 5px !important;
+    }
+}
+
+#cleanUpButton {
+    margin: 0px !important;
+    list-style-image: url("chrome://userchrome/content/windows/downloads/downloadCleanup.png") !important;
+    padding: 2px 6px 3px 5px !important;
+
+    /*
+    * Since we can't use the resizer element,
+    * we will have to add this for accuracy
+    * purposes.
+    */
+    margin-inline-end: 15px !important;
+
+    &:not([disabled="true"]):hover:active {
+        padding: 3px 5px 2px 6px !important;
+    }
+
+    &[disabled="true"] {
+        list-style-image: url("chrome://userchrome/content/windows/downloads/downloadCleanupDisabled.png") !important;
+    }
+
+    .button-icon {
+        margin-top: 0px !important;
+        margin-bottom: 0px !important;
+        margin-inline-start: 0px !important;
+        margin-inline-end: 5px !important;
+    }
+}
+
+#commandBarSeparator {
+    margin-inline-start: 5px !important;
+}

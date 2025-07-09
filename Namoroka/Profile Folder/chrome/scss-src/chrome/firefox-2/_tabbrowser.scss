@@ -148,11 +148,11 @@
             margin-block: 0 !important;
         }
 
-        &:focus {
-            .tab-text {
-                border: 1px dotted -moz-DialogText !important;
-            }
-        }
+        // &:focus {
+        //     .tab-text {
+        //         border: 1px dotted -moz-DialogText !important;
+        //     }
+        // }
 
         &:not([selected]) {
             .tab-close-button:not(:hover, :hover:active) {

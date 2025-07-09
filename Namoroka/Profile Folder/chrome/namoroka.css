@@ -1388,9 +1388,6 @@ menubar menu .menubar-text {
   border: 1px dotted transparent !important;
   margin-block: 0 !important;
 }
-:root[namoroka-style-1] #TabsToolbar .tabbrowser-tab:focus .tab-text {
-  border: 1px dotted -moz-DialogText !important;
-}
 :root[namoroka-style-1] #TabsToolbar .tabbrowser-tab:not([selected]) .tab-close-button:not(:hover, :hover:active) {
   background-position-x: -48px !important;
 }

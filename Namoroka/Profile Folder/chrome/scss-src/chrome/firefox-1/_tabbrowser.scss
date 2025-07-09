@@ -44,6 +44,17 @@
                 }
             }
         }
+
+        &:not([pinned]) {
+            transition: min-width 0ms ease-out,
+                        max-width 0ms ease-out !important;
+        }
+
+        &:not([pinned], [fadein]) {
+            border: 0 !important;
+            appearance: none !important;
+            padding: 0 !important;
+        }
         
         .tab-background {
             visibility: collapse !important;
@@ -130,6 +141,22 @@
     }
 
     :root:not([namoroka-style-1="true"]) & {
+        #alltabs-button {
+            width: 18px !important;
+            list-style-image: url("chrome://namoroka/content/firefox-1/arrow/arrow-dn.gif") !important;
+            
+            .toolbarbutton-icon {
+                width: auto !important;
+            }
+
+            &:hover:active,
+            &[open="true"] {
+                .toolbarbutton-icon {
+                    transform: translate(1px, 1px) !important;
+                }
+            }
+        }
+
         #tabbrowser-tabs:not([overflow], [hashiddentabs]) ~ #alltabs-button {
             display: none !important;
         }

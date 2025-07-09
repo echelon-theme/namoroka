@@ -1,5 +1,5 @@
-menu,
-menuitem {
+menupopu menu,
+menupopup menuitem {
     color: MenuText !important;
     font: menu !important;
 
@@ -7,6 +7,13 @@ menuitem {
     &[_moz-menuactive="true"][disabled="true"] {
         color: GrayText !important;
         text-shadow: none !important;
+    }
+}
+
+menupopup menuitem {
+    &[_moz-menuactive="true"] {
+        background-color : Highlight !important;
+        color: HighlightText !important;
     }
 }
 

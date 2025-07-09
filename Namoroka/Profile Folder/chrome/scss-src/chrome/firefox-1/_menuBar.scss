@@ -36,7 +36,10 @@ menupopup {
 
 menu,
 menuitem {
-    color: MenuText !important;
+    :root:not([namoroka-style-1]) & {
+        color: MenuText !important;
+    }
+    
     font: menu !important;
 
     &[disabled="true"],

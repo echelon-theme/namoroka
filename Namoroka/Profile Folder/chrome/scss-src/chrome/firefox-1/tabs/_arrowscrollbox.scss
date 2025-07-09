@@ -1,0 +1,25 @@
+#tabbrowser-arrowscrollbox {
+    &:not([namoroka-style-1]) {
+        &::part(scrollbutton-up),
+        &::part(scrollbutton-down) {
+            width: 18px !important;
+            border: 1px solid transparent !important;
+            border-radius: 0 !important;
+            background-color: transparent !important;
+        }
+
+        &:not([scrolledtostart]),
+        &:not([scrolledtoend]) {
+            &::part(scrollbutton-up),
+            &::part(scrollbutton-down) {
+                &:hover {
+                    border-color: ThreeDHighlight ThreeDShadow ThreeDShadow ThreeDHighlight !important;
+
+                    &:active {
+                        border-color: ThreeDShadow ThreeDHighlight ThreeDHighlight ThreeDShadow !important;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -344,6 +344,14 @@ menubar {
 #TabsToolbar .tabbrowser-tab[selected] .tab-icon-overlay:not([pinned]) {
   margin-block-start: 1px !important;
 }
+#TabsToolbar .tabbrowser-tab:not([pinned]) {
+  transition: min-width 0ms ease-out, max-width 0ms ease-out !important;
+}
+#TabsToolbar .tabbrowser-tab:not([pinned], [fadein]) {
+  border: 0 !important;
+  appearance: none !important;
+  padding: 0 !important;
+}
 #TabsToolbar .tabbrowser-tab .tab-background {
   visibility: collapse !important;
 }
@@ -405,6 +413,16 @@ menubar {
 }
 :root[namoroka-style-1=true] #TabsToolbar .tabs-closebutton-box {
   visibility: collapse !important;
+}
+:root:not([namoroka-style-1=true]) #TabsToolbar #alltabs-button {
+  width: 18px !important;
+  list-style-image: url("chrome://namoroka/content/firefox-1/arrow/arrow-dn.gif") !important;
+}
+:root:not([namoroka-style-1=true]) #TabsToolbar #alltabs-button .toolbarbutton-icon {
+  width: auto !important;
+}
+:root:not([namoroka-style-1=true]) #TabsToolbar #alltabs-button:hover:active .toolbarbutton-icon, :root:not([namoroka-style-1=true]) #TabsToolbar #alltabs-button[open=true] .toolbarbutton-icon {
+  transform: translate(1px, 1px) !important;
 }
 :root:not([namoroka-style-1=true]) #TabsToolbar #tabbrowser-tabs:not([overflow], [hashiddentabs]) ~ #alltabs-button {
   display: none !important;
@@ -582,8 +600,11 @@ menupopup menuitem[_moz-menuactive=true] {
 
 menu,
 menuitem {
-  color: MenuText !important;
   font: menu !important;
+}
+:root:not([namoroka-style-1]) menu,
+:root:not([namoroka-style-1]) menuitem {
+  color: MenuText !important;
 }
 menu[disabled=true], menu[_moz-menuactive=true][disabled=true],
 menuitem[disabled=true],
@@ -1615,16 +1636,20 @@ menubar menu .menubar-text {
 :root[namoroka-style-1] toolbar[type=menubar] {
   border-block-start-width: 1px !important;
 }
-:root[namoroka-style-1] menu,
-:root[namoroka-style-1] menuitem {
+:root[namoroka-style-1] menupopu menu,
+:root[namoroka-style-1] menupopup menuitem {
   color: MenuText !important;
   font: menu !important;
 }
-:root[namoroka-style-1] menu[disabled=true], :root[namoroka-style-1] menu[_moz-menuactive=true][disabled=true],
-:root[namoroka-style-1] menuitem[disabled=true],
-:root[namoroka-style-1] menuitem[_moz-menuactive=true][disabled=true] {
+:root[namoroka-style-1] menupopu menu[disabled=true], :root[namoroka-style-1] menupopu menu[_moz-menuactive=true][disabled=true],
+:root[namoroka-style-1] menupopup menuitem[disabled=true],
+:root[namoroka-style-1] menupopup menuitem[_moz-menuactive=true][disabled=true] {
   color: GrayText !important;
   text-shadow: none !important;
+}
+:root[namoroka-style-1] menupopup menuitem[_moz-menuactive=true] {
+  background-color: Highlight !important;
+  color: HighlightText !important;
 }
 :root[namoroka-style-1] menubar menu {
   border: 1px solid transparent !important;

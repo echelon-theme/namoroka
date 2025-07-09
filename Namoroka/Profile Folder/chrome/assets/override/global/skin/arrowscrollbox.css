@@ -28,7 +28,7 @@ toolbarbutton {
   fill-opacity: 1;
   padding: 2px;
   /* Make sure we draw on top of our scrollbox, since otherwise the up button
-   * won't be hittable */
+  * won't be hittable */
   position: relative;
 }
 toolbarbutton[disabled] {
@@ -55,34 +55,47 @@ toolbarbutton > .toolbarbutton-text {
   transform: scaleX(1);
 }
 
-#scrollbutton-up > .toolbarbutton-icon,
-#scrollbutton-down > .toolbarbutton-icon {
+:host(:not([namoroka-style-1])) #scrollbutton-up .toolbarbutton-icon,
+:host(:not([namoroka-style-1])) #scrollbutton-down .toolbarbutton-icon {
+  width: 3px !important;
+  height: 5px !important;
+}
+:host(:not([namoroka-style-1])) #scrollbutton-up .toolbarbutton-icon {
+  list-style-image: url("chrome://namoroka/content/firefox-1/arrow/arrow-lft.gif") !important;
+}
+:host(:not([namoroka-style-1])) #scrollbutton-up[disabled=true] .toolbarbutton-icon {
+  list-style-image: url("chrome://namoroka/content/firefox-1/arrow/arrow-lft-dis.gif") !important;
+}
+:host(:not([namoroka-style-1])) #scrollbutton-down .toolbarbutton-icon {
+  list-style-image: url("chrome://namoroka/content/firefox-1/arrow/arrow-rit.gif") !important;
+}
+:host(:not([namoroka-style-1])) #scrollbutton-down[disabled=true] .toolbarbutton-icon {
+  list-style-image: url("chrome://namoroka/content/firefox-1/arrow/arrow-rit-dis.gif") !important;
+}
+
+:host([namoroka-style-1]) #scrollbutton-up > .toolbarbutton-icon,
+:host([namoroka-style-1]) #scrollbutton-down > .toolbarbutton-icon {
   width: 11px !important;
   height: 11px !important;
   list-style-image: none !important;
   margin-block-start: 1px !important;
 }
-
-#scrollbutton-up > .toolbarbutton-icon {
+:host([namoroka-style-1]) #scrollbutton-up > .toolbarbutton-icon {
   background-image: var(--arrowscrollbox-left-image) !important;
 }
-
-#scrollbutton-down > .toolbarbutton-icon {
+:host([namoroka-style-1]) #scrollbutton-down > .toolbarbutton-icon {
   background-image: var(--arrowscrollbox-right-image) !important;
 }
-
-#scrollbutton-up:not([disabled=true]):hover > .toolbarbutton-icon,
-#scrollbutton-down:not([disabled=true]):hover > .toolbarbutton-icon {
+:host([namoroka-style-1]) #scrollbutton-up:not([disabled=true]):hover > .toolbarbutton-icon,
+:host([namoroka-style-1]) #scrollbutton-down:not([disabled=true]):hover > .toolbarbutton-icon {
   background-position-x: -11px !important;
 }
-
-#scrollbutton-up:not([disabled=true]):hover:active > .toolbarbutton-icon,
-#scrollbutton-down:not([disabled=true]):hover:active > .toolbarbutton-icon {
+:host([namoroka-style-1]) #scrollbutton-up:not([disabled=true]):hover:active > .toolbarbutton-icon,
+:host([namoroka-style-1]) #scrollbutton-down:not([disabled=true]):hover:active > .toolbarbutton-icon {
   background-position-x: -33px !important;
 }
-
-#scrollbutton-up[disabled=true] > .toolbarbutton-icon,
-#scrollbutton-down[disabled=true] > .toolbarbutton-icon {
+:host([namoroka-style-1]) #scrollbutton-up[disabled=true] > .toolbarbutton-icon,
+:host([namoroka-style-1]) #scrollbutton-down[disabled=true] > .toolbarbutton-icon {
   background-position-x: -22px !important;
 }
 

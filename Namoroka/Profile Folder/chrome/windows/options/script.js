@@ -42,6 +42,8 @@ document.querySelectorAll("namoroka-listbox").forEach(listbox => {
             item.dispatchEvent(new CustomEvent("namoroka-listbox-change"));
             document.dispatchEvent(new CustomEvent("namoroka-listbox-change"));
         });
+
+        item.addEventListener("dblclick", e => okApplyHandler(e, true));
     });
 
     listbox.setValue = function(aValue) {

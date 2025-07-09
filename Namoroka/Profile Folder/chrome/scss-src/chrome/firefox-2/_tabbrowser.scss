@@ -163,6 +163,12 @@
         .tab-close-button {
             margin-inline-end: 0 !important;
         }
+
+        &:not([pinned], [fadein]) {
+            .tab-background {
+                visibility: collapse !important;
+            }
+        }
     }
 
     .toolbarbutton-1 {

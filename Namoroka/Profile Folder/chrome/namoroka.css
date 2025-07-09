@@ -1397,6 +1397,9 @@ menubar menu .menubar-text {
 :root[namoroka-style-1] #TabsToolbar .tabbrowser-tab .tab-close-button {
   margin-inline-end: 0 !important;
 }
+:root[namoroka-style-1] #TabsToolbar .tabbrowser-tab:not([pinned], [fadein]) .tab-background {
+  visibility: collapse !important;
+}
 :root[namoroka-style-1] #TabsToolbar .toolbarbutton-1 {
   border: 0 !important;
   margin: 0 !important;

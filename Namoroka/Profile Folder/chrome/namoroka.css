@@ -601,17 +601,22 @@ menupopup menuitem[_moz-menuactive=true] {
   color: HighlightText !important;
 }
 
-menu,
+menu {
+  color: MenuText !important;
+  font: menu !important;
+}
+menu[disabled=true], menu[_moz-menuactive=true][disabled=true] {
+  color: GrayText !important;
+  text-shadow: none !important;
+}
+
 menuitem {
   font: menu !important;
 }
-:root:not([namoroka-style-1]) menu,
-:root:not([namoroka-style-1]) menuitem {
+:root:not([namoroka-style-1]) menuitem:not([disabled=true], [_moz-menuactive=true]) {
   color: MenuText !important;
 }
-menu[disabled=true], menu[_moz-menuactive=true][disabled=true],
-menuitem[disabled=true],
-menuitem[_moz-menuactive=true][disabled=true] {
+menuitem[disabled=true], menuitem[_moz-menuactive=true][disabled=true] {
   color: GrayText !important;
   text-shadow: none !important;
 }
@@ -698,11 +703,13 @@ menubar menu .menubar-text {
 :root {
   --urlbar-root-height: 22px !important;
   --urlbar-min-height: var(--urlbar-root-height) !important;
+  --urlbar-container-padding: 0 !important;
   --secure-icon: url("chrome://namoroka/content/firefox-1/Secure.png") !important;
 }
 @media (-moz-windows-classic) {
   :root {
     --urlbar-root-height: 24px !important;
+    --urlbar-container-padding: 1px !important;
   }
 }
 
@@ -724,6 +731,14 @@ menubar menu .menubar-text {
 .searchbar-textbox::placeholder {
   color: GrayText !important;
   opacity: 0 !important;
+}
+
+.default-favicon {
+  content: var(--page-icon) !important;
+}
+
+image.default-favicon {
+  list-style-image: var(--page-icon) !important;
 }
 
 #urlbar-container {

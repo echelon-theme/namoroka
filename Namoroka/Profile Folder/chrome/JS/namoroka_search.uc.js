@@ -25,17 +25,21 @@
 		/* A list of engines to obtain default icons for. */
 		static ENGINES = [
 			"google",
+			"ebay",
 
 			/* For older versions of Firefox */
 			"google@search.mozilla.orgdefault",
+			"ebay@search.mozilla.orgdefault",
 		];
 
 		/* Replacement icons for FF14 with old logo and earlier */
 		static REPLACEMENTS = {
 			"google": "chrome://namoroka/content/searchplugins/google.ico",
+			"ebay": "chrome://namoroka/content/searchplugins/ebay.ico",
 
 			/* For older versions of Firefox */
 			"google@search.mozilla.orgdefault": "chrome://namoroka/content/searchplugins/google.ico",
+			"ebay@search.mozilla.orgdefault": "chrome://namoroka/content/searchplugins/ebay.ico",
 		};
 
 		static async obtainIcons()

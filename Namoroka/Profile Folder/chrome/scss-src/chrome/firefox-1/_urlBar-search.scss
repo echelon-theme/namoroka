@@ -1,12 +1,14 @@
 :root {
     --urlbar-root-height: 22px !important;
     --urlbar-min-height: var(--urlbar-root-height) !important;
+    --urlbar-container-padding: 0 !important;
 
     --secure-icon: url("chrome://namoroka/content/firefox-1/Secure.png") !important;
 
     @media (-moz-windows-classic) {
         & {
             --urlbar-root-height: 24px !important;
+            --urlbar-container-padding: 1px !important;
         }
     }
 }
@@ -29,6 +31,14 @@
 .searchbar-textbox::placeholder {
     color: GrayText !important;
     opacity: 0 !important;
+}
+
+.default-favicon {
+    content: var(--page-icon) !important;
+}
+
+image.default-favicon {
+    list-style-image: var(--page-icon) !important;
 }
 
 #urlbar-container {

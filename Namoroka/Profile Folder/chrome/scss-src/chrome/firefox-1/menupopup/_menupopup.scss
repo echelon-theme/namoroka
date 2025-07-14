@@ -10,4 +10,33 @@
             padding: 1px !important;
         }
     }
+
+    :root[namoroka-style-1] {
+        menupopup,
+        toolbarbutton menupopup[placespopup] {
+            padding: 2px !important;
+            border: 1px solid ThreeDShadow !important;
+        }
+    }
+}
+
+#context-navigation {
+	background: transparent !important;
+	flex-direction: column !important;
+
+	& > .menuitem-iconic {
+		width: unset !important;
+
+		& > .menu-iconic-left {
+			appearance: auto !important;
+
+			& > .menu-iconic-icon {
+				display: none !important;
+			}
+		}
+		
+		.menu-iconic-text {
+			display: block !important;
+		}
+	}
 }

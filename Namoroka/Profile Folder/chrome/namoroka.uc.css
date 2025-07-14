@@ -93,7 +93,29 @@ toolbarbutton menupopup[placespopup] menuseparator::before {
     box-shadow: inset -1px -1px 0 ThreeDShadow, inset 1px 1px 0 ThreeDHighlight !important;
     padding: 1px !important;
   }
+  :root[namoroka-style-1] menupopup,
+  :root[namoroka-style-1] toolbarbutton menupopup[placespopup] {
+    padding: 2px !important;
+    border: 1px solid ThreeDShadow !important;
+  }
 }
+#context-navigation {
+  background: transparent !important;
+  flex-direction: column !important;
+}
+#context-navigation > .menuitem-iconic {
+  width: unset !important;
+}
+#context-navigation > .menuitem-iconic > .menu-iconic-left {
+  appearance: auto !important;
+}
+#context-navigation > .menuitem-iconic > .menu-iconic-left > .menu-iconic-icon {
+  display: none !important;
+}
+#context-navigation > .menuitem-iconic .menu-iconic-text {
+  display: block !important;
+}
+
 #tabbrowser-arrowscrollbox:not([namoroka-style-1])::part(scrollbutton-up), #tabbrowser-arrowscrollbox:not([namoroka-style-1])::part(scrollbutton-down) {
   width: 18px !important;
   border: 1px solid transparent !important;

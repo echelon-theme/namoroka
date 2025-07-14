@@ -34,9 +34,20 @@ menupopup {
     }
 }
 
-menu,
+menu {
+    color: MenuText !important;
+    font: menu !important;
+
+    &[disabled="true"],
+    &[_moz-menuactive="true"][disabled="true"] {
+        color: GrayText !important;
+        text-shadow: none !important;
+    }
+}
+
 menuitem {
-    :root:not([namoroka-style-1]) & {
+    :root:not([namoroka-style-1]) 
+    &:not([disabled="true"], [_moz-menuactive="true"]) {
         color: MenuText !important;
     }
     

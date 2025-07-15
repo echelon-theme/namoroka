@@ -992,7 +992,47 @@ image.default-favicon {
   opacity: 0 !important;
 }
 
+@namespace xul url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+@namespace html url("http://www.w3.org/1999/xhtml");
+xul|dialog[inbrowserwindow] {
+  padding-block: 8px 10px !important;
+  padding-inline: 8px 10px !important;
+}
+
+:is(xul|window, xul|dialog):not(.sidebar-panel) treecol {
+  appearance: auto !important;
+}
+
+/* commonDialog icons */
+.message-icon {
+  list-style-image: url("chrome://namoroka/content/firefox-1/icons/Question.png") !important;
+}
+
+.alert-dialog #infoIcon,
+.alert-icon {
+  list-style-image: url("chrome://namoroka/content/firefox-1/icons/Warning.png") !important;
+}
+
+.error-icon {
+  list-style-image: url("chrome://namoroka/content/firefox-1/icons/Error.png") !important;
+}
+
+.question-icon {
+  list-style-image: url("chrome://namoroka/content/firefox-1/icons/Question.png") !important;
+}
+
+#namorokaDialog {
+  --default-focusring-width: 1px !important;
+  padding-top: 8px !important;
+  padding-bottom: 10px !important;
+  padding-inline-start: 8px !important;
+  padding-inline-end: 10px !important;
+}
+
 /* ::::: Firefox 2 ::::: */
+:root[namoroka-style-1] {
+  /* commonDialog icons */
+}
 :root[namoroka-style-1] {
   --toolbar-spritesheet: url("chrome://namoroka/content/firefox-2/Toolbar.png");
 }
@@ -1691,6 +1731,19 @@ image.default-favicon {
 }
 :root[namoroka-style-1] :root {
   --folder-item: url("chrome://namoroka/content/firefox-2/folder-item.png") !important;
+}
+:root[namoroka-style-1] .message-icon {
+  list-style-image: url("chrome://namoroka/content/firefox-2/icons/Question.png") !important;
+}
+:root[namoroka-style-1] .alert-dialog #infoIcon,
+:root[namoroka-style-1] .alert-icon {
+  list-style-image: url("chrome://namoroka/content/firefox-2/icons/Warning.png") !important;
+}
+:root[namoroka-style-1] .error-icon {
+  list-style-image: url("chrome://namoroka/content/firefox-2/icons/Error.png") !important;
+}
+:root[namoroka-style-1] .question-icon {
+  list-style-image: url("chrome://namoroka/content/firefox-2/icons/Question.png") !important;
 }
 
 /* ::::: Firefox 3 ::::: */

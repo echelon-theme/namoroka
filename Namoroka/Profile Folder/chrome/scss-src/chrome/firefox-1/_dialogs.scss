@@ -1,0 +1,38 @@
+@import "_mixins.scss";
+
+xul|dialog[inbrowserwindow] {
+    padding-block: 8px 10px !important;
+    padding-inline: 8px 10px !important;
+}
+
+:is(xul|window, xul|dialog):not(.sidebar-panel) {
+    treecol {
+		appearance: auto !important;
+	}
+}
+
+/* commonDialog icons */
+.message-icon {
+    list-style-image: url("chrome://namoroka/content/firefox-1/icons/Question.png") !important;
+}
+
+.alert-dialog #infoIcon,
+.alert-icon {
+    list-style-image: url("chrome://namoroka/content/firefox-1/icons/Warning.png") !important;
+}
+
+.error-icon {
+    list-style-image: url("chrome://namoroka/content/firefox-1/icons/Error.png") !important;
+}
+
+.question-icon {
+    list-style-image: url("chrome://namoroka/content/firefox-1/icons/Question.png") !important;
+}
+
+#namorokaDialog {
+    --default-focusring-width: 1px !important;
+    padding-top: 8px !important;
+    padding-bottom: 10px !important;
+    padding-inline-start: 8px !important;
+    padding-inline-end: 10px !important;
+}

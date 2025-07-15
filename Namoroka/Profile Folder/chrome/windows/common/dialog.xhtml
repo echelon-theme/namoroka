@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
-<dialog id="echelonDialog"
-        buttonpack="end"
+<dialog id="namorokaDialog"
+        buttonpack="center"
         buttons="accept,cancel"
         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
         xmlns:html="http://www.w3.org/1999/xhtml"
@@ -14,6 +14,13 @@
     </linkset>
 
     <script>
+        const { NamorokaThemeManager } = ChromeUtils.importESModule("chrome://modules/content/NamorokaThemeManager.sys.mjs");
+        let g_themeManager = new NamorokaThemeManager;
+        g_themeManager.init(
+            document.documentElement,
+            { style: true }
+        );
+
         let args = window.arguments[0];
         let g_dialog = document.documentElement;
         window.addEventListener("DOMContentLoaded", function()

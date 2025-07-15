@@ -31,7 +31,7 @@
                             {
                                 mut.target.removeAttribute("src");
                             }
-                        } 
+                        }   
                     });
                 }
                 catch (e)

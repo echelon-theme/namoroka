@@ -1,0 +1,428 @@
+[flex="1"] {
+	flex: 1;
+}
+
+groupbox {
+    position: relative;
+	margin: 5px;
+	padding: 5px;
+	padding-block-start: 12px;
+	border: 1px solid ThreeDShadow;
+	border-radius: 5px;
+
+    & > caption {
+        position: absolute;
+        top: -6px;
+        left: 4px;
+        padding-inline: 5px;
+        background-color: -moz-Dialog;
+    }
+
+    & > span {
+        margin: 6px;
+    }
+
+    & > p {
+        display: inline;
+        margin-top: 6px;
+        margin-left: 6px;
+        margin-bottom: 10px;
+    }
+}
+
+menulist {
+    width: 256px;
+    height: 23px;
+
+    &::part(dropmarker) {
+        height: 100%;
+    }
+}
+
+input {
+    &[type="color"] {
+        width: 35px;
+        height: 100%;
+    }
+
+    &[type="text"] {
+        flex-grow: 1;
+    }
+
+    &[type="number"] {
+        text-align: left;
+    }
+}
+
+checkbox {
+    &[disabled="true"] {
+        opacity: 1;
+    }
+}
+
+.option-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#contentArea {
+	padding: 8px;
+}
+
+#tabs {
+	-moz-default-appearance: listbox;
+	appearance: listbox;
+    min-height: 32px;
+    padding: 1px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+	justify-content: space-between;
+}
+
+#main-tabs {
+	display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.tab {
+	width: 74px;
+    padding: 2px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+	margin-block-end: 3px;
+	color: WindowText;
+	border: 1px solid transparent;
+	background-color: transparent;
+
+    &:not(.tab-selected):hover {
+        border-color: #98B4E2;
+        background-color: #e0e8f6;
+    }
+
+    &.tab-selected {
+        border-color: #316AC5;
+        background-color: #c1d2ee !important;
+        color: black;
+    }
+
+    &:active,
+    &.tab-selected {
+        & > * {
+            transform: translate(1px, 1px);
+        }
+
+        .tab-icon {
+            background-position-y: -32px;
+        }
+    }
+
+    .tab-icon {
+        width: 32px;
+        height: 32px;
+        background-image: url("chrome://userchrome/content/windows/options/images/Options.png");
+
+        :root[namoroka-style-1="true"] & {
+            background-image: url("chrome://userchrome/content/windows/options/images/Options-ff2.png");
+        }
+    }
+
+    .tab-label {
+        margin-block-start: 1px;
+        line-height: 1;
+        overflow: visible;
+        text-align: center;
+    }
+}
+
+
+#tab-general .tab-icon {
+    background-position-x: 0;
+}
+
+#tab-branding .tab-icon {
+    background-position-x: -32px;
+}
+
+#tab-native-controls .tab-icon {
+    background-position-x: -64px;
+}
+
+#tab-debug .tab-icon {
+    background-position-x: -96px;
+}
+
+#tab-about .tab-icon {
+    background-position-x: -128px;
+}
+
+@media (-moz-ev-native-controls-patch) {
+    #tab-native-controls {
+        display: flex;
+    }
+}
+
+#content {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+}
+
+#main-section {
+    flex-grow: 1;
+}
+
+#button-section {
+    display: flex;
+    justify-content: flex-end;
+	padding-inline: 10px;
+	padding-block-end: 11px;
+	padding-block-start: 6px;
+
+    button {
+        min-width: 67px;
+        min-height: 24px;
+    }
+}
+
+.section {
+	padding-inline-start: 5px;
+	padding-inline-end: 2px;
+    display: none;
+
+    &.section-selected {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        flex: 1;
+        height: 100%;
+    }
+}
+
+.dialogheader {
+	margin: 0px 5px 5px 5px;
+	padding: 8px 10px 7px;
+	background-color: Highlight;
+	color: HighlightText;
+	box-shadow: inset 1px 1px 0 ThreeDShadow, inset -1px -1px 0 ThreeDHighlight, inset 0 0 0 2px ThreeDDarkShadow;
+	align-items: center;
+
+    .dialogheader-title {
+        flex: 1;
+        font-weight: bold;
+        font-size: 125%;
+    }
+}
+
+.expanderButton {
+	cursor: pointer !important;
+}
+
+.settingsContainer {
+	padding: 3px 5px 5px 20px;
+}
+
+button[type="disclosure"] {
+	min-width: 18px;
+	max-height: 14px;
+	border: 0;
+	padding: 0;
+	list-style-image: url("chrome://namoroka/content/firefox-1/twisty-clsd.png");
+	background-color: transparent;
+
+    &:focus-within {
+        outline: 1px dotted ThreeDDarkShadow;
+        outline-offset: -1px;
+    }
+}
+
+button[type="disclosure"]:active .button-icon,
+.expanded button[type="disclosure"] .button-icon {
+	transform: translate(1px, 1px);
+}
+
+.expanded button[type="disclosure"] {
+	list-style-image: url("chrome://namoroka/content/firefox-1/twisty-open.png");
+}
+
+.expander {
+	border: 1px solid transparent;
+	margin: 2px;
+
+    &:not(.expanded) .settingsContainer {
+        display: none;
+    }
+}
+
+.expanderHeader {
+	display: flex;
+}
+
+.listBox {
+	-moz-default-appearance: listbox;
+	appearance: listbox;
+    overflow-y: auto;
+}
+
+.settingsBox {
+	margin: 5px;
+	padding: 5px;
+}
+
+#skinsList {
+    height: 84px;
+    flex-direction: column;
+    margin: 2px 4px 2px 4px;
+}
+
+namoroka-listitem {
+    border: 1px dotted transparent;
+
+    &[selected] {
+        border-color: rgb(245,219,149);
+        background-color: Highlight;
+        color: HighlightText;   
+    }
+    
+    label {
+        padding-inline-start: 4px;
+        padding-block: 1px;
+        margin: 0;
+    }
+}
+
+#previewImageContainer {
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid ThreeDShadow;
+    border-left: 1px solid ThreeDShadow;
+    border-bottom: 1px solid ThreeDHighlight;
+    border-right: 1px solid ThreeDHighlight;
+    margin: 0.5em 4px 0.5em 4px;
+}
+
+:root:not([namoroka-option-debug="true"]) #tab-debug {
+    visibility: collapse;
+}
+
+.aboutBox {
+    padding: 0;
+}
+
+.aboutBoxHeader {
+    width: 100%;
+    height: 133px;
+    background-image: url("chrome://userchrome/content/windows/options/images/about-header-logo.png"),
+                      url("chrome://userchrome/content/windows/options/images/about-header-bg.png");
+    background-repeat: no-repeat, no-repeat;
+    background-position: center 3px, center top;
+    background-size: auto auto, 100% 93px;
+}
+
+.aboutHeaderLogo {
+    width: 100%;
+    height: 27px;
+    background-image: url("chrome://userchrome/content/windows/options/images/about-header-wordmark.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.aboutBoxHeaderContainer #version {
+    font-weight: bold;
+    color: GrayText;
+    margin: 0;
+    margin-block-start: 8px;
+}
+
+.infoHeader {
+    font-weight: bold;
+}
+
+.aboutBox .option-container label:not(.infoHeader) {
+    color: GrayText;
+}
+
+.aboutBox .option-container {
+    margin-block: 5px;
+}
+
+.infoContainer {
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.infoContainer .expander {
+    min-width: 200px;
+}
+
+.restart-required-label {
+    flex: 1;
+    align-items: center;
+    color: red;
+}
+
+.brandingOptionsContainer {
+    justify-content: space-evenly;
+}
+
+#brandingList {
+    display: flex;
+    height: 238px;
+    flex-direction: column;
+    margin: 2px 4px 2px 4px;
+    padding: 1px;
+
+    namoroka-listitem {
+        width: 105px;
+        padding: 2px 0;
+        display: flex;
+        margin-block-end: 3px;
+        color: WindowText;
+        border: 1px solid transparent;
+        background-color: transparent;
+
+        &:not([selected="true"]):hover {
+            border-color: #98B4E2;
+            background-color: #e0e8f6;
+        }
+
+        &[selected="true"] {
+            border-color: #316AC5;
+            background-color: #c1d2ee !important;
+            color: black;
+        }
+
+        &:active,
+        &[selected="true"] {
+            padding: 3px 0 1px 1px;
+        }
+
+        label {
+            margin-block-start: 1px;
+            line-height: 1;
+            overflow: visible;
+            
+            text-align: center;
+            padding: 0;
+        }
+
+        &.with-icon {
+            flex-direction: column;
+            align-items: center;
+
+            .namoroka-listitem-icon {
+                width: 32px;
+                height: 32px;
+            }
+        }
+    }
+}
+
+.brandingListPreview {
+    align-self: flex-start;
+    margin: 2px 4px 2px 4px !important;
+    background-color: #EEEEEE;
+}

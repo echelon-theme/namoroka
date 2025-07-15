@@ -24,6 +24,13 @@
 <!ENTITY general.appearance.hideTabBar "Hide the tab bar when only one web site is open">
 <!ENTITY general.appearance.smallIcons "Use Small Icons">
 
+
+<!ENTITY branding.description "This tab allows you to change the branding of the browser.">
+<!ENTITY branding.style "Namoroka Branding:">
+<!ENTITY branding.option.firefox "Mozilla Firefox">
+<!ENTITY branding.option.minefield "Minefield">
+<!ENTITY branding.option.namoroka "Namoroka">
+
 <!ENTITY nativeControls.notice "This tab allows you to configure ephemeralViolette&apos;s native controls patch.">
 
 <!ENTITY nativeControls.general "General">

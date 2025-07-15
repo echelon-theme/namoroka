@@ -9,3 +9,6 @@ content userchrome                                                  ../ contenta
 content namoroka                                                    ../assets/images/ contentaccessible=yes
 
 override chrome://global/skin/arrowscrollbox.css                    ../assets/override/global/skin/arrowscrollbox.css
+override chrome://global/skin/button.css                            ../assets/override/global/skin/button.css
+
+override chrome://global/content/commonDialog.xhtml                 ../windows/commonDialog/commonDialog.xhtml

@@ -1,5 +1,7 @@
-const { LocaleUtils, PrefUtils, BrandUtils } = ChromeUtils.import("chrome://userscripts/content/namoroka_utils.uc.js");
-
+const { LocaleUtils, 
+        PrefUtils, 
+        BrandUtils } = ChromeUtils.import("chrome://userscripts/content/namoroka_utils.uc.js");
+        
 ChromeUtils.defineESModuleGetters(window, {
     NamorokaThemeManager: "chrome://modules/content/NamorokaThemeManager.sys.mjs",
     NamorokaUpdateChecker: "chrome://modules/content/NamorokaUpdateChecker.sys.mjs",
@@ -18,17 +20,49 @@ g_themeManager.init(
     }
 );
 
+// snatched from fx-autoconfig
+function restartApplication(clearCache) {
+    clearCache && Services.appinfo.invalidateCachesOnRestart();
+    let cancelQuit = Cc["@mozilla.org/supports-PRBool;1"].createInstance(Ci.nsISupportsPRBool);
+    Services.obs.notifyObservers(
+        cancelQuit,
+        "quit-application-requested",
+        "restart"
+    );
+    if (!cancelQuit.data) {
+        Services.startup.quit(
+            Services.startup.eAttemptQuit | Services.startup.eRestart
+        );
+        return true
+    }
+    return false
+}
+
 document.querySelectorAll("namoroka-listbox").forEach(listbox => {
     let items = listbox.querySelectorAll("namoroka-listitem");
 
     items.forEach(item => {
+        let itemImage = document.createXULElement("image");
         let itemLabel = document.createXULElement("label");
         
+        if (item.hasAttribute("icon")) {
+            itemImage.setAttribute("src", item.getAttribute("icon"));
+            itemImage.classList.add("namoroka-listitem-icon");
+
+            item.classList.add("with-icon");
+            item.appendChild(itemImage);
+        }
+
         if (item.hasAttribute("label")) {
             itemLabel.value = item.getAttribute("label");
             itemLabel.setAttribute("flex", "1");
             
             item.appendChild(itemLabel);
+        }
+
+        // preload hack
+        if (item.hasAttribute("src")) {
+            preloadImage(item.getAttribute("src"));
         }
 
         item.addEventListener("click", () => {
@@ -39,8 +73,7 @@ document.querySelectorAll("namoroka-listbox").forEach(listbox => {
             listbox.setValue(item.getAttribute("value"));
             item.setAttribute("selected", "true");
 
-            item.dispatchEvent(new CustomEvent("namoroka-listbox-change"));
-            document.dispatchEvent(new CustomEvent("namoroka-listbox-change"));
+            listbox.dispatchEvent(new CustomEvent("namoroka-listbox-change"));
         });
 
         item.addEventListener("dblclick", e => okApplyHandler(e, true));
@@ -53,15 +86,18 @@ document.querySelectorAll("namoroka-listbox").forEach(listbox => {
         listbox.setAttribute("value", aValue);
         listbox.value = aValue;
 
-        setPreviewImage(selectedItem.getAttribute("src"));
+        if (selectedItem.hasAttribute("src")) {   
+            let previewImageContainer = listbox.nextElementSibling;
+            var previewImage;
+
+            if (previewImageContainer.matches("#previewImageContainer")) {
+                previewImage = previewImageContainer.querySelector("image");
+                
+                previewImage.setAttribute("src", selectedItem.getAttribute("src"));
+            }
+        }
     }
 });
-
-function setPreviewImage(aURL) {
-    let previewImage = document.querySelector("#previewImage");
-
-    previewImage.setAttribute("src", aURL);
-}
 
 function refreshViewProperties()
 {
@@ -91,7 +127,14 @@ for (const option of document.querySelectorAll(".option"))
             }
             break;
         case "string":
-            option.value = PrefUtils.tryGetStringPref(option.dataset.option);
+            if (option.localName == "namoroka-listbox") 
+            {
+                option.setValue(PrefUtils.tryGetStringPref(option.dataset.option));
+            }
+            else
+            {
+                option.value = PrefUtils.tryGetStringPref(option.dataset.option);
+            }
             break;
     }
     option.originalValue = getOptionValue(option);
@@ -153,7 +196,7 @@ function okApplyHandler(e, closeWindow = false)
 
     if (restartRequired)
     {
-        window.openDialog(
+        windowRoot.ownerGlobal.openDialog(
             "chrome://userchrome/content/windows/common/dialog.xhtml",
             LocaleUtils.str(gOptionsBundle, "restart_prompt_title"),
             "chrome,centerscreen,resizeable=no,dependent,modal",
@@ -183,7 +226,7 @@ function okApplyHandler(e, closeWindow = false)
         }
 
         if (restartRequired)
-            _ucUtils.restart(true);
+            restartApplication(true);
 
         if (closeWindow)
             window.close();
@@ -240,6 +283,16 @@ document.documentElement.addEventListener('keypress', function(e) {
 		window.close();
 	}
 });
+
+/*
+* This is a hack to preload images in the 
+* Appearance and Branding preview boxes
+*/
+function preloadImage(aURL) {
+    new Image().src = aURL;
+}
+
+/* About Page */
 
 async function loadVersion() {
     let localEchelonJSON = await NamorokaUpdateChecker.getBuildData("local");

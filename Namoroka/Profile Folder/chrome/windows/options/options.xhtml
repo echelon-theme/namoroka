@@ -78,6 +78,31 @@
 								<html:span class="dialogheader-title">&tabs.branding;</html:span>
 								<html:span class="dialogheader-description"></html:span>
 							</hbox>
+							<vbox>
+								<description>&branding.description;</description>
+								<description>&branding.style;</description>
+								<hbox class="brandingOptionsContainer" flex="1">
+									<namoroka-listbox id="brandingList" class="listBox option" data-type="string" data-option="Namoroka.Option.Branding" change-requires-restart="true">
+										<vbox class="faded">
+											<namoroka-listitem label="&branding.option.firefox;" 
+															src="chrome://userchrome/content/branding/firefox/content/about.png"
+															icon="chrome://userchrome/content/branding/firefox/content/icon32.png"
+															value="firefox" />
+											<namoroka-listitem label="&branding.option.minefield;" 
+															src="chrome://userchrome/content/branding/minefield/content/about.png"
+															icon="chrome://userchrome/content/branding/minefield/content/icon32.png"
+															value="minefield" />
+											<namoroka-listitem label="&branding.option.namoroka;" 
+															src="chrome://userchrome/content/branding/namoroka/content/about.png"
+															icon="chrome://userchrome/content/branding/namoroka/content/icon32.png"
+															value="namoroka" />
+										</vbox>
+									</namoroka-listbox>
+									<hbox id="previewImageContainer" class="brandingListPreview">
+										<image id="previewImage" />
+									</hbox>
+								</hbox>
+							</vbox>
 						</vbox>
 					</html:div>
 					<html:div id="section-native-controls" class="section" section-change-requires-restart="true">
@@ -96,7 +121,7 @@
 								  <vbox class="settingsContainer">
 									<html:div class="option-container">
 										<label value="&nativeControls.general.osOverride;"/>
-										<menulist native="" class="option" data-type="enum" data-option="widget.ev-native-controls-patch.override-win-version">
+										<menulist native="" class="option" data-type="enum" data-option="widget.ev-native-controls-patch.override-win-version" change-requires-restart="true">
 											<menupopup>
 												<menuitem label="&nativeControls.general.osOverride.seven;" value="7"/>
 												<menuitem label="&nativeControls.general.osOverride.eight;" value="8"/>
@@ -106,7 +131,7 @@
 									</html:div>
 									<html:div class="option-container">
 										<label value="&nativeControls.general.glassOverride;"/>
-										<menulist native="" class="option" data-type="enum" data-option="widget.ev-native-controls-patch.force-glass-reporting">
+										<menulist native="" class="option" data-type="enum" data-option="widget.ev-native-controls-patch.force-glass-reporting" change-requires-restart="true">
 											<menupopup>
 												<menuitem label="&nativeControls.general.glassOverride.default;" value="0"/>
 												<menuitem label="&nativeControls.general.glassOverride.forceOn;" value="1"/>
@@ -124,18 +149,18 @@
 								  <vbox class="settingsContainer">
 										<html:div class="option-container">
 											<label value="&nativeControls.captionMask.width;"/>
-											<html:input type="number" id="default-title" class="option" data-type="int" onkeydown="return event.keyCode !== 190" data-option="widget.ev-native-controls-patch.override-aero-caption-buttons-mask-width"/>
+											<html:input type="number" id="default-title" class="option" data-type="int" onkeydown="return event.keyCode !== 190" data-option="widget.ev-native-controls-patch.override-aero-caption-buttons-mask-width" change-requires-restart="true"/>
 										</html:div>
 										<html:div class="option-container">
 											<label value="&nativeControls.captionMask.height;"/>
-											<html:input type="number" id="default-title" class="option" data-type="int" onkeydown="return event.keyCode !== 190" data-option="widget.ev-native-controls-patch.override-aero-caption-buttons-mask-height"/>
+											<html:input type="number" id="default-title" class="option" data-type="int" onkeydown="return event.keyCode !== 190" data-option="widget.ev-native-controls-patch.override-aero-caption-buttons-mask-height" change-requires-restart="true"/>
 										</html:div>
 									</vbox>
 								</vbox>
 							</vbox>
 						</vbox>
 					</html:div>
-					<html:div id="section-debug" class="section" section-change-requires-restart="true">
+					<html:div id="section-debug" class="section">
 						<vbox flex="1">
 							<hbox class="dialogheader">
 								<html:span class="dialogheader-title">&tabs.debug;</html:span>

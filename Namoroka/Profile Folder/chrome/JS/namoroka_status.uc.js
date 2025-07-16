@@ -60,22 +60,24 @@
 		},
 
 		_onPopupShowing() {
-			let item = document.getElementById("menu_NamorokaStatusBar");
+			let item = document.querySelectorAll("#menu_NamorokaStatusBar");
 			if (item)
 			{
-				item.label = LocaleUtils.str(menusBundle, "namoroka_statusbar_label");
-				item.accessKey = LocaleUtils.str(menusBundle, "namoroka_statusbar_accesskey");
+				item.forEach(elem => {
+					elem.label = LocaleUtils.str(menusBundle, "namoroka_statusbar_label");
+					elem.accessKey = LocaleUtils.str(menusBundle, "namoroka_statusbar_accesskey");
 
-				let pref = Services.prefs.getBoolPref("Namoroka.Status-Bar.Enabled");
+					let pref = Services.prefs.getBoolPref("Namoroka.Status-Bar.Enabled");
 
-				if (pref == true)
-				{
-					item.setAttribute("checked", "true");
-				}
-				else
-				{
-					item.removeAttribute("checked");
-				}
+					if (pref == true)
+					{
+						elem.setAttribute("checked", "true");
+					}
+					else
+					{
+						elem.removeAttribute("checked");
+					}
+				});
 			}
 		},
 
@@ -102,15 +104,18 @@
 				panel.setAttribute("hidden", "true");
 			}
 
-			let menuitem = document.getElementById("menu_NamorokaStatusBar");
+			let menuitem = document.querySelectorAll("#menu_NamorokaStatusBar");
+
 			if (menuitem) {
-				if (state == true)
-				{
-					menuitem.setAttribute("checked", "true");
-				}
-				else {
-					menuitem.removeAttribute("checked");
-				}
+				menuitem.forEach(elem => {
+					if (state == true)
+					{
+						elem.setAttribute("checked", "true");
+					}
+					else {
+						elem.removeAttribute("checked");
+					}
+				});
 			}
 		}
 	};
@@ -127,6 +132,11 @@
 		menu.insertBefore(statusBarItem.cloneNode(), document.querySelector("#viewSidebarMenuMenu"));
 		menu.addEventListener("popupshowing", NamorokaStatusBarManager._onPopupShowing);
 	});
+
+	// Compact Menu Reloaded Support
+    waitForElement("#compact-menu-popup").then((menu) => {
+        menu.addEventListener("popupshowing", NamorokaStatusBarManager._onPopupShowing);
+    });
 
 	waitForElement("#tabbrowser-tabpanels").then(e => {	
 		let browserStackObserver = new MutationObserver(NamorokaStatusBarManager._moveStatusPanel);

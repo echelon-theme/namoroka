@@ -13,17 +13,20 @@
 
     function onPopupShowing()
     {
-        let item = document.getElementById("menu_namorokaOptions");
+        let item = document.querySelectorAll("#menu_namorokaOptions");
         if (item)
         {
-            item.label = LocaleUtils.str(menusBundle, "namoroka_options_label");
-            item.accessKey = LocaleUtils.str(menusBundle, "namoroka_options_accesskey");
+            item.forEach(elem => {
+                elem.label = LocaleUtils.str(menusBundle, "namoroka_options_label");
+                elem.accessKey = LocaleUtils.str(menusBundle, "namoroka_options_accesskey");
+            });
         }
-        item = document.getElementById("toolbar-context-namorokaOptions");
-        if (item)
-        {
-            item.label = LocaleUtils.str(menusBundle, "namoroka_options_label");
-            item.accessKey = LocaleUtils.str(menusBundle, "namoroka_options_accesskey");
+        item = document.querySelectorAll("#toolbar-context-namorokaOptions");
+        if (item) {
+            item.forEach(elem => {
+                elem.label = LocaleUtils.str(menusBundle, "namoroka_options_label");
+                elem.accessKey = LocaleUtils.str(menusBundle, "namoroka_options_accesskey");
+            });
         }
     }
 
@@ -48,6 +51,10 @@
     waitForElement("#toolbar-context-menu").then((menu) => {
         namorokaPrefsItem.id = "toolbar-context-namorokaOptions";
         menu.insertBefore(namorokaPrefsItem.cloneNode(), document.querySelector(".viewCustomizeToolbar"));
+        menu.addEventListener("popupshowing", onPopupShowing);
+    });
+    // Compact Menu Reloaded Support
+    waitForElement("#compact-menu-popup").then((menu) => {
         menu.addEventListener("popupshowing", onPopupShowing);
     });
 }

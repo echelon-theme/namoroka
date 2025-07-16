@@ -9,6 +9,12 @@
     var { waitForElement } = ChromeUtils.import("chrome://userscripts/content/namoroka_utils.uc.js");
     waitForElement = waitForElement.bind(window);
 
+    waitForElement("#titlebar").then(e => {
+        gNavToolbox.insertBefore(e.querySelector("#toolbar-menubar"), gNavToolbox.querySelector("#nav-bar"));
+
+        e.remove();
+    });
+
     waitForElement("#TabsToolbar").then(e => {
         gNavToolbox.appendChild(e);
 

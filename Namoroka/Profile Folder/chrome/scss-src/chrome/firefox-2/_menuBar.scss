@@ -24,11 +24,14 @@ menubar {
         padding: 1px 3px 1px 2px !important;
         margin: 0px 0px 1px 0px !important;
 
+        &[_moz-menuactive="true"]:not(#compact-menu-menu) {
+            background-color : Highlight !important;
+            color: HighlightText !important;
+        }
+
         &[_moz-menuactive="true"] {
             padding: 1px 3px 1px 2px !important;
             border-color: transparent !important;
-            background-color : Highlight !important;
-            color: HighlightText !important;
 
             &[open="true"] {
                 border-color: transparent !important;

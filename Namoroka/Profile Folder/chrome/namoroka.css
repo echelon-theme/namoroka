@@ -1691,8 +1691,11 @@ xul|dialog[inbrowserwindow] {
 :root[namoroka-style-1] #navigator-toolbox {
   border-block-start: 1px solid ThreeDShadow !important;
 }
-:root[namoroka-style-1] toolbar[type=menubar] {
+:root[namoroka-style-1] toolbar[type=menubar]:not([inactive=true]) {
   border-block-start-width: 1px !important;
+}
+:root[namoroka-style-1] toolbar[type=menubar][inactive=true] {
+  border-block-width: 0 !important;
 }
 :root[namoroka-style-1] menupopu menu,
 :root[namoroka-style-1] menupopup menuitem {
@@ -1715,11 +1718,13 @@ xul|dialog[inbrowserwindow] {
   padding: 1px 3px 1px 2px !important;
   margin: 0px 0px 1px 0px !important;
 }
+:root[namoroka-style-1] menubar menu[_moz-menuactive=true]:not(#compact-menu-menu) {
+  background-color: Highlight !important;
+  color: HighlightText !important;
+}
 :root[namoroka-style-1] menubar menu[_moz-menuactive=true] {
   padding: 1px 3px 1px 2px !important;
   border-color: transparent !important;
-  background-color: Highlight !important;
-  color: HighlightText !important;
 }
 :root[namoroka-style-1] menubar menu[_moz-menuactive=true][open=true] {
   border-color: transparent !important;

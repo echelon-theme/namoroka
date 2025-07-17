@@ -1,7 +1,101 @@
 import { FileSystem } from "chrome://userchromejs/content/fs.sys.mjs";
 export { FileSystem };
-export const SharedGlobal = {};
-ChromeUtils.defineLazyGetter(SharedGlobal,"widgetCallbacks",() => {return new Map()});
+const WidgetCallbacks = new Map();
+
+class Storage{
+  #listeners;
+  #onChanged;
+  #storage = {};
+  #boundGet;
+  #boundSet;
+  #boundRemove;
+  #boundClear;
+  #debug;
+  constructor(){
+    this.#listeners = new Set();
+    this.onChanged = Object.freeze({
+      addListener: fun => { this.#listeners.add(fun) },
+      removeListener: fun => { this.#listeners.delete(fun) },
+      hasListener: fun => { return this.#listeners.has(fun) }
+    });
+    this.#boundGet = this.get.bind(this);
+    this.#boundSet = this.set.bind(this);
+    this.#boundClear = this.clear.bind(this);
+    this.#boundRemove = this.remove.bind(this);
+    this.#debug = this.debug.bind(this);
+  }
+  get(key){
+    return this.#storage[key]
+  }
+  set(key,value){
+    let changes = {[key]: { oldValue: this.#storage[key], newValue: value }};
+    this.#storage[key] = value;
+    this.#notifyListeners(changes);
+  }
+  #notifyListeners(changes){
+    for(let fun of this.#listeners){
+      fun(changes)
+    }
+  }
+  remove(key){
+    if(this.#storage.hasOwnProperty(key)){
+      let changes = {[key]: { oldValue: this.#storage[key], newValue: undefined }};
+      delete this.#storage[key];
+      this.#notifyListeners(changes);
+      return true
+    }
+    return false
+  }
+  clear(){
+    let changes = {};
+    for(let [key,val] of Object.entries(this.#storage)){
+      changes[key] = { oldValue: val, newValue: undefined }
+      delete this.#storage[key]
+    }
+    if(Object.keys(changes).length > 0){
+      this.#notifyListeners(changes);
+      return true
+    }
+    return false
+  }
+  debug(){
+    return Object.assign({},this.#storage)
+  }
+  static getMethod(target,prop){
+    if(prop === "debug"){
+      return target.#debug
+    }
+    if(prop === "get"){
+      return target.#boundGet
+    }
+    if(prop === "set"){
+      return target.#boundSet
+    }
+    if(prop === "remove"){
+      return target.#boundRemove
+    }
+    if(prop === "clear"){
+      return target.#boundClear
+    }
+  }
+}
+
+export const SharedStorage = new Proxy(new Storage(),{
+  get(target,key){
+    if(key === "onChanged"){
+      return target.onChanged
+    }
+    if(key in target){
+      return Storage.getMethod(target,key)
+    }
+    return Reflect.apply(target.get,target,[key])
+  },
+  set(target,key,value){
+    target.set(key,value);
+    return value
+  }
+});
+
 const lazy = {
   startupPromises: new Set()
 };
@@ -14,13 +108,18 @@ export class Hotkey{
   constructor(hotkeyDetails,commandDetails){
     this.command = commandDetails;
     this.trigger = hotkeyDetails;
-    this.#matchingSelector = `key[modifiers="${hotkeyDetails.modifiers}"][${hotkeyDetails.key?'key="'+hotkeyDetails.key:'keycode="'+hotkeyDetails.keycode}"]`;
+    this.#matchingSelector = null;
   }
   get matchingSelector(){
+    if(!this.#matchingSelector){
+      let trigger = this.trigger;
+      this.#matchingSelector = `key[modifiers="${trigger.modifiers}"][${trigger.key?'key="'+trigger.key:'keycode="'+trigger.keycode}"]`
+    }
     return this.#matchingSelector
   }
-  autoAttach(opt){
+  async autoAttach(opt){
     const suppress = opt?.suppressOriginal || false;
+    await startupFinished();
     for (let window of windowUtils.getAll()){
       if(window.document.getElementById(this.trigger.id)){
         continue
@@ -42,13 +141,13 @@ export class Hotkey{
     }
   }
   suppressOriginalKey(window){
-    let oldKey = window.document.querySelector(this.#matchingSelector);
+    let oldKey = window.document.querySelector(this.matchingSelector);
     if(oldKey){
       oldKey.setAttribute("disabled","true")
     }
   }
   restoreOriginalKey(window){
-    let oldKey = window.document.querySelector(this.#matchingSelector);
+    let oldKey = window.document.querySelector(this.matchingSelector);
     oldKey.removeAttribute("disabled");
   }
   static #createKey(doc,details){
@@ -72,23 +171,25 @@ export class Hotkey{
       console.warn("Fx-autoconfig: command with id '"+details.id+"' already exists");
       return
     }
-    let command = createElement(doc,"command",{id: details.id,oncommand: "this._oncommand(event);"});
+    let command = createElement(doc,"command",{id: details.id});
     commandSet.insertBefore(command,commandSet.firstChild||null);
     const fun = details.command;
-    command._oncommand = (e) => fun(e.view,e);
+    command.addEventListener("command",ev => fun(ev.view,ev))
     return
   }
   static ERR_KEY = 0;
   static NORMAL_KEY = 1;
   static FUN_KEY = 2;
+  static VK_KEY = 4;
   
   static #getKeyCategory(key){
     return (/^[\w-]$/).test(key)
           ? Hotkey.NORMAL_KEY
-          : (/^F(?:1[0,2]|[1-9])$/)
-            .test(key)
-            ? Hotkey.FUN_KEY
-            : Hotkey.ERR_KEY
+          : (/^VK_[A-Z]+/).test(key)
+            ? Hotkey.VK_KEY
+            : (/^F(?:1[0,1,2]|[1-9])$/).test(key)
+              ? Hotkey.FUN_KEY
+              : Hotkey.ERR_KEY
   }
   
   static define(desc){
@@ -96,19 +197,21 @@ export class Hotkey{
     if(keyCategory === Hotkey.ERR_KEY){
       throw new Error("Provided key '"+desc.key+"' is invalid")
     }
-    if(keyCategory === Hotkey.FUN_KEY){
-      throw new Error("Registering a hotkey with no modifiers is not supported, except for function keys F1-F12")
-    }
     let commandType = typeof desc.command;
     if(!(commandType === "string" || commandType === "function")){
-      throw new TypeError("command must be either a string or function")
+      throw new Error("command must be either a string or function")
     }
-    
+    if(commandType === "function" && !desc.id){
+      throw new Error("command id must be specified when callback is a function")
+    }
     const validMods = ["accel","alt","ctrl","meta","shift"];
-    const mods = desc.modifiers.toLowerCase().split(" ").filter(a => validMods.includes(a));
+    const mods = desc.modifiers?.toLowerCase().split(" ").filter(a => validMods.includes(a));
+    if(keyCategory === Hotkey.NORMAL_KEY && !(mods && mods.length > 0)){
+      throw new Error("Registering a hotkey with no modifiers is not supported, except for function keys F1-F12")
+    }
     let keyDetails = {
       id: desc.id,
-      modifiers: mods.join(",").replace("ctrl","accel"),
+      modifiers: mods?.join(",").replace("ctrl","accel") ?? "",
       command: commandType === "string"
                 ? desc.command
                 : `cmd_${desc.id}`
@@ -119,7 +222,7 @@ export class Hotkey{
     if(keyCategory === Hotkey.NORMAL_KEY){
       keyDetails.key = desc.key.toUpperCase();
     }else{
-      keyDetails.keycode = `VK_${desc.key}`;
+      keyDetails.keycode = keyCategory === Hotkey.FUN_KEY ? `VK_${desc.key}` : desc.key;
     }
     return new Hotkey(
       keyDetails,
@@ -585,7 +688,7 @@ export function createWidget(desc){
   }
   const callback = desc.callback;
   if(typeof callback === "function"){
-    SharedGlobal.widgetCallbacks.set(desc.id,callback);
+    WidgetCallbacks.set(desc.id,callback);
   }
   return CUI.createWidget({
     id: desc.id,
@@ -604,8 +707,13 @@ export function createWidget(desc){
       for (let p in props){
         toolbaritem.setAttribute(p, props[p]);
       }
+      
       if(typeof callback === "function"){
-        toolbaritem.setAttribute("onclick",`${desc.allEvents?"":"event.button===0 && "}UC_API.SharedStorage.widgetCallbacks.get(this.id)(event,window)`);
+        if(desc.allEvents){
+          toolbaritem.addEventListener("click",(ev) => WidgetCallbacks.get(ev.target.id)(ev,ev.target.ownerGlobal))
+        }else{
+          toolbaritem.addEventListener("click",(ev) => ev.button === 0 && WidgetCallbacks.get(ev.target.id)(ev,ev.target.ownerGlobal))
+        }
       }
       for (let attr in desc){
         if(attr != "callback" && !(attr in props)){
@@ -774,15 +882,13 @@ export function startupFinished(){
   return new Promise(resolve => lazy.startupPromises.add(resolve))
 }
 
-export function toggleScript(el){
-  let isElement = !!el.tagName;
-  if(!isElement && typeof el != "string"){
-    return
+export function toggleScript(aFilename){
+  if(typeof aFilename != "string"){
+    throw new Error("expected name of the script as string")
   }
-  const name = isElement ? el.getAttribute("filename") : el;
-  let script = name.endsWith("js")
-    ? getScriptData(name)
-    : getStyleData(name);
+  let script = aFilename.endsWith("js")
+    ? getScriptData(aFilename)
+    : getStyleData(aFilename);
   if(!script){
     return null
   }

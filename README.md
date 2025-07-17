@@ -13,3 +13,4 @@ ___
 * [Travis](https://github.com/travy-patty/) - Developer
 * [aubymori](https://github.com/aubymori) - Code from Echelon
 * [Isabella Lulamoon](https://github.com/kawapure/) - Code from Echelon
+* [MrOtherGuy](https://github.com/MrOtherGuy/fx-autoconfig) - fx-autoconfig

@@ -6,21 +6,21 @@
     spacer[style*="order: 1000;"] { // ???????
         visibility: collapse !important;
     }
+}
 
-    #navigator-throbber {
-        appearance: none !important;
-        -moz-user-focus: ignore !important;
-        margin: 0 !important;
-        border: 0 !important;
-        padding: 1px 3px 2px 4px !important;
-        min-width: 0 !important;
-        background-color: transparent !important;
-        list-style-image: url("chrome://namoroka/content/firefox-1/Throbber-small.png") !important;
+#navigator-throbber {
+    appearance: none !important;
+    -moz-user-focus: ignore !important;
+    margin: 0 !important;
+    border: 0 !important;
+    padding: 1px 3px 2px 4px !important;
+    min-width: 0 !important;
+    background-color: transparent !important;
+    list-style-image: url("chrome://namoroka/content/firefox-1/Throbber-small.png") !important;
 
-        &[busy="true"] {
-            list-style-image: url("chrome://namoroka/content/firefox-1/Throbber-small.gif") !important;
-            opacity: 0.5 !important;
-        }
+    &[busy="true"] {
+        list-style-image: url("chrome://namoroka/content/firefox-1/Throbber-small.gif") !important;
+        opacity: 0.5 !important;
     }
 }
 

@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name			Echelon :: Title Text
+// @name			Namoroka :: Title Text
 // @description 	Changes the window title formats.
 // @author			Travis
 // @include			main

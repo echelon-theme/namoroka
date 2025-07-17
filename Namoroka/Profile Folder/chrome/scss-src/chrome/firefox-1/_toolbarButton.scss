@@ -85,4 +85,8 @@ toolbarbutton.bookmark-item:not(.subviewbutton) {
             background-image: url("chrome://namoroka/content/firefox-1/arrow/arrow-dn-dis.gif") !important;
         }
     }
+
+    .toolbarbutton-animatable-box {
+        display: none !important;
+    }
 }

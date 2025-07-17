@@ -81,6 +81,7 @@ document.querySelectorAll("namoroka-listbox").forEach(listbox => {
 
     listbox.setValue = function(aValue) {
         let selectedItem = listbox.querySelector(`namoroka-listitem[value="${aValue}"]`);
+        if (!selectedItem) return;
         selectedItem.setAttribute("selected", "true");
         
         listbox.setAttribute("value", aValue);

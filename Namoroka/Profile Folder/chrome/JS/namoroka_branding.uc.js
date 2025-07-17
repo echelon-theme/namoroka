@@ -24,48 +24,35 @@
         return out;
     }
 
+    const FTL_FILES = [
+        "branding/brand.ftl",
+        "browser/aboutDialog.ftl"
+    ];
+
     let brand = Services.prefs.getStringPref("Namoroka.Option.Branding", "");
     if (brand != "")
     {
-        let brandFtl = Services.dirsvc.get("UChrm", Ci.nsIFile);
-        brandFtl.append("branding");
-        brandFtl.append(brand);
-        brandFtl.append("ftls");
-        let root = fsPathToFileUri(brandFtl.path, true);
-        brandFtl.append("branding");
-        brandFtl.append("brand.ftl");
-        if (brandFtl.exists())
-        {
-            let path = fsPathToFileUri(brandFtl.path);
-            let locale = Services.locale.appLocalesAsBCP47;
-            let source = new L10nFileSource(
-                "namoroka",
-                "app",
-                locale,
-                root,
-                {
-                    addResourceOptions: {
-                        allowOverrides: true
-                    }
-                },
-                [path]
-            );
-            L10nRegistry.getInstance().registerSources([source]);
-        }
-    }
+        let branding = Services.dirsvc.get("UChrm", Ci.nsIFile);
+        branding.append("branding");
+        branding.append(brand);
 
-    if (brand != "")
-    {
-        let dialogFtl = Services.dirsvc.get("UChrm", Ci.nsIFile);
-        dialogFtl.append("branding");
-        dialogFtl.append(brand);
-        dialogFtl.append("ftls");
-        let root = fsPathToFileUri(dialogFtl.path, true);
-        dialogFtl.append("browser");
-        dialogFtl.append("aboutDialog.ftl");
-        if (dialogFtl.exists())
+        let ftls = branding.clone();
+        ftls.append("ftls");
+        let root = fsPathToFileUri(ftls.path, true);
+        let paths = [];
+
+        for (const filename of FTL_FILES)
         {
-            let path = fsPathToFileUri(dialogFtl.path);
+            let file = ftls.clone();
+            for (const split of filename.split("/"))
+                file.append(split);
+
+            if (file.exists())
+                paths.push(fsPathToFileUri(file.path));
+        }
+
+        if (paths.length > 0)
+        {
             let locale = Services.locale.appLocalesAsBCP47;
             let source = new L10nFileSource(
                 "namoroka",
@@ -77,7 +64,7 @@
                         allowOverrides: true
                     }
                 },
-                [path]
+                paths
             );
             L10nRegistry.getInstance().registerSources([source]);
         }

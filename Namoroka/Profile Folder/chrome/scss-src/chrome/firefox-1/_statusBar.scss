@@ -13,7 +13,8 @@
     @media not (-moz-windows-classic) {
         // weird marble quirk makes me have to do this
         & {
-            appearance: statusbar !important;
+            appearance: auto !important;
+            -moz-default-appearance: statusbar !important;
         }
     }
     

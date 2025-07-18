@@ -1,8 +1,11 @@
 #navigator-toolbox {
+    appearance: auto !important;
+    -moz-default-appearance: toolbox !important;
     border-bottom-width: 0 !important;
 }
 
 .browser-toolbar {
+    appearance: auto !important;
     background-color: -moz-Dialog !important;
     color: -moz-DialogText !important;
     border-block-start: 1px solid ThreeDHighlight !important;

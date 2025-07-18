@@ -16,6 +16,8 @@ splitter {
   background-image: url("chrome://userchrome/content/windows/downloads/viewFader.png") !important;
 }
 #placesViewsBox #downloadsListBox richlistitem {
+  border-radius: 0 !important;
+  background-clip: border-box !important;
   padding-block: 13px !important;
   padding-inline-start: 13px !important;
   padding-inline-end: 10px !important;

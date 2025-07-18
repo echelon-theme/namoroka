@@ -41,6 +41,7 @@ toolbarbutton menupopup[placespopup] > :is(menu, menuitem) {
   max-width: 42em !important;
   margin: 0 !important;
   min-height: auto !important;
+  padding: unset !important;
 }
 toolbarbutton menupopup[placespopup] > :is(menu, menuitem) .menu-text,
 toolbarbutton menupopup[placespopup] > :is(menu, menuitem) .menu-iconic-text {
@@ -99,6 +100,10 @@ toolbarbutton menupopup[placespopup] menuseparator::before {
     border: 1px solid ThreeDShadow !important;
   }
 }
+#context-sep-navigation {
+  margin-inline-start: unset !important;
+}
+
 #context-navigation {
   background: transparent !important;
   flex-direction: column !important;

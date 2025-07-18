@@ -9,10 +9,16 @@
 
 #TabsToolbar {
     border: 0 !important;
+
+    @media not (-moz-windows-classic) {
+        border-block-start: 1px solid ThreeDShadow !important;
+    }
+
     box-shadow: none !important;
     background: -moz-Dialog url("chrome://namoroka/content/firefox-2/icons/tabbrowser-tabs-bkgnd.png") !important;
     position: relative !important;
     padding: 0 !important;
+    padding-block-start: 1px !important;
     padding-block-end: 3px !important;
 
     &::after {
@@ -178,6 +184,7 @@
     }
 
     #tabs-newtab-button {
+        appearance: none !important;
         width: 31px !important;
         background-image: url("chrome://namoroka/content/firefox-2/icons/tab-left-bkgnd.png"), url("chrome://namoroka/content/firefox-2/icons/tab-middle-bkgnd.png"), url("chrome://namoroka/content/firefox-2/icons/tab-right-bkgnd.png") !important;
         background-size: 8px 75px, calc(100% - 16px) 75px, 8px 75px !important;
@@ -201,6 +208,7 @@
     }
 
     #alltabs-button {
+        appearance: none !important;
         width: 18px !important;
         height: 23px !important;
         margin-block-start: 1px !important;
@@ -225,6 +233,7 @@
 
     #tabbrowser-tabs[overflow="true"] {
         & ~ .toolbarbutton-1 {
+            appearance: none !important;
             width: 18px !important;
             height: 23px !important;
             margin-block-start: 1px !important;

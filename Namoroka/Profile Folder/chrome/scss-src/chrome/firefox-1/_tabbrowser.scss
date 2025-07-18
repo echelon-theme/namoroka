@@ -7,6 +7,12 @@
 }
 
 #TabsToolbar {
+    appearance: none !important;
+    
+    @media not (-moz-windows-classic) {
+        border-block-start: 1px solid ThreeDShadow !important;
+    }
+    
     border-block-start-width: 0 !important;
     padding-block: 1px !important;
     background-image: url("chrome://namoroka/content/firefox-1/icons/tabstrip-bottom.png") !important;

@@ -23,11 +23,13 @@ button {
 }
 
 .button-box {
-    border: 3px solid transparent;
-    padding-top: 1px;
-    padding-bottom: 1px;
-    padding-inline-start: 3px;
-    padding-inline-end: 4px;
+    @media (-moz-windows-classic) {
+        border: 3px solid transparent;
+        padding-top: 1px;
+        padding-bottom: 1px;
+        padding-inline-start: 3px;
+        padding-inline-end: 4px;
+    }
 }
 
 button:where(:hover) {

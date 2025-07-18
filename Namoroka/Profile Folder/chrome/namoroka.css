@@ -287,10 +287,13 @@
 }
 
 #navigator-toolbox {
+  appearance: auto !important;
+  -moz-default-appearance: toolbox !important;
   border-bottom-width: 0 !important;
 }
 
 .browser-toolbar {
+  appearance: auto !important;
   background-color: -moz-Dialog !important;
   color: -moz-DialogText !important;
   border-block-start: 1px solid ThreeDHighlight !important;
@@ -311,12 +314,18 @@ menubar {
 }
 
 #TabsToolbar {
+  appearance: none !important;
   border-block-start-width: 0 !important;
   padding-block: 1px !important;
   background-image: url("chrome://namoroka/content/firefox-1/icons/tabstrip-bottom.png") !important;
   background-repeat: repeat-x !important;
   background-position: bottom 1px center !important;
   box-shadow: inset 0 -1px 0 ThreeDLightShadow !important;
+}
+@media not (-moz-windows-classic) {
+  #TabsToolbar {
+    border-block-start: 1px solid ThreeDShadow !important;
+  }
 }
 #TabsToolbar .tabbrowser-tab {
   appearance: tab !important;
@@ -968,7 +977,8 @@ image.default-favicon {
 }
 @media not (-moz-windows-classic) {
   #status-bar {
-    appearance: statusbar !important;
+    appearance: auto !important;
+    -moz-default-appearance: statusbar !important;
   }
 }
 :root[inFullscreen=true] #status-bar {
@@ -1032,6 +1042,10 @@ xul|dialog[inbrowserwindow] {
   padding-bottom: 10px !important;
   padding-inline-start: 8px !important;
   padding-inline-end: 10px !important;
+}
+
+toolbarpaletteitem > #search-container > #searchbar > .searchbar-textbox {
+  visibility: visible !important;
 }
 
 /* ::::: Firefox 2 ::::: */
@@ -1350,7 +1364,13 @@ xul|dialog[inbrowserwindow] {
   background: -moz-Dialog url("chrome://namoroka/content/firefox-2/icons/tabbrowser-tabs-bkgnd.png") !important;
   position: relative !important;
   padding: 0 !important;
+  padding-block-start: 1px !important;
   padding-block-end: 3px !important;
+}
+@media not (-moz-windows-classic) {
+  :root[namoroka-style-1] #TabsToolbar {
+    border-block-start: 1px solid ThreeDShadow !important;
+  }
 }
 :root[namoroka-style-1] #TabsToolbar::after {
   content: "";
@@ -1466,6 +1486,7 @@ xul|dialog[inbrowserwindow] {
   padding: 0 !important;
 }
 :root[namoroka-style-1] #TabsToolbar #tabs-newtab-button {
+  appearance: none !important;
   width: 31px !important;
   background-image: url("chrome://namoroka/content/firefox-2/icons/tab-left-bkgnd.png"), url("chrome://namoroka/content/firefox-2/icons/tab-middle-bkgnd.png"), url("chrome://namoroka/content/firefox-2/icons/tab-right-bkgnd.png") !important;
   background-size: 8px 75px, calc(100% - 16px) 75px, 8px 75px !important;
@@ -1486,6 +1507,7 @@ xul|dialog[inbrowserwindow] {
   height: 18px !important;
 }
 :root[namoroka-style-1] #TabsToolbar #alltabs-button {
+  appearance: none !important;
   width: 18px !important;
   height: 23px !important;
   margin-block-start: 1px !important;
@@ -1505,6 +1527,7 @@ xul|dialog[inbrowserwindow] {
   margin-block-start: 3px !important;
 }
 :root[namoroka-style-1] #TabsToolbar #tabbrowser-tabs[overflow=true] ~ .toolbarbutton-1 {
+  appearance: none !important;
   width: 18px !important;
   height: 23px !important;
   margin-block-start: 1px !important;
@@ -1583,6 +1606,7 @@ xul|dialog[inbrowserwindow] {
   background-position-x: -48px !important;
 }
 :root[namoroka-style-1] #nav-bar #go-button {
+  appearance: none !important;
   width: 26px !important;
   height: var(--urlbar-root-height) !important;
   padding: 0 !important;

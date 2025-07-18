@@ -70,6 +70,7 @@
     }
 
     #nav-bar #go-button {
+        appearance: none !important;
         width: 26px !important;
         height: var(--urlbar-root-height) !important;
         padding: 0 !important;

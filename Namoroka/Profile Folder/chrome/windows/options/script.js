@@ -296,33 +296,33 @@ function preloadImage(aURL) {
 /* About Page */
 
 async function loadVersion() {
-    let localEchelonJSON = await NamorokaUpdateChecker.getBuildData("local");
+    let localNamorokaJSON = await NamorokaUpdateChecker.getBuildData("local");
 
     document.querySelectorAll("#version").forEach(async identifier => {
         if (identifier.getAttribute("numberonly")) {
-            identifier.value = localEchelonJSON.version;
+            identifier.value = localNamorokaJSON.version;
         }
         else {
-            identifier.value = LocaleUtils.str(gOptionsBundle, "version_format", localEchelonJSON.version);
+            identifier.value = LocaleUtils.str(gOptionsBundle, "version_format", localNamorokaJSON.version);
         }
 	});
 
     document.querySelectorAll("#build").forEach(async identifier => {
         if (identifier.getAttribute("numberonly")) {
             if (identifier.getAttribute("includehash")) {
-                identifier.value = `${localEchelonJSON.build} (${localEchelonJSON.hash})`
+                identifier.value = `${localNamorokaJSON.build} (${localNamorokaJSON.hash})`
             }
             else {
-                identifier.value = localEchelonJSON.build;
+                identifier.value = localNamorokaJSON.build;
             }
         }
         else {
-            identifier.value = LocaleUtils.str(gOptionsBundle, "build_format", localEchelonJSON.build);
+            identifier.value = LocaleUtils.str(gOptionsBundle, "build_format", localNamorokaJSON.build);
         }
 	});
 
     document.querySelectorAll("#channel").forEach(async identifier => {
-        identifier.value = localEchelonJSON.branch;
+        identifier.value = localNamorokaJSON.branch;
 	});
 
     for (const aboutSection of document.querySelectorAll("label[data-content]"))

@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name			Namoroka :: About Pages
-// @description 	Manages the custom about: pages of Echelon.
+// @description 	Manages the custom about: pages of Namoroka.
 // @author			aubymori, ephemeralViolette
 // @include			main
 // ==/UserScript==

@@ -1,116 +1,171 @@
 /* This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+@namespace html "http://www.w3.org/1999/xhtml";
 
-:root {
-    &:not([echelon-style-5][echelon-appearance-newlogo="true"]) {
-        margin-bottom: 10px;
-        min-width: 600px !important;
-        width: 600px !important;
-        max-width: 600px !important;
-    }
+#aboutDialog {
+    /* Set an explicit line-height to avoid discrepancies in 'auto' spacing
+     across screens with different device DPI, which may cause font metrics
+     to round differently. */
+    line-height: 1.5;
 }
 
 #aboutDialogContainer {
-    color-scheme: light;
-}
-
-#clientBox {
-    background-color: #F7F7F7 !important;
-    color: #222222 !important;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 #leftBox {
-    background-image: url("chrome://branding/content/about-logo.png");
+    background-image: image-set(url("chrome://branding/content/about-logo.png"), url("chrome://branding/content/about-logo@2x.png") 2x);
     background-repeat: no-repeat;
-    background-size: auto auto;
-    background-position: center 20%;
-    /* min-width and min-height create room for the logo */
+    background-size: 192px auto;
+    background-position: center 40px;
+    /* min-width and min-height create room for the logo; logo is 192px tall w/
+     40px above it, this leaves 8px on the bottom at the minimum height */
     min-width: 210px;
-    min-height: 210px;
+    min-height: 240px;
     margin-top: 20px;
     margin-inline-start: 30px;
 }
 
-.text-link {
-    color: link !important;
+#rightBox {
+    background-image: url("chrome://branding/content/about-wordmark.svg");
+    background-repeat: no-repeat;
+    background-size: 288px auto;
+    /* padding-top creates room for the wordmark */
+    padding-top: 38px;
+    margin-top: 20px;
+    /* We don't want this box to contribute arbitrarily to the intrinsic size of
+   * the dialog, so set the width to a reasonable size, but let it flex to take
+   * all available space. */
+    width: 430px;
+    flex: 1 auto;
 
-    text-decoration: none;
-
-    :root:not([echelon-style-5][echelon-appearance-newlogo="true"]) &,
-    &:hover {
-        text-decoration: underline;
+    &:-moz-locale-dir(rtl) {
+        background-position: 100% 0;
     }
 }
 
-#rightBox {
-    background-image: url("chrome://branding/content/about-wordmark.png");
-    background-size: 130px auto;
-    margin-inline: 30px;
+#clientBox {
+    flex: 1 0 auto;
+    padding: 10px 0 15px;
 }
 
 #bottomBox {
-    background-color: -moz-Dialog;
     padding: 15px 10px 0;
+    min-height: 52px;
 }
 
-#trademark {
-    font-size: xx-small;
-    text-align: center;
-    color: #999999;
-    margin-block: 10px;
-}
-
-#icons {
-    .icon {
-        margin: 0;
-
-        &:not(.update-throbber) {
-            visibility: collapse !important;
-        }
-    }
-}
-
-#updateDeck {
-    margin-block-end: 10px;
-    
-    description {
-        color: #909090 !important;
-
-        :root:not([echelon-style-5]) & {
-            font-style: italic !important;
-        }
-    }
-}
-
-.update-throbber {
-    content: url("chrome://echelon/content/firefox-4/loading_16.png")
-}
-
-hbox + .text-blurb {
-    visibility: collapse !important;
-}
-
-:root:not([echelon-style-7]) {
-    #releasenotes {
-        visibility: collapse !important;
-    }
-}
-
-#updateDeck + hbox[align="baseline"] {
-    order: -1;
-}
-
-#release,
-#distribution,
-#distributionId {
-    visibility: collapse !important;
+#release {
+    font-weight: bold;
+    font-size: 125%;
+    margin-top: 10px;
+    margin-inline-start: 0;
 }
 
 #version {
-    margin-top: 5px;
+    font-weight: bold;
+    margin-inline-start: 0;
+    user-select: text;
+    -moz-user-focus: normal;
+    cursor: text;
 
-    :root[echelon-style-7] & {
-        font-weight: bold;
+    &.update {
+        font-weight: normal;
+    }
+}
+
+#distribution,
+#distributionId {
+    display: none;
+    margin-block: 0;
+}
+
+.text-blurb {
+    margin-bottom: 10px;
+    margin-inline-start: 0;
+    padding-inline-start: 0;
+}
+
+#updateInfo {
+    display: grid;
+    grid-row-start: 1;
+    grid-row-end: 4;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-template-rows: subgrid;
+    grid-template-columns: subgrid;
+}
+
+#updateDeck {
+    align-items: center;
+
+    description {
+        margin: 0;
+    }
+}
+
+#updateButton {
+    margin-inline-start: 0;
+}
+
+.text-link {
+    color: inherit !important;
+    text-decoration: underline;
+
+    description>& {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+#submit-feedback {
+    margin-inline-start: 0.9em;
+}
+
+.bottom-link {
+    text-align: center;
+    margin: 0 40px;
+}
+
+#currentChannel {
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+}
+
+#updateBox {
+    line-height: normal;
+    display: grid;
+}
+
+#updateIcon {
+    display: none;
+    align-self: center;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    -moz-context-properties: fill;
+    fill: currentColor;
+    width: 16px;
+    height: 16px;
+    margin-inline: 5px;
+
+    &.noUpdatesFound {
+        display: block;
+        content: url("chrome://global/skin/icons/check.svg");
+        fill: #30e60b;
+    }
+
+    &.apply {
+        display: block;
+        content: url("chrome://global/skin/icons/reload.svg");
+    }
+
+    &:is(.checkingForUpdates, .downloading, .applying, .restarting) {
+        display: block;
+        content: url("chrome://global/skin/icons/loading.svg");
     }
 }

@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name			 Namoroka :: Toolbox
-// @description 	 Common utilities for Echelon scripts.
+// @description 	 Common utilities for Namoroka scripts.
 // @author			 ephemeralViolette
 // @include			 main
 // ==/UserScript==

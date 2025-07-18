@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name			 Namoroka :: Utils
-// @description 	 Common utilities for Echelon scripts.
+// @description 	 Common utilities for Namoroka scripts.
 // @author			 ephemeralViolette
 // @include			 main
 // @include          chrome://browser/content/browser.xhtml

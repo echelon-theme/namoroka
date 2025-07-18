@@ -522,6 +522,10 @@ toolbarbutton.bookmark-item:not(.subviewbutton) .toolbarbutton-menu-dropmarker {
 toolbarbutton.bookmark-item:not(.subviewbutton) .toolbarbutton-menu-dropmarker[disabled=true] {
   background-image: url("chrome://namoroka/content/firefox-1/arrow/arrow-dn-dis.gif") !important;
 }
+.toolbarbutton-1 .toolbarbutton-animatable-box,
+toolbarbutton.bookmark-item:not(.subviewbutton) .toolbarbutton-animatable-box {
+  display: none !important;
+}
 
 #nav-bar .toolbarbutton-menu-dropmarker {
   pointer-events: all !important;

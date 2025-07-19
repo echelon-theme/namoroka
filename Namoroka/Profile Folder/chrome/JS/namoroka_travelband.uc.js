@@ -42,6 +42,12 @@
                     }
                 }
 
+                backButton.querySelector("dropmarker").addEventListener("mousedown", event => {
+                    if (!backButton.hasAttribute("disabled")) {
+					    document.querySelector("#backForwardMenu").openPopup(backButton.querySelector("dropmarker"), "after_start");
+                    }
+				});
+
                 disableButton();
                 let observer = new MutationObserver(disableButton);
                 observer.observe(backButton, { attributes: true, attributeFilter: ["disabled"] });
@@ -62,6 +68,12 @@
                         forwardButton.querySelector("dropmarker").removeAttribute("disabled");
                     }
                 }
+
+                forwardButton.querySelector("dropmarker").addEventListener("mousedown", event => {
+                    if (!forwardButton.hasAttribute("disabled")) {
+					    document.querySelector("#backForwardMenu").openPopup(forwardButton.querySelector("dropmarker"), "after_start");
+                    }
+				});
 
                 disableButton();
                 let observer = new MutationObserver(disableButton);

@@ -293,6 +293,7 @@
 }
 
 .browser-toolbar {
+  box-shadow: none !important;
   appearance: auto !important;
   background-color: -moz-Dialog !important;
   color: -moz-DialogText !important;

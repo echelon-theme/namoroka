@@ -1,7 +1,8 @@
 // ==UserScript==
 // @name			 Namoroka :: Toolbox
 // @description 	 Common utilities for Namoroka scripts.
-// @author			 ephemeralViolette
+// @author			 travy-patty
+// @github           https://github.com/travy-patty
 // @include			 main
 // ==/UserScript==
 

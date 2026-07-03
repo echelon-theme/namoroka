@@ -1,7 +1,8 @@
 // ==UserScript==
 // @name			Namoroka :: Widget Manager
 // @description 	Manages the installation of custom CustomizableUI widgets.
-// @author			ephemeralViolette
+// @author			 travy-patty
+// @github           https://github.com/travy-patty
 // @include         main
 // ==/UserScript==
 

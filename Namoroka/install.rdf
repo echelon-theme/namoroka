@@ -10,8 +10,8 @@
     <Description about="urn:mozilla:install-manifest">
         <em:id>{2a9dd520-4da7-11f1-b4ac-0800200c9a66}</em:id>
         <em:version>1.0</em:version>
-        <em:build>212</em:build>
-        <em:hash>833376a</em:hash>
+        <em:build>214</em:build>
+        <em:hash>18110de</em:hash>
 
         <!-- Target Application this theme can install into,
         with minimum and maximum supported versions. -->

@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name			Namoroka :: About Pages
 // @description 	Manages the custom about: pages of Namoroka.
-// @author			aubymori, ephemeralViolette
+// @author			aubymori
 // @include			main
 // ==/UserScript==
 

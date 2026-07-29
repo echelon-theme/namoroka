@@ -62,6 +62,10 @@
     list-style-image: var(--folder-item) !important;
     -moz-image-region: rect(0px, 16px, 16px, 0px) !important;
 
+    &[image] {
+        -moz-image-region: unset !important;
+    }
+
     &[container="true"] {
         -moz-image-region: rect(0px, 32px, 16px, 16px) !important;
     }

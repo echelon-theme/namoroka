@@ -737,6 +737,9 @@ toolbarbutton.bookmark-item:not(.subviewbutton) .toolbarbutton-animatable-box {
   list-style-image: var(--folder-item) !important;
   -moz-image-region: rect(0px, 16px, 16px, 0px) !important;
 }
+.bookmark-item:not(.menuitem-with-favicon)[image] {
+  -moz-image-region: unset !important;
+}
 .bookmark-item:not(.menuitem-with-favicon)[container=true] {
   -moz-image-region: rect(0px, 32px, 16px, 16px) !important;
 }

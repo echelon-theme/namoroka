@@ -816,7 +816,7 @@ image.default-favicon {
   height: 100% !important;
   visibility: visible !important;
 }
-#urlbar-container #urlbar #page-proxy-deck #page-proxy-favicon:not([src]), #urlbar-container #urlbar #page-proxy-deck #page-proxy-favicon[src="chrome://branding/content/icon32.png"] {
+#urlbar-container #urlbar #page-proxy-deck #page-proxy-favicon:not([src]), #urlbar-container #urlbar #page-proxy-deck #page-proxy-favicon[src="chrome://branding/content/icon32.png"], #urlbar-container #urlbar #page-proxy-deck #page-proxy-favicon:-moz-broken {
   content: var(--page-icon) !important;
 }
 #urlbar-container #urlbar[pageproxystate=invalid] #page-proxy-deck #page-proxy-favicon:not([src]), #urlbar-container #urlbar[pageproxystate=invalid] #page-proxy-deck #page-proxy-favicon[src="chrome://branding/content/icon32.png"] {

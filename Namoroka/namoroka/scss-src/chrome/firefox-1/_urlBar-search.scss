@@ -64,7 +64,8 @@ image.default-favicon {
                 visibility: visible !important;
 
                 &:not([src]),
-                &[src="chrome://branding/content/icon32.png"] {
+                &[src="chrome://branding/content/icon32.png"],
+                &:-moz-broken {
                     content: var(--page-icon) !important;
                 }
             }

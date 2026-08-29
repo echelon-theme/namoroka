@@ -1,0 +1,1 @@
+export class NetErrorActorParent extends JSWindowActorParent {}

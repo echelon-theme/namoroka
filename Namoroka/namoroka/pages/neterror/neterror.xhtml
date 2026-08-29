@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?xml-stylesheet href="chrome://global/skin/global.css" type="text/css"?>
+<?xml-stylesheet href="chrome://namoroka/content/pages/neterror/neterror.css" type="text/css"?>
+
+<!DOCTYPE html [
+  <!ENTITY % htmlDTD
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "DTD/xhtml1-strict.dtd">
+  %htmlDTD;
+  <!ENTITY % netErrorDTD
+    SYSTEM "chrome://namoroka/locale/dtd/netError.dtd">
+  %netErrorDTD;
+]>
+
+<html xmlns:xul="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+      xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>&loadError.label;</title>
+    </head>
+
+    <body>
+        <!-- ERROR ITEM CONTAINER (removed during loading to avoid bug 39098) -->
+        <div id="errorContainer">
+            <div id="errorTitlesContainer">
+                <h1 id="et_generic">&generic.title;</h1>
+                <h1 id="et_dnsNotFound">&dnsNotFound.title;</h1>
+                <h1 id="et_fileNotFound">&fileNotFound.title;</h1>
+                <h1 id="et_malformedURI">&malformedURI.title;</h1>
+                <h1 id="et_protocolNotFound">&protocolNotFound.title;</h1>
+                <h1 id="et_connectionFailure">&connectionFailure.title;</h1>
+                <h1 id="et_netTimeout">&netTimeout.title;</h1>
+                <h1 id="et_redirectLoop">&redirectLoop.title;</h1>
+                <h1 id="et_unknownSocketType">&unknownSocketType.title;</h1>
+                <h1 id="et_netReset">&netReset.title;</h1>
+                <h1 id="et_netOffline">&netOffline.title;</h1>
+                <h1 id="et_netInterrupt">&netInterrupt.title;</h1>
+                <h1 id="et_deniedPortAccess">&deniedPortAccess.title;</h1>
+                <h1 id="et_proxyResolveFailure">&proxyResolveFailure.title;</h1>
+                <h1 id="et_proxyConnectFailure">&proxyConnectFailure.title;</h1>
+            </div>
+            <div id="errorDescriptionsContainer">
+                <div id="ed_generic">&generic.longDesc;</div>
+                <div id="ed_dnsNotFound">&dnsNotFound.longDesc;</div>
+                <div id="ed_fileNotFound">&fileNotFound.longDesc;</div>
+                <div id="ed_malformedURI">&malformedURI.longDesc;</div>
+                <div id="ed_protocolNotFound">&protocolNotFound.longDesc;</div>
+                <div id="ed_connectionFailure">&connectionFailure.longDesc;</div>
+                <div id="ed_netTimeout">&netTimeout.longDesc;</div>
+                <div id="ed_redirectLoop">&redirectLoop.longDesc;</div>
+                <div id="ed_unknownSocketType">&unknownSocketType.longDesc;</div>
+                <div id="ed_netReset">&netReset.longDesc;</div>
+                <div id="ed_netOffline">&netOffline.longDesc;</div>
+                <div id="ed_netInterrupt">&netInterrupt.longDesc;</div>
+                <div id="ed_deniedPortAccess">&deniedPortAccess.longDesc;</div>
+                <div id="ed_proxyResolveFailure">&proxyResolveFailure.longDesc;</div>
+                <div id="ed_proxyConnectFailure">&proxyConnectFailure.longDesc;</div>
+            </div>
+        </div>
+
+        <!-- PAGE CONTAINER (for styling purposes only) -->
+        <div id="errorPageContainer">
+
+        <!-- Error Title -->
+        <div id="errorTitle">
+            <h1 id="errorTitleText" />
+        </div>
+
+        <!-- LONG CONTENT (the section most likely to require scrolling) -->
+        <div id="errorLongContent">
+
+        <!-- Short Description -->
+        <div id="errorShortDesc">
+            <p id="errorShortDescText" />
+        </div>
+
+        <!-- Long Description (Note: See netError.dtd for used XHTML tags) -->
+        <div id="errorLongDesc" />
+
+        </div>
+
+        <!-- Retry Button -->
+        <button id="errorTryAgain">&retry.label;</button>
+
+        </div>
+    </body>
+
+    <script src="chrome://namoroka/content/pages/neterror/neterror.js"></script>
+</html>

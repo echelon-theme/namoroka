@@ -1,0 +1,44 @@
+#topBar {
+    border-bottom: 1px solid ThreeDShadow;
+    padding-inline-start: 10px;
+    background-color: Field;
+    color: FieldText;
+}
+
+#viewGroup {
+    padding-inline-start: 10px;
+
+    radio {
+        appearance: none;
+        list-style-image: none;
+        min-width: 4.5em;
+        margin: 0;
+        padding: 3px;
+
+        .radio-check {
+            display: none;
+        }
+
+        .radio-label-box {
+            margin: 0;
+            padding: 0 6px;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .radio-icon {
+            width: 32px;
+            height: 32px;
+        }
+
+        &:hover {
+            background-color: #E0E8F6;
+            color: black;
+        }
+
+        &[selected="true"] {
+            background-color: #C1D2EE;
+            color: black;
+        }
+    }
+}

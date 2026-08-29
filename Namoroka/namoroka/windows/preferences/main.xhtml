@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE overlay [
+  <!ENTITY % mainDTD SYSTEM "chrome://namoroka/locale/dtd/preferences.dtd">
+  %mainDTD;
+]>
+
+<overlay id="MainPaneOverlay"
+        xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+           
+    <prefpane id="paneMain"
+            onpaneload=""
+            helpTopic="prefs-main">
+
+        <script type="application/javascript" src="chrome://namoroka/content/windows/preferences/main.js"></script>
+
+        <stringbundle id="bundlePreferences" src="chrome://browser/locale/preferences/preferences.properties"/>
+    </prefpane>
+</overlay>

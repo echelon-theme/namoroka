@@ -6,13 +6,28 @@
 // @include			main
 // ==/UserScript===
 
+(function() {
+
+function openOrSwitchToDownloads()
+{
+    var downloadsWin = Services.wm.getMostRecentWindow("Namoroka:Downloads");
+    if (downloadsWin)
+    {
+        downloadsWin.focus();
+    }
+    else
+    {
+        openDialog(
+            "about:downloads",
+            "",
+            "chrome, toolbar=no, dialog=no, resizable",
+            "Downloads"
+        );
+    }
+}
+
 BrowserCommands.downloadsUI = function downloadsUI() {
-    openDialog(
-        "about:downloads",
-        "",
-        "chrome, toolbar=no, dialog=no, resizable",
-        "Downloads"
-    );
+    openOrSwitchToDownloads();
 }
 
 DownloadsPanel.showPanel = function showPanel(openedManually = false, isKeyPress = false) {
@@ -21,10 +36,7 @@ DownloadsPanel.showPanel = function showPanel(openedManually = false, isKeyPress
     this._openedManually = openedManually;
     this._preventFocusRing = !openedManually || !isKeyPress;
 
-    openDialog(
-        "about:downloads",
-        "",
-        "chrome, toolbar=no, dialog=no, resizable",
-        "Downloads"
-    );
+    openOrSwitchToDownloads();
 };
+
+})();

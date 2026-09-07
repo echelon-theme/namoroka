@@ -2743,7 +2743,7 @@ treechildren::-moz-tree-image(title, open), treechildren::-moz-tree-image(query,
 @media (-moz-windows-classic) {
   :root[namoroka-style-2] #urlbar-container #urlbar .urlbar-input-container,
   :root[namoroka-style-2] #urlbar-container #urlbar #urlbar-input-container {
-    border: 2px solid transparent !important;
+    border: 0 !important;
   }
 }
 :root[namoroka-style-2] #urlbar-container #urlbar #identity-box {

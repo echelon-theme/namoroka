@@ -52,7 +52,7 @@
                 border: 1px solid transparent !important;
 
                 @media (-moz-windows-classic) {
-                    border: 2px solid transparent !important;
+                    border: 0 !important;
                 }
 
                 overflow: visible !important;
